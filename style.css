@@ -2,6 +2,7 @@
 body, html {
     height: 100%;
     margin: 0;
+<<<<<<< HEAD
     background: #fff;
     color: rgba(0,0,0,0.65);
 
@@ -13,6 +14,11 @@ body, html {
 
 /* Background images */
 
+=======
+    color: #777;
+}
+
+>>>>>>> 933b7fedbdba118f52ef2ccbaae5e8aa45026621
 .bgimg-1, .bgimg-2, .bgimg-3 {
     position: relative;
     opacity: 0.65;
@@ -20,17 +26,29 @@ body, html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+<<<<<<< HEAD
     margin: 1%;
+=======
+>>>>>>> 933b7fedbdba118f52ef2ccbaae5e8aa45026621
 }
 
 .bgimg-1 {
     background-image: url("img/matterhorn.jpg");
+<<<<<<< HEAD
     min-height: 96%;
 }
 
 .bgimg-2 {
     background-image: url("img/matterhorn.jpg");
     min-height: 20%;
+=======
+    min-height: 100%;
+}
+
+.bgimg-2 {
+    background-image: url("img/network.jpg");
+    min-height: 400px;
+>>>>>>> 933b7fedbdba118f52ef2ccbaae5e8aa45026621
 }
 
 .bgimg-3 {
@@ -38,6 +56,7 @@ body, html {
     min-height: 400px;
 }
 
+<<<<<<< HEAD
 /* go down icon */
 
 .navigate-bottom {
@@ -353,6 +372,55 @@ body, html {
 
 /* Turn off parallax scrolling for tablets and phones */
 @media screen and (max-width: 1024px) {
+=======
+.caption {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+}
+
+.caption .border {
+    background-color: #111;
+    color: #fff;
+    display: table;
+    padding-left: 75px;
+    padding-right: 25px;
+}
+
+h3 {
+    letter-spacing: 5px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 32px;
+    padding: 16px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+    color: #111;
+    margin-bottom: 0px;
+}
+
+h4 {
+    margin-top: 10px;
+    letter-spacing: 1px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    padding: 8px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 400;
+    color: #111;
+}
+
+.content {
+    padding: 50px 30px
+}
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1024px) {
+>>>>>>> 933b7fedbdba118f52ef2ccbaae5e8aa45026621
     .bgimg-1, .bgimg-2, .bgimg-3 {
         background-attachment: scroll;
     }
