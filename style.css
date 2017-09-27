@@ -59,7 +59,7 @@ body, html {
 }
 
 .caption .logo-beta {
-    height: 1.5em;
+    height: 2.5em;
 }
 
 .caption .border {
@@ -347,6 +347,10 @@ body, html {
 @media screen and (max-width: 767px) {
     #myFooter {
         text-align: center;
+    }
+    
+    .caption .logo-beta {
+        height: 1.5em;
     }
 
     .caption .border {
