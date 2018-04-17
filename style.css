@@ -312,7 +312,7 @@ body, html {
     line-height: 1.48em;
 }
 
-.content .profile .name h4 {
+.content .subtitle h4 {
     display: inline-block;
     margin-right: 0;
     font-weight: 600;
