@@ -4,16 +4,14 @@ body, html {
     margin: 0;
     background: #fff;
     color: rgba(0,0,0,0.65);
-
+    font-size: 9px;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: rgba(0,0,0,0.65);
     font-variant: normal;
     font-style: normal;
 }
 
-/* Background images */
-
-.bgimg-1, .bgimg-2, .bgimg-3 {
+.bgimg-1 {
     position: relative;
     opacity: 0.65;
     background-attachment: fixed;
@@ -24,17 +22,136 @@ body, html {
 
 .bgimg-1 {
     background-image: url("img/matterhorn.jpg");
-    min-height: 100%;
+    min-height: 90%;
 }
 
-.bgimg-2 {
-    background-image: url("img/matterhorn.jpg");
-    min-height: 20%;
+.logo {
+    margin: 10px 0;
+    padding: 10px 0;
 }
 
-.bgimg-3 {
-    background-image: url("img_parallax3.jpg");
-    min-height: 400px;
+.hero {
+    text-align: center;
+    margin: 3rem 0 9rem;
+}
+
+.headline {
+    margin: 0 auto 1rem;
+    padding: 0 3rem;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 4.2rem;
+    font-weight: 100;
+    line-height: 1.3;
+}
+
+.gallery {
+    margin-bottom: 90px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.gallery::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.gallery .featured-duo {
+    display: flex;
+    justify-content: center
+}
+
+.gallery .featured {
+    flex-direction: column;
+    float: left;
+    position: relative;
+    background-color: white;
+    text-align: center;
+    font-size: 15px;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    color: rgba(0,0,0,0.65);
+}
+
+.gallery .featured:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    color: rgb(0,0,0);
+}
+
+
+@media (min-width: 992px) {
+    .gallery .featured .img {
+        width: 190px;
+    }
+}
+
+@media (max-width: 720px) {
+    .gallery .featured .img {
+        width: calc(100% - 20px);
+    }
+}
+
+@media (max-width: 576px) {
+    .gallery .featured-duo {
+        flex-wrap: wrap;
+    }
+}
+
+.gallery .featured .img {
+    margin: 0px;
+    width: 235px;
+    height: 235px;
+    background-image: url("http://favim.com/orig/201107/03/art-desert-lo-fi-nature-neil-krug-photography-Favim.com-92907.jpg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    image-rendering: crisp-edges;
+}
+
+.gallery .featured.kittyland .img {
+    background-color: #f50057;
+    background-image: url("");
+}
+
+.gallery .featured.kittylandorg .img {
+    background-color: #3f51b5;
+    background-image: url("");
+}
+
+.gallery .featured.tolar .img {
+    background-color: #116E8A;
+    background-image: url("img/featured/tolar.png");
+    background-size: 70%;
+}
+
+.gallery .featured.your .img {
+    background-color: #bbddf9;
+    background-image: url("img/featured/ethereum.svg");
+    background-size: 80%;
+}
+
+.gallery .featured span {
+    display: block;
+    font-size: 2rem;
+    margin: 8px 2px;
+}
+
+.jumbotron {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    padding-top: 96px;
+    padding-bottom: 96px;
+}
+
+.jumbotron h1 {
+    font-family: lexia,Helvetica,Arial,sans-serif;
+    font-size: 5.6rem;
+    line-height: 1.3;
+    font-weight: 300;
+    text-align: center;
 }
 
 /* go down icon */
@@ -48,11 +165,16 @@ body, html {
 
 /* header caption */
 
+.navbar-default {
+    background-color: #ffffff;
+    border-color: #ffffff;
+}
+
 .caption {
     position: absolute;
     text-align: center;
     width: 100%;
-    top: 50%;
+    top: 40%;
     left: 0;
     
     font-weight: 400;
@@ -60,6 +182,11 @@ body, html {
 
 .caption .logo-beta {
     height: 2.5em;
+}
+
+
+.logo svg {
+    height: 40px;
 }
 
 .caption .border {
@@ -72,36 +199,37 @@ body, html {
 
 .caption h3 {
     letter-spacing: 5px;
-    font-size: 32px;
+    font-size: 64px;
     padding: 8px 16px;
     margin-bottom: 0px;
     font-weight: 400;
+    text-shadow: 2px 2px 4px #000000;
+    color: white;
 }
 
 .caption h4 {
     margin-top: 10px;
     letter-spacing: 1px;
-    font-size: 16px;
+    font-size: 32px;
     padding: 8px;
     font-weight: 400;
+    text-shadow: 2px 2px 4px #000000;
+    color: white;
 }
 
 /* web content */
 
 .content {
-    margin: 100px 4% 100px 4%;
+    margin: 100px 0 100px 0;
 }
 
 /* content heading */
 
 .content .title {
     text-align: center;
-    overflow: hidden;
-    line-height: 0;
     font-size: 2em;
-    letter-spacing: 0.5em;
     margin-bottom: 1em;
-    margin-top: 0;
+    padding-top: 1em;
     padding-left: 0.5em;
     padding: 16px;
     font-weight: 400;
@@ -113,7 +241,13 @@ body, html {
     position: relative;
 }
 
-.content .title span:before, .content .title span:after {
+.content h3.title {
+    line-height: 0;
+    letter-spacing: 0.5em;
+    overflow: hidden;
+}
+
+.content h3.title span:before, .content h3.title span:after {
     content: "";
     position: absolute;
     border-top: 1px solid #666;
@@ -121,12 +255,12 @@ body, html {
     width: 1000px;
 }
 
-.content .title span:after {
+.content h3.title span:after {
     right: 100%;
     margin-right: 0.5em;
 }
 
-.content .title span::before {
+.content h3.title span::before {
     left: 100%;
     margin-left: 0.5em;
 }
@@ -167,7 +301,13 @@ body, html {
 }
 
 .content .item-text {
-    margin: 16px 32px 0px 32px;
+    margin: 32px;
+    font-size: 19px;
+    line-height: 1.48em;
+}
+
+.content .text {
+    margin: 16px;
     font-size: 19px;
     line-height: 1.48em;
 }
@@ -189,6 +329,10 @@ body, html {
 .content .profile .name .icon {
     display: inline-block;
     vertical-align: text-bottom;
+}
+
+.btn {
+    font-size: 16px;
 }
 
 .icon {
@@ -331,22 +475,30 @@ body, html {
     color: #00aced;
 }
 
-#myFooter .btn {
+.btn {
     color: white;
     background-color: #00aced;
-    border-radius: 20px;
     border: none;
     width: 150px;
     display: block;
-    margin: 0 auto;
     margin-top: 10px;
     line-height: 25px;
     text-align: center;
 }
 
+#myFooter .btn {
+    color: white;
+    margin: 0 auto;
+    border-radius: 20px;
+}
+
 @media screen and (max-width: 767px) {
     #myFooter {
         text-align: center;
+    }
+
+    .logo svg {
+        height: 25px;
     }
     
     .caption .logo-beta {
@@ -370,6 +522,14 @@ body, html {
     
     .content .profile .item-text {
         margin: 8px;
+    }
+
+    .caption h3 {
+        font-size: 32px;
+    }
+
+    .caption h4 {
+        font-size: 16px;
     }
 
 }
