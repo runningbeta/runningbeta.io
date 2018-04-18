@@ -22,11 +22,10 @@ body, html {
 
 .bgimg-1 {
     background-image: url("img/matterhorn.jpg");
-    min-height: 90%;
+    min-height: 100%;
 }
 
 .logo {
-    margin: 10px 0;
     padding: 10px 0;
 }
 
@@ -70,10 +69,11 @@ body, html {
     text-align: center;
     font-size: 15px;
     padding: 10px;
-    margin: 10px;
+    margin-bottom: 32px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
     color: rgba(0,0,0,0.65);
+    width: 100%;
 }
 
 .gallery .featured:hover {
@@ -102,8 +102,8 @@ body, html {
 
 .gallery .featured .img {
     margin: 0px;
-    width: 235px;
-    height: 235px;
+    width: 100%;
+    padding-bottom: 100%;
     background-image: url("http://favim.com/orig/201107/03/art-desert-lo-fi-nature-neil-krug-photography-Favim.com-92907.jpg");
     background-size: contain;
     background-repeat: no-repeat;
@@ -186,7 +186,7 @@ body, html {
 
 
 .logo svg {
-    height: 40px;
+    height: 32px;
 }
 
 .caption .border {
@@ -230,8 +230,7 @@ body, html {
     font-size: 2em;
     margin-bottom: 1em;
     padding-top: 1em;
-    padding-left: 0.5em;
-    padding: 16px;
+    padding: 16px 0;
     font-weight: 400;
 }
 
@@ -242,12 +241,14 @@ body, html {
 }
 
 .content h3.title {
+    text-align: left;
     line-height: 0;
-    letter-spacing: 0.5em;
+    letter-spacing: 0.3em;
     overflow: hidden;
+    color: #999;
 }
 
-.content h3.title span:before, .content h3.title span:after {
+/*.content h3.title span:before, .content h3.title span:after {
     content: "";
     position: absolute;
     border-top: 1px solid #666;
@@ -263,7 +264,7 @@ body, html {
 .content h3.title span::before {
     left: 100%;
     margin-left: 0.5em;
-}
+}*/
 
 .content .item {
     flex-grow: 1;
@@ -279,6 +280,19 @@ body, html {
 .content .item.item-green {
     background-color: rgba(0, 166, 140, 0.65);
 } */
+
+@media (max-width: 576px) {
+    .content .col-xs-12 {
+        margin-left: 16px;
+        margin-right: 16px;
+        padding: 0;
+    }
+
+    .content .col-xs-12+.col-xs-12 {
+        border-top: 1px solid #999;
+        padding-top: 16px;
+    }
+}
 
 .content .item.center-content {
     justify-content: center;
@@ -301,21 +315,21 @@ body, html {
 }
 
 .content .item-text {
-    margin: 32px;
-    font-size: 19px;
+    font-size: 16px;
     line-height: 1.48em;
 }
 
 .content .text {
-    margin: 16px;
-    font-size: 19px;
+    font-size: 16px;
     line-height: 1.48em;
 }
 
 .content .subtitle h4 {
+    font-size: 16px;
     display: inline-block;
-    margin-right: 0;
+    margin: 16px 0;
     font-weight: 600;
+    text-transform: uppercase;
 }
 
 .content .profile .name h4+a {
@@ -336,7 +350,7 @@ body, html {
 }
 
 .icon {
-    width:48px;
+    width: auto;
     height:48px;
     fill:white !important;
 }
@@ -363,12 +377,10 @@ body, html {
 
 .icon-small {
     height: 24px;
-    width: 24px;
 }
 
 .icon-medium {
     height: 32px;
-    width: 32px;
 }
 
 .icon-large {
