@@ -95,6 +95,11 @@ body, html {
 }
 
 @media (max-width: 576px) {
+    .gallery .featured {
+        width: 60%;
+        left: 20%;
+    }
+
     .gallery .featured-duo {
         flex-wrap: wrap;
     }
@@ -291,6 +296,7 @@ body, html {
     .content .col-xs-12+.col-xs-12 {
         border-top: 1px solid #999;
         padding-top: 16px;
+        margin-top: 16px;
     }
 }
 
@@ -528,12 +534,11 @@ body, html {
     }
 
     .content .profile .name h4 {
-        margin: 32px 8px 8px 8px;
-        display: block;
+        margin: 32px 0 0 0;
     }
     
     .content .profile .item-text {
-        margin: 8px;
+        margin: 8px 0;
     }
 
     .caption h3 {
