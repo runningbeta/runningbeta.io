@@ -13,7 +13,6 @@ body, html {
 
 .bgimg-1 {
     position: relative;
-    opacity: 0.65;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -21,8 +20,8 @@ body, html {
 }
 
 .bgimg-1 {
-    background-image: url("img/matterhorn.jpg");
-    min-height: 100%;
+    background-image: url("img/matterhorn-sky.webp");
+    min-height: 50%;
 }
 
 .logo {
@@ -159,6 +158,11 @@ body, html {
     text-align: center;
 }
 
+.landing-1 {
+    min-height: 100%;
+    background-color: #ccb9bc;
+}
+
 /* go down icon */
 
 .navigate-bottom {
@@ -176,12 +180,9 @@ body, html {
 }
 
 .caption {
-    position: absolute;
     text-align: center;
-    width: 100%;
-    top: 40%;
-    left: 0;
-    
+    max-width: 700px;
+    margin: 120px auto 0px auto;
     font-weight: 400;
 }
 
@@ -204,12 +205,10 @@ body, html {
 
 .caption h3 {
     letter-spacing: 5px;
-    font-size: 64px;
+    font-size: 3em;
     padding: 8px 16px;
     margin-bottom: 0px;
     font-weight: 400;
-    text-shadow: 2px 2px 4px #000000;
-    color: white;
 }
 
 .caption h4 {
@@ -218,8 +217,6 @@ body, html {
     font-size: 32px;
     padding: 8px;
     font-weight: 400;
-    text-shadow: 2px 2px 4px #000000;
-    color: white;
 }
 
 /* web content */
@@ -408,6 +405,7 @@ body, html {
 }
 
 #myFooter {
+    min-width: 100%;
     background-color: #3c3d41;
     color: white;
     padding-top: 30px;
