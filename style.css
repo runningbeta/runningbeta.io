@@ -28,6 +28,19 @@ body, html {
     padding: 10px 0;
 }
 
+.intro {
+    margin: 60px auto 0 auto;
+    max-width: 600px;
+}
+
+.intro p {
+    font-size: 2em;
+}
+
+.container-landing {
+    background-color: #ccb9bc;
+}
+
 .hero {
     text-align: center;
     margin: 3rem 0 9rem;
@@ -160,14 +173,13 @@ body, html {
 
 .landing-1 {
     min-height: 100%;
-    background-color: #ccb9bc;
 }
 
 /* go down icon */
 
 .navigate-bottom {
     position: absolute;
-    bottom: 0;
+    bottom: 20px;
     text-align: center;
     width: 100%;
 }
