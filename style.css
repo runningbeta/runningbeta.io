@@ -34,6 +34,7 @@ body, html {
 
 .hero {
     padding: 0 0 9rem;
+    min-height: 100%;
 }
 
 .hero h3 {
@@ -53,6 +54,8 @@ body, html {
     font-size: 16px;
     line-height: 1.48em;
     text-align: left;
+    margin: 60px auto 0 auto;
+    max-width: 600px;
 }
 
 .headline {
@@ -139,12 +142,12 @@ body, html {
 
 .gallery .featured.kittyland .img {
     background-color: #f50057;
-    background-image: url("");
+    background-image: url("img/featured/kittyland-io.svg");
 }
 
 .gallery .featured.kittylandorg .img {
-    background-color: #3f51b5;
-    background-image: url("");
+    background-color: #39796b;
+    background-image: url("img/featured/kittyland-org.svg");
 }
 
 .gallery .featured.tolar .img {
@@ -187,8 +190,7 @@ body, html {
 /* go down icon */
 
 .navigate-bottom {
-    position: absolute;
-    bottom: 20px;
+    margin-top: 150px;
     text-align: center;
     width: 100%;
 }
@@ -367,6 +369,24 @@ body, html {
 .content .profile .name .icon {
     display: inline-block;
     vertical-align: text-bottom;
+}
+
+.content .profile .avatar-krebernisak {
+    background-image: url(img/avatar/krebernisak.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: inline-block;
+    min-width: 200px;
+    min-height: 200px;
+}
+
+.content .profile .avatar-vbradvica {
+    background-image: url(img/avatar/vbradvica.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    display: inline-block;
+    min-width: 200px;
+    min-height: 200px;
 }
 
 .btn {
