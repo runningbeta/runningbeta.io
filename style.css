@@ -157,9 +157,8 @@ body, html {
 }
 
 .gallery .featured.your .img {
-    background-color: #bbddf9;
-    background-image: url("img/featured/ethereum.svg");
-    background-size: 80%;
+    background-color: #0b3982;
+    background-image: url("img/featured/ozone.png");
 }
 
 .gallery .featured span {
