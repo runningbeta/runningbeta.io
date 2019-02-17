@@ -26,12 +26,19 @@ interface ContentWithImageProps {
 export const ContentWithImage = (props: ContentWithImageProps) => {
   return (
     <Container>
-      <Grid columns="2" textAlign="left" relaxed stackable verticalAlign="top">
+      <Grid stretched columns="2" textAlign="left" relaxed stackable>
         <Grid.Row>
           {props.contentOrientation === "image-text" && (
             <Grid.Column>
               {props.src ? (
-                <Image src={props.src} />
+                <div
+                  style={{
+                    opacity: 0.7,
+                    height: "100%",
+                    backgroundImage: `url(${props.src})`,
+                    backgroundSize: "cover"
+                  }}
+                />
               ) : (
                 <Placeholder>
                   <Placeholder.Image rectangular />
@@ -52,7 +59,14 @@ export const ContentWithImage = (props: ContentWithImageProps) => {
           {props.contentOrientation !== "image-text" && (
             <Grid.Column>
               {props.src ? (
-                <Image src={props.src} />
+                <div
+                  style={{
+                    opacity: 0.7,
+                    height: "100%",
+                    backgroundImage: `url(${props.src})`,
+                    backgroundSize: "cover"
+                  }}
+                />
               ) : (
                 <Placeholder>
                   <Placeholder.Image rectangular />

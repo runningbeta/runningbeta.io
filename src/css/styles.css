@@ -112,9 +112,12 @@ pre {
 
 .partnerLogo {
   fill: #ccc;
-  display: block;
   margin: auto;
   padding: 0 2rem;
+  display: inline-flex;
+  align-content: center;
+  justify-items: center;
+  width: 100%;
 }
 
 .partnerLogo:hover {
@@ -123,6 +126,7 @@ pre {
 
 .partnerLogo svg {
   max-height: 75px;
+  width: 100%;
 }
 
 .coverImage {

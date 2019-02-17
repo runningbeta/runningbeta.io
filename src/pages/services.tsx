@@ -230,14 +230,18 @@ const ServicesPage = (props: LayoutProps) => {
       <Segment vertical className="stripe">
         <ContentWithImage
           title="Get in touch"
+          src={require("../assets/images/stock/matterhorn.jpeg")}
           content={
-            <span>
-              <Message className="container" warning size="tiny">
-                Motivational text that entices users to contact us
-              </Message>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </span>
+            <div>
+              <span>
+                Contact RunningBeta today and our experts will customize a
+                solution with the best technology, proven strategy and unique
+                creativity to create life-long customers and gain market share.
+              </span>
+              <br />
+              <br />
+              <span>We look forward to talking soon!</span>
+            </div>
           }
           buttonLabel="Conact us"
           buttonIcon="chevron right"

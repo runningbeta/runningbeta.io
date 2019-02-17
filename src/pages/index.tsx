@@ -9,6 +9,7 @@ import Chain from "../assets/images/icons/chain.svg";
 import Idea from "../assets/images/icons/idea.svg";
 
 import Tolar from "../assets/images/partners/tolar";
+import Rimac from "../assets/images/partners/rimac";
 
 const IndexPage = (props: LayoutProps) => (
   <div>
@@ -23,7 +24,7 @@ const IndexPage = (props: LayoutProps) => (
     />
     <Segment vertical className="stripe feature">
       <Container>
-        <Grid centered columns="3">
+        <Grid centered stackable doubling columns="3">
           <Grid.Row>
             <Grid.Column>
               <div className="partnerLogo">
@@ -32,7 +33,7 @@ const IndexPage = (props: LayoutProps) => (
             </Grid.Column>
             <Grid.Column>
               <div className="partnerLogo">
-                <Tolar />
+                <Rimac />
               </div>
             </Grid.Column>
             <Grid.Column>
@@ -42,6 +43,11 @@ const IndexPage = (props: LayoutProps) => (
             </Grid.Column>
           </Grid.Row>
           <Grid.Row>
+            <Grid.Column>
+              <div className="partnerLogo">
+                <Tolar />
+              </div>
+            </Grid.Column>
             <Grid.Column>
               <div className="partnerLogo">
                 <Tolar />
