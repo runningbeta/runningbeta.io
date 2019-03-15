@@ -23,7 +23,7 @@
 # Branch deploy context: All deploys that are not in
 # an active Deploy Preview will inherit these settings.
 [context.branch-deploy]
-  command = "gatsby build"
+  command = "echo -e \"GATSBY_SITE_RECAPTCHA_KEY=$GATSBY_RECAPTCHA_KEY\" >> .env.production && gatsby build"
   publish = "public"
 
 # Specific branch context: Deploys from this branch
