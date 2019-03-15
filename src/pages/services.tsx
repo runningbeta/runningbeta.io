@@ -4,17 +4,13 @@ import {
   Container,
   Segment,
   Grid,
-  Popup,
-  Message,
-  Image
+  List,
+  Message
 } from "semantic-ui-react";
 
 import { withLayout, LayoutProps } from "../components/Layout";
 import Masthead from "../components/Masthead/Masthead";
 import ContentWithImage from "../components/ContentWithImage/ContentWithImage";
-
-import ReactIcon from "../assets/images/tech/react.svg";
-import TruffleIcon from "../assets/images/tech/truffle.svg";
 
 const ServicesPage = (props: LayoutProps) => {
   return (
@@ -90,18 +86,153 @@ const ServicesPage = (props: LayoutProps) => {
       </Segment>
       <Segment vertical className="stripe alternate">
         <Container>
-          <Header as="h2">Stacks</Header>
-          <Message warning size="big">
-            <ul>
-              <li>Mobile</li>
-              <li>Server</li>
-              <li>Web</li>
-              <li>Product</li>
-              <li>Machine Learning</li>
-              <li>Blockchain</li>
-            </ul>
-          </Message>
-          <Grid className="technologies" columns={16} doubling />
+          <Grid className="technologies" relaxed>
+            <Grid.Row>
+              <Grid.Column>
+                <Header as="h2">Technology Stacks</Header>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+          <Grid className="technologies" relaxed doubling columns={3}>
+            <Grid.Row style={{ marginTop: "2rem" }}>
+              <Grid.Column>
+                <List divided>
+                  <List.Header>
+                    <Header
+                      as="h4"
+                      style={{
+                        textTransform: "uppercase",
+                        marginBottom: "1rem"
+                      }}
+                    >
+                      Blockchain
+                    </Header>
+                  </List.Header>
+                  {[
+                    "Ethereum",
+                    "Solidity",
+                    "Truffle, Ganache",
+                    "Parity PoA"
+                  ].map(tech => (
+                    <List.Item style={{ color: "#6C6C6C" }} key={tech}>
+                      <p>{tech}</p>
+                    </List.Item>
+                  ))}
+                </List>
+              </Grid.Column>
+              <Grid.Column>
+                <List divided>
+                  <List.Header>
+                    <Header
+                      as="h4"
+                      style={{
+                        textTransform: "uppercase",
+                        marginBottom: "1rem"
+                      }}
+                    >
+                      Web
+                    </Header>
+                  </List.Header>
+                  {["React", "Vue.js", "Gatsby", "Webpack, Gulp", "SCSS"].map(
+                    tech => (
+                      <List.Item style={{ color: "#6C6C6C" }} key={tech}>
+                        <p>{tech}</p>
+                      </List.Item>
+                    )
+                  )}
+                </List>
+              </Grid.Column>
+              <Grid.Column>
+                <List divided>
+                  <List.Header>
+                    <Header
+                      as="h4"
+                      style={{
+                        textTransform: "uppercase",
+                        marginBottom: "1rem"
+                      }}
+                    >
+                      Mobile
+                    </Header>
+                  </List.Header>
+                  {[
+                    "Progressive Web Apps",
+                    "React Native",
+                    "iOS, Swift, Objective-C",
+                    "Android, Kotlin, Java"
+                  ].map(tech => (
+                    <List.Item style={{ color: "#6C6C6C" }} key={tech}>
+                      <p>{tech}</p>
+                    </List.Item>
+                  ))}
+                </List>
+              </Grid.Column>
+              <Grid.Column>
+                <List divided>
+                  <List.Header>
+                    <Header
+                      as="h4"
+                      style={{
+                        textTransform: "uppercase",
+                        marginBottom: "1rem"
+                      }}
+                    >
+                      Backend / Cloud
+                    </Header>
+                  </List.Header>
+                  {[
+                    ".Net, Java, Node.js",
+                    "Firebase, SQL, Contentful",
+                    "AWS, Azure"
+                  ].map(tech => (
+                    <List.Item style={{ color: "#6C6C6C" }} key={tech}>
+                      <p>{tech}</p>
+                    </List.Item>
+                  ))}
+                </List>
+              </Grid.Column>
+              <Grid.Column>
+                <List divided>
+                  <List.Header>
+                    <Header
+                      as="h4"
+                      style={{
+                        textTransform: "uppercase",
+                        marginBottom: "1rem"
+                      }}
+                    >
+                      ML
+                    </Header>
+                  </List.Header>
+                  {["Tenzor", "Python", "Matlab"].map(tech => (
+                    <List.Item style={{ color: "#6C6C6C" }} key={tech}>
+                      <p>{tech}</p>
+                    </List.Item>
+                  ))}
+                </List>
+              </Grid.Column>
+              <Grid.Column>
+                <List divided>
+                  <List.Header>
+                    <Header
+                      as="h4"
+                      style={{
+                        textTransform: "uppercase",
+                        marginBottom: "1rem"
+                      }}
+                    >
+                      Product
+                    </Header>
+                  </List.Header>
+                  {["Sketch", "Zeplin", "Illustrator"].map(tech => (
+                    <List.Item style={{ color: "#6C6C6C" }} key={tech}>
+                      <p>{tech}</p>
+                    </List.Item>
+                  ))}
+                </List>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
         </Container>
       </Segment>
       <Segment vertical className="stripe feature">
@@ -126,17 +257,16 @@ const ServicesPage = (props: LayoutProps) => {
                     backgroundImage: `url(${require("../assets/images/stock/brainstorm.jpeg")})`
                   }}
                 />
-                <Message warning size="mini">
-                  <ul>
-                    <li>price per project</li>
-                    <li>well defined</li>
-                    <li>can't change</li>
-                  </ul>
-                </Message>
                 <Header as="h2">PROJECT ESTIMATE</Header>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Estimating is a critical part of project planning, involving a
+                  quantitative estimate of project costs, resources or duration.
+                </p>
+                <p>
+                  This method is usually used for a project of smaller scope,
+                  that can be properly and accurately estimated, where little to
+                  no change is expected in terms of features and the overall
+                  scope of the project.
                 </p>
               </Grid.Column>
               <Grid.Column>
@@ -146,17 +276,18 @@ const ServicesPage = (props: LayoutProps) => {
                     backgroundImage: `url(${require("../assets/images/stock/hourly.jpeg")})`
                   }}
                 />
-                <Message warning size="mini">
-                  <ul>
-                    <li>pricing per hour worked</li>
-                    <li>suitable for most projects</li>
-                    <li>better estimates available as project progresses</li>
-                  </ul>
-                </Message>
-                <Header as="h2">PER HOUR</Header>
+                <Header as="h2">PER HOUR / PER DAY</Header>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  For sizable projects, it becomes very tricky to accurately
+                  gauge a realistic project estimate. With daily or hourly
+                  pricing, the focus is on the results. This pricing option is
+                  suitable for most projects.
+                </p>
+                <p>
+                  Without spending too much time on defining the scope of all
+                  the features that will be built, we can start work much
+                  sooner. As project progresses, the estimates will become more
+                  precise.
                 </p>
               </Grid.Column>
             </Grid.Row>
@@ -168,17 +299,15 @@ const ServicesPage = (props: LayoutProps) => {
                     backgroundImage: `url(${require("../assets/images/stock/consulting.jpg")})`
                   }}
                 />
-                <Message warning size="mini">
-                  <ul>
-                    <li>knowledge transfer</li>
-                    <li>pricing determined by complexity</li>
-                    <li>working per agreed schedule</li>
-                  </ul>
-                </Message>
                 <Header as="h2">CONSULTING</Header>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  By offering professional consulting services we will help you
+                  devise and implement solutions for your unique business needs.
+                </p>
+                <p>
+                  During the cunsultancy process, we will do our utmost to be
+                  flexible and available while respecting your business and
+                  organizational context.
                 </p>
               </Grid.Column>
               <Grid.Column>
@@ -188,17 +317,16 @@ const ServicesPage = (props: LayoutProps) => {
                     backgroundImage: `url(${require("../assets/images/stock/team.jpeg")})`
                   }}
                 />
-                <Message warning size="mini">
-                  <ul>
-                    <li>long lasting projects</li>
-                    <li>dedicated project manager</li>
-                    <li>top talent available</li>
-                  </ul>
-                </Message>
                 <Header as="h2">DEDICATED TEAM</Header>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  This model enables you to have a team of people who work
+                  full-time on your project. It's perfect if you have long-term
+                  project.
+                </p>
+                <p>
+                  We can offer you top talent developers, designers and other
+                  professionals. Projects can also have dedicated project
+                  managers.
                 </p>
               </Grid.Column>
             </Grid.Row>
@@ -210,17 +338,18 @@ const ServicesPage = (props: LayoutProps) => {
           title="Idea development"
           src={require("../assets/images/stock/idea_dev.jpeg")}
           content={
-            <span>
-              <Message className="container" warning size="tiny">
-                <ul>
-                  <li>secure - NDA presigned</li>
-                  <li>technology</li>
-                  <li>product application</li>
-                </ul>
-              </Message>
-              Lorem ipsum dolor sit amet, <b>consectetur adipiscing elit</b>,
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </span>
+            <React.Fragment>
+              <p>
+                To create and bring to market innovative ideas, entrepreneurs
+                can approach us for idea development sessions.
+              </p>
+              <p>
+                In these sessions, we revise strategies and products, or simply
+                elevate our partner's knowledge of blockchain technologies,
+                markets, and constraints.
+              </p>
+              <p>The process is secured from the start by a NDA agreement.</p>
+            </React.Fragment>
           }
           contentOrientation="image-text"
           buttonLabel="Start now"
@@ -230,18 +359,21 @@ const ServicesPage = (props: LayoutProps) => {
       <Segment vertical className="stripe">
         <ContentWithImage
           title="Get in touch"
-          src={require("../assets/images/stock/matterhorn.jpeg")}
+          src={require("../assets/images/stock/contact.jpg")}
           content={
-            <div>
-              <span>
-                Contact RunningBeta today and our experts will customize a
-                solution with the best technology, proven strategy and unique
-                creativity to create life-long customers and gain market share.
-              </span>
-              <br />
-              <br />
-              <span>We look forward to talking soon!</span>
-            </div>
+            <React.Fragment>
+              <p>
+                <span>
+                  Contact RunningBeta today and our experts will customize a
+                  solution with the best technology, proven strategy and unique
+                  creativity to create life-long customers and gain market
+                  share.
+                </span>
+              </p>
+              <p>
+                <span>We look forward to talking soon!</span>
+              </p>
+            </React.Fragment>
           }
           buttonLabel="Conact us"
           buttonIcon="chevron right"

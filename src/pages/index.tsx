@@ -3,6 +3,7 @@ import { withLayout, LayoutProps, menuItems } from "../components/Layout";
 import { Segment, Container, Image, Grid, Message } from "semantic-ui-react";
 import Masthead from "../components/Masthead/Masthead";
 import Title from "../components/Title/Title";
+import ContactForm from "../components/ContactForm/ContactForm";
 
 import Audit from "../assets/images/icons/audit.svg";
 import Chain from "../assets/images/icons/chain.svg";
@@ -22,47 +23,49 @@ const IndexPage = (props: LayoutProps) => (
       buttonSize="huge"
       buttonIcon="chevron right"
     />
-    <Segment vertical className="stripe feature">
-      <Container>
-        <Grid centered stackable doubling columns="3">
-          <Grid.Row>
-            <Grid.Column>
-              <div className="partnerLogo">
-                <Tolar />
-              </div>
-            </Grid.Column>
-            <Grid.Column>
-              <div className="partnerLogo">
-                <Rimac />
-              </div>
-            </Grid.Column>
-            <Grid.Column>
-              <div className="partnerLogo">
-                <Tolar />
-              </div>
-            </Grid.Column>
-          </Grid.Row>
-          <Grid.Row>
-            <Grid.Column>
-              <div className="partnerLogo">
-                <Tolar />
-              </div>
-            </Grid.Column>
-            <Grid.Column>
-              <div className="partnerLogo">
-                <Tolar />
-              </div>
-            </Grid.Column>
-            <Grid.Column>
-              <div className="partnerLogo">
-                <Tolar />
-              </div>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
-      </Container>
-    </Segment>
-    <Segment vertical className="stripe alternate">
+    {process.env.GATSBY_SHOW_PARTNERS && (
+      <Segment vertical className="stripe feature">
+        <Container>
+          <Grid centered stackable doubling columns="3">
+            <Grid.Row>
+              <Grid.Column>
+                <div className="partnerLogo">
+                  <Tolar />
+                </div>
+              </Grid.Column>
+              <Grid.Column>
+                <div className="partnerLogo">
+                  <Rimac />
+                </div>
+              </Grid.Column>
+              <Grid.Column>
+                <div className="partnerLogo">
+                  <Tolar />
+                </div>
+              </Grid.Column>
+            </Grid.Row>
+            <Grid.Row>
+              <Grid.Column>
+                <div className="partnerLogo">
+                  <Tolar />
+                </div>
+              </Grid.Column>
+              <Grid.Column>
+                <div className="partnerLogo">
+                  <Tolar />
+                </div>
+              </Grid.Column>
+              <Grid.Column>
+                <div className="partnerLogo">
+                  <Tolar />
+                </div>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        </Container>
+      </Segment>
+    )}
+    <Segment vertical className="stripe alternate feature">
       <Grid
         container
         columns="3"
@@ -102,6 +105,16 @@ const IndexPage = (props: LayoutProps) => (
               yet has room to improve.
             </p>
           </Grid.Column>
+        </Grid.Row>
+      </Grid>
+    </Segment>
+    <Segment vertical className="stripe feature container">
+      <Grid>
+        <Grid.Row>
+          <Grid.Column width="8">
+            <ContactForm />
+          </Grid.Column>
+          <Grid.Column width="8">Bla bla</Grid.Column>
         </Grid.Row>
       </Grid>
     </Segment>

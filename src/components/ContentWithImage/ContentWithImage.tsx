@@ -26,7 +26,7 @@ interface ContentWithImageProps {
 export const ContentWithImage = (props: ContentWithImageProps) => {
   return (
     <Container>
-      <Grid stretched columns="2" textAlign="left" relaxed stackable>
+      <Grid columns="2" textAlign="left" relaxed stackable>
         <Grid.Row>
           {props.contentOrientation === "image-text" && (
             <Grid.Column>
@@ -48,9 +48,14 @@ export const ContentWithImage = (props: ContentWithImageProps) => {
           )}
           <Grid.Column>
             <Header as="h1">{props.title}</Header>
-            <p>{props.content}</p>
+            <div>{props.content}</div>
             {props.buttonLabel && (
-              <Button basic color="black" size={props.buttonSize || "large"}>
+              <Button
+                style={{ marginTop: "2.5rem" }}
+                basic
+                color="black"
+                size={props.buttonSize || "large"}
+              >
                 {props.buttonLabel}
                 {props.buttonIcon && <Icon name={props.buttonIcon} />}
               </Button>
