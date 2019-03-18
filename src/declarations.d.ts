@@ -4,6 +4,11 @@ declare module "*/package.json" {
   export const author: string;
 }
 
+declare module "*.json" {
+  const value: any;
+  export default value;
+}
+
 declare const graphql: (query: TemplateStringsArray) => void;
 
 declare module "disqus-react" {

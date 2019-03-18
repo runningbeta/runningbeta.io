@@ -1,16 +1,12 @@
 import * as React from "react";
-import {
-  Header,
-  Container,
-  Segment,
-  Grid,
-  List,
-  Message
-} from "semantic-ui-react";
+import { Header, Container, Segment, Grid, List } from "semantic-ui-react";
 
 import { withLayout, LayoutProps } from "../components/Layout";
 import Masthead from "../components/Masthead/Masthead";
 import ContentWithImage from "../components/ContentWithImage/ContentWithImage";
+
+import Technologies from "../data/technologyStacks";
+import ContactForm from "../components/ContactForm/ContactForm";
 
 const ServicesPage = (props: LayoutProps) => {
   return (
@@ -21,10 +17,10 @@ const ServicesPage = (props: LayoutProps) => {
         subtitle="Trust us with your project"
         buttonLabel="Get started!"
       />
-      <Segment vertical className="stripe">
+      <Segment vertical className="stripe feature">
         <Container>
           <Grid
-            columns="3"
+            columns="2"
             textAlign="left"
             relaxed
             stackable
@@ -33,6 +29,17 @@ const ServicesPage = (props: LayoutProps) => {
             <Grid.Row columns="1">
               <Grid.Column>
                 <Header as="h1">Blockchain Focused</Header>
+              </Grid.Column>
+            </Grid.Row>
+            <Grid.Row columns="1">
+              <Grid.Column>
+                <p>
+                  RunningBeta is focused on building the infrastructure,
+                  protocols, and applications in a decentralized world. Our goal
+                  is to work on meaningful projects that help create a better
+                  future and bring them to life using the best technology
+                  available.
+                </p>
               </Grid.Column>
             </Grid.Row>
             <Grid.Row>
@@ -66,6 +73,107 @@ const ServicesPage = (props: LayoutProps) => {
                   escrows, oracles, ICOs.
                 </p>
               </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        </Container>
+      </Segment>
+      <Segment vertical className="stripe feature alternate">
+        <Container>
+          <Grid
+            columns="2"
+            textAlign="left"
+            relaxed
+            stackable
+            verticalAlign="top"
+          >
+            <Grid.Row columns="1">
+              <Grid.Column>
+                <Header as="h1">Platform Agnostic</Header>
+              </Grid.Column>
+            </Grid.Row>
+            <Grid.Row columns="1">
+              <Grid.Column>
+                <p>
+                  Our team builds platforms that take advantage of emerging
+                  technologies, combining them with tried and tested solutions
+                  to create the best digital experiences. Trust us with your
+                  project.
+                </p>
+              </Grid.Column>
+            </Grid.Row>
+            <Grid.Row>
+              <Grid.Column>
+                <div
+                  className="coverImage"
+                  style={{
+                    backgroundImage: `url(${require("../assets/images/stock/website.jpg")})`
+                  }}
+                />
+                <Header>WEB</Header>
+                <p>
+                  We bring front-end, back-end and architecture ability together
+                  to offer options for businesses who seek to provide a
+                  flexible, consistent experience for users across platforms.
+                </p>
+              </Grid.Column>
+              <Grid.Column>
+                <div
+                  className="coverImage"
+                  style={{
+                    backgroundImage: `url(${require("../assets/images/stock/cellphone.jpg")})`
+                  }}
+                />
+                <Header>MOBILE</Header>
+                <p>
+                  With experience in the range of development from pure native
+                  to cross platform apps, we can help you select the best choice
+                  for your project.
+                </p>
+              </Grid.Column>
+            </Grid.Row>
+          </Grid>
+        </Container>
+      </Segment>
+      <Segment vertical className="stripe feature">
+        <Container>
+          <Grid
+            columns="2"
+            textAlign="left"
+            relaxed
+            stackable
+            verticalAlign="top"
+          >
+            <Grid.Row columns="1">
+              <Grid.Column>
+                <Header as="h1">Project Management</Header>
+              </Grid.Column>
+            </Grid.Row>
+            <Grid.Row columns="1">
+              <Grid.Column>
+                <p>
+                  Define the investment potential, technology stack, timeline,
+                  total cost of ownership and the ongoing maintenance required
+                  to launch and sustain a solution.
+                </p>
+              </Grid.Column>
+            </Grid.Row>
+            <Grid.Row>
+              <Grid.Column>
+                <div
+                  className="coverImage"
+                  style={{
+                    backgroundImage: `url(${require("../assets/images/stock/flow.jpg")})`
+                  }}
+                />
+                <Header>DEVELOPMENT PROCESS</Header>
+                <p>
+                  Before beginning re-architecture or new development, we
+                  customize consulting engagements to examine your code base,
+                  development process, align on current challenge areas and
+                  explore how to mitigate risks associated with leveraging
+                  existing code.
+                </p>
+              </Grid.Column>
               <Grid.Column>
                 <div
                   className="coverImage"
@@ -75,16 +183,18 @@ const ServicesPage = (props: LayoutProps) => {
                 />
                 <Header>SOLUTION DEVELOPMENT</Header>
                 <p>
-                  We can help you develop your idea into a product. The point is
-                  not to build a minimal product, but a product that is already
-                  great yet has room to improve.
+                  Define the investment potential, technology stack, timeline,
+                  total cost of ownership and the ongoing maintenance required
+                  to launch and sustain a solution. The point is not to build a
+                  minimal product, but a product that is already great yet has
+                  room to improve.
                 </p>
               </Grid.Column>
             </Grid.Row>
           </Grid>
         </Container>
       </Segment>
-      <Segment vertical className="stripe alternate">
+      <Segment vertical className="stripe feature alternate">
         <Container>
           <Grid className="technologies" relaxed>
             <Grid.Row>
@@ -95,142 +205,28 @@ const ServicesPage = (props: LayoutProps) => {
           </Grid>
           <Grid className="technologies" relaxed doubling columns={3}>
             <Grid.Row style={{ marginTop: "2rem" }}>
-              <Grid.Column>
-                <List divided>
-                  <List.Header>
-                    <Header
-                      as="h4"
-                      style={{
-                        textTransform: "uppercase",
-                        marginBottom: "1rem"
-                      }}
-                    >
-                      Blockchain
-                    </Header>
-                  </List.Header>
-                  {[
-                    "Ethereum",
-                    "Solidity",
-                    "Truffle, Ganache",
-                    "Parity PoA"
-                  ].map(tech => (
-                    <List.Item style={{ color: "#6C6C6C" }} key={tech}>
-                      <p>{tech}</p>
-                    </List.Item>
-                  ))}
-                </List>
-              </Grid.Column>
-              <Grid.Column>
-                <List divided>
-                  <List.Header>
-                    <Header
-                      as="h4"
-                      style={{
-                        textTransform: "uppercase",
-                        marginBottom: "1rem"
-                      }}
-                    >
-                      Web
-                    </Header>
-                  </List.Header>
-                  {["React", "Vue.js", "Gatsby", "Webpack, Gulp", "SCSS"].map(
-                    tech => (
-                      <List.Item style={{ color: "#6C6C6C" }} key={tech}>
-                        <p>{tech}</p>
+              {Technologies.map((tech: { header: string; items: string[] }) => (
+                <Grid.Column key={tech.header} style={{ marginBottom: "3rem" }}>
+                  <List divided>
+                    <List.Header>
+                      <Header
+                        as="h4"
+                        style={{
+                          textTransform: "uppercase",
+                          marginBottom: "0.75rem"
+                        }}
+                      >
+                        {tech.header}
+                      </Header>
+                    </List.Header>
+                    {tech.items.map(item => (
+                      <List.Item key={item}>
+                        <p>{item}</p>
                       </List.Item>
-                    )
-                  )}
-                </List>
-              </Grid.Column>
-              <Grid.Column>
-                <List divided>
-                  <List.Header>
-                    <Header
-                      as="h4"
-                      style={{
-                        textTransform: "uppercase",
-                        marginBottom: "1rem"
-                      }}
-                    >
-                      Mobile
-                    </Header>
-                  </List.Header>
-                  {[
-                    "Progressive Web Apps",
-                    "React Native",
-                    "iOS, Swift, Objective-C",
-                    "Android, Kotlin, Java"
-                  ].map(tech => (
-                    <List.Item style={{ color: "#6C6C6C" }} key={tech}>
-                      <p>{tech}</p>
-                    </List.Item>
-                  ))}
-                </List>
-              </Grid.Column>
-              <Grid.Column>
-                <List divided>
-                  <List.Header>
-                    <Header
-                      as="h4"
-                      style={{
-                        textTransform: "uppercase",
-                        marginBottom: "1rem"
-                      }}
-                    >
-                      Backend / Cloud
-                    </Header>
-                  </List.Header>
-                  {[
-                    ".Net, Java, Node.js",
-                    "Firebase, SQL, Contentful",
-                    "AWS, Azure"
-                  ].map(tech => (
-                    <List.Item style={{ color: "#6C6C6C" }} key={tech}>
-                      <p>{tech}</p>
-                    </List.Item>
-                  ))}
-                </List>
-              </Grid.Column>
-              <Grid.Column>
-                <List divided>
-                  <List.Header>
-                    <Header
-                      as="h4"
-                      style={{
-                        textTransform: "uppercase",
-                        marginBottom: "1rem"
-                      }}
-                    >
-                      ML
-                    </Header>
-                  </List.Header>
-                  {["Tenzor", "Python", "Matlab"].map(tech => (
-                    <List.Item style={{ color: "#6C6C6C" }} key={tech}>
-                      <p>{tech}</p>
-                    </List.Item>
-                  ))}
-                </List>
-              </Grid.Column>
-              <Grid.Column>
-                <List divided>
-                  <List.Header>
-                    <Header
-                      as="h4"
-                      style={{
-                        textTransform: "uppercase",
-                        marginBottom: "1rem"
-                      }}
-                    >
-                      Product
-                    </Header>
-                  </List.Header>
-                  {["Sketch", "Zeplin", "Illustrator"].map(tech => (
-                    <List.Item style={{ color: "#6C6C6C" }} key={tech}>
-                      <p>{tech}</p>
-                    </List.Item>
-                  ))}
-                </List>
-              </Grid.Column>
+                    ))}
+                  </List>
+                </Grid.Column>
+              ))}
             </Grid.Row>
           </Grid>
         </Container>
@@ -333,7 +329,7 @@ const ServicesPage = (props: LayoutProps) => {
           </Grid>
         </Container>
       </Segment>
-      <Segment vertical className="stripe alternate">
+      <Segment vertical className="stripe feature alternate">
         <ContentWithImage
           title="Idea development"
           src={require("../assets/images/stock/idea_dev.jpeg")}
@@ -356,29 +352,36 @@ const ServicesPage = (props: LayoutProps) => {
           buttonIcon="chevron right"
         />
       </Segment>
-      <Segment vertical className="stripe">
+      <Segment vertical className="stripe feature">
         <ContentWithImage
           title="Get in touch"
           src={require("../assets/images/stock/contact.jpg")}
+          content={<ContactForm />}
+        />
+      </Segment>
+      {/* <Segment vertical className="stripe feature">
+        <ContentWithImage
+          buttonIcon="chevron right"
+          buttonLabel="Apply"
           content={
             <React.Fragment>
               <p>
-                <span>
-                  Contact RunningBeta today and our experts will customize a
-                  solution with the best technology, proven strategy and unique
-                  creativity to create life-long customers and gain market
-                  share.
-                </span>
+                RunningBeta was founded in 2017 as a result of our aspiration to
+                create a community based on transparent work culture that will
+                employ the best professionals in the world.
               </p>
               <p>
-                <span>We look forward to talking soon!</span>
+                Work from a beach in Thailand, or on top of the Swiss Alps, it's
+                up to you.
               </p>
+              <p>Interested in joining the RunningBeta team?</p>
             </React.Fragment>
           }
-          buttonLabel="Conact us"
-          buttonIcon="chevron right"
+          contentOrientation="image-text"
+          src={require("../assets/images/stock/distributed.jpeg")}
+          title="Work with us"
         />
-      </Segment>
+      </Segment> */}
     </div>
   );
 };

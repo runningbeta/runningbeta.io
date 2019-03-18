@@ -25,10 +25,10 @@ const VisionPage = (props: LayoutProps) => {
       <Segment vertical className="stripe feature">
         <Container>Intro to our mission and goals</Container>
       </Segment>
-      <Segment vertical className="stripe alternate feature">
+      <Segment vertical className="stripe feature alternate">
         <Container>
-          <Header as="h1">Why Ethereum</Header>
-          <p style={{ color: "#6C6C6C" }}>
+          <Header as="h1">Why Blockchain</Header>
+          <p>
             Ethereum gives you the power to trust. It enables the development of
             systems of automated and executable agreements that ensure that all
             counterparties are treated fairly throughout a transaction. Any
@@ -41,7 +41,7 @@ const VisionPage = (props: LayoutProps) => {
           >
             CODIFIED TRUST
           </Header>
-          <p style={{ color: "#6C6C6C" }}>
+          <p>
             On the Ethereum blockchain, a smart contract is immutable and
             trustless. The contract is not a person or a company with a hidden
             agenda or uncertain motivations. The contract runs exactly as
@@ -49,7 +49,7 @@ const VisionPage = (props: LayoutProps) => {
             corrupted. Since Ethereum tracks every transaction non-repudiable on
             the blockchain, there is always a trusted record.
           </p>
-          <p style={{ color: "#6C6C6C" }}>
+          <p>
             In an uncertaint market, Ethereum gives you the freedom to conduct
             your business trustlessly.
           </p>
@@ -63,32 +63,42 @@ const VisionPage = (props: LayoutProps) => {
           >
             <Grid.Row>
               <Grid.Column>
-                <Title title="SECURITY" imageSize="tiny" src={Secure} />
-                <p style={{ color: "#6C6C6C" }}>
+                <div
+                  className="coverImage"
+                  style={{
+                    backgroundImage: `url(${require("../assets/images/stock/secure.jpg")})`
+                  }}
+                />
+                <Header>SECURITY</Header>
+                <p>
                   Ethereum applications can run without fear of downtime, fraud,
                   third-party interference, tampering of data, or censorship by
                   a centralized authority.
                 </p>
               </Grid.Column>
               <Grid.Column>
-                <Title
-                  title="FRAUD PROTECTION"
-                  imageSize="tiny"
-                  src={Protect}
+                <div
+                  className="coverImage"
+                  style={{
+                    backgroundImage: `url(${require("../assets/images/stock/fraud-protection.jpg")})`
+                  }}
                 />
-                <p style={{ color: "#6C6C6C" }}>
+                <Header>FRAUD PROTECTION</Header>
+                <p>
                   The Ethereum blockchain can provide better protection against
                   fraud, remove reliance on paper contracts, and spur greater
                   investment through easy property ownership and transfer.
                 </p>
               </Grid.Column>
               <Grid.Column>
-                <Title
-                  title="LIGHTNING-FAST PAYMENTS"
-                  imageSize="tiny"
-                  src={Payments}
+                <div
+                  className="coverImage"
+                  style={{
+                    backgroundImage: `url(${require("../assets/images/stock/fast.jpg")})`
+                  }}
                 />
-                <p style={{ color: "#6C6C6C" }}>
+                <Header>LIGHTNING-FAST PAYMENTS</Header>
+                <p>
                   The Ethereum blockchain allows smart contracts to
                   automatically execute payments without middlemen and comes to
                   a consensus every 15 seconds.

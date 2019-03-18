@@ -8,19 +8,20 @@ import {
   Placeholder,
   Icon,
   SemanticSIZES,
-  SemanticICONS
+  SemanticICONS,
+  SemanticCOLORS
 } from "semantic-ui-react";
-
-type ContentOrientation = "text-image" | "image-text";
 
 interface ContentWithImageProps {
   title: string;
   content: string | JSX.Element;
+  buttonColor?: SemanticCOLORS;
   buttonLabel?: string;
   buttonSize?: SemanticSIZES;
   buttonIcon?: SemanticICONS;
+  primary?: boolean;
   src?: any;
-  contentOrientation?: ContentOrientation;
+  contentOrientation?: "text-image" | "image-text";
 }
 
 export const ContentWithImage = (props: ContentWithImageProps) => {
@@ -51,9 +52,10 @@ export const ContentWithImage = (props: ContentWithImageProps) => {
             <div>{props.content}</div>
             {props.buttonLabel && (
               <Button
-                style={{ marginTop: "2.5rem" }}
-                basic
-                color="black"
+                style={{ marginTop: "2.5rem", width: "50%" }}
+                basic={!props.primary}
+                primary={false || props.primary}
+                color={props.buttonColor || "black"}
                 size={props.buttonSize || "large"}
               >
                 {props.buttonLabel}
@@ -69,7 +71,8 @@ export const ContentWithImage = (props: ContentWithImageProps) => {
                     opacity: 0.7,
                     height: "100%",
                     backgroundImage: `url(${props.src})`,
-                    backgroundSize: "cover"
+                    backgroundSize: "cover",
+                    backgroundPosition: "center center"
                   }}
                 />
               ) : (

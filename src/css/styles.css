@@ -134,5 +134,17 @@ pre {
   height: 175px;
   width: 100%;
   background-size: cover;
-  background-position: "center center";
+  background-position: center center;
+}
+x .feature ul li + li {
+  margin: 2rem 0;
+}
+
+.ui.form .field input,
+.ui.form .field textarea {
+  border-color: black;
+}
+
+p {
+  color: #000000bb;
 }

@@ -29,18 +29,18 @@ export const menuItems = [
     hideMenu: true
   },
   {
-    name: "What we do",
-    path: "/services/",
+    name: "Our vision",
+    path: "/vision/",
     exact: true,
-    icon: "laptop",
+    icon: "building",
     inverted: true,
     hideMenu: true
   },
   {
-    name: "Our goals",
-    path: "/vision/",
+    name: "What we do",
+    path: "/services/",
     exact: true,
-    icon: "building",
+    icon: "laptop",
     inverted: true,
     hideMenu: true
   },

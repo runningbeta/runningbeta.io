@@ -165,11 +165,6 @@ export default class Contact extends React.Component<
         <Grid stackable centered>
           <Grid.Row>
             <Grid.Column>
-              <Header as="h2">Contact Us</Header>
-            </Grid.Column>
-          </Grid.Row>
-          <Grid.Row>
-            <Grid.Column>
               <form
                 className="ui form contactForm"
                 data-netlify-honeypot="contactMeByFax"
@@ -205,7 +200,7 @@ export default class Contact extends React.Component<
                     required: true
                   })}
                 >
-                  <label>Name</label>
+                  <label>Name / Company</label>
                   <div className="ui input" style={{ flexDirection: "column" }}>
                     <input
                       type="text"
@@ -324,9 +319,11 @@ export default class Contact extends React.Component<
                 <Button
                   disabled={!gRecaptchaResponse || !isValid}
                   primary
+                  size="large"
+                  style={{ width: "50%" }}
                   type="submit"
                 >
-                  Submit
+                  Send
                 </Button>
               </form>
             </Grid.Column>
