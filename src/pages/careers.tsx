@@ -17,9 +17,9 @@ import { SemanticICONS } from 'semantic-ui-react/dist/commonjs/generic';
 import Masthead from '../components/Masthead/Masthead';
 import ContentWithImage from '../components/ContentWithImage/ContentWithImage';
 
-import opportunities from '../data/opportunities';
-import books from '../data/books';
-import careerQuestions from '../data/careerQuestions';
+import Opportunities from '../data/opportunities';
+import Books from '../data/books';
+import CareerQuestions from '../data/careerQuestions';
 
 const BookList = (props: any) => (
   <div>
@@ -175,7 +175,7 @@ class CareersPage extends Component<LayoutProps> {
         <Segment vertical className="stripe feature unfinished">
           <Container>
             <Accordion fluid styled>
-              {Questions.map((f, i) => (
+              {CareerQuestions.map((f, i) => (
                 <React.Fragment key={f.title}>
                   <Accordion.Title
                     active={activeIndex === i}

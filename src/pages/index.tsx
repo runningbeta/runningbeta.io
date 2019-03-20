@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { withLayout, LayoutProps, menuItems } from '../components/Layout';
 import { Link } from 'gatsby';
-import gatsbyLink from 'gatsby-link';
+import GatsbyLink from 'gatsby-link';
 import {
   Segment,
   Container,
@@ -13,8 +13,8 @@ import {
 import Masthead from '../components/Masthead/Masthead';
 import ContactForm from '../components/ContactForm/ContactForm';
 
-import tolar from '../assets/images/partners/tolar';
-import rimac from '../assets/images/partners/rimac';
+import Tolar from '../assets/images/partners/tolar';
+import Rimac from '../assets/images/partners/rimac';
 import ContentWithImage from '../components/ContentWithImage/ContentWithImage';
 
 const IndexPage = (props: LayoutProps) => (

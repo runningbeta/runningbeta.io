@@ -5,7 +5,7 @@ import { withLayout, LayoutProps } from '../components/Layout';
 import Masthead from '../components/Masthead/Masthead';
 import ContentWithImage from '../components/ContentWithImage/ContentWithImage';
 
-import technologyStacks from '../data/technologyStacks';
+import Technologies from '../data/technologyStacks';
 import ContactForm from '../components/ContactForm/ContactForm';
 
 const ServicesPage = (props: LayoutProps) => {
@@ -15,7 +15,7 @@ const ServicesPage = (props: LayoutProps) => {
         {...props}
         title="We build products that bring value to the users."
         subtitle="Trust us with your project"
-        // buttonLabel="Get started!"
+      // buttonLabel="Get started!"
       />
       <Segment vertical className="stripe feature">
         <Container>

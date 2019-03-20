@@ -1,9 +1,8 @@
+import React from 'react';
 import { Link } from 'gatsby';
-import * as React from 'react';
 import HeaderMenu from './HeaderMenu/HeaderMenu';
 import SidebarMenu from './SidebarMenu/SidebarMenu';
 import {
-  Grid,
   Image,
   Segment,
   Icon,
@@ -17,7 +16,7 @@ import 'prismjs/themes/prism-okaidia.css';
 import { Provider } from 'react-redux';
 import { store } from '../store';
 
-import betalightSvg from '../assets/images/identity/betalight.svg';
+import RBInverted from '../assets/images/identity/betalight.svg';
 
 export const menuItems = [
   {
