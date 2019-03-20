@@ -1,7 +1,7 @@
-import * as React from "react";
-import { withLayout, LayoutProps } from "../components/Layout";
-import { Message, Header, Container, Segment, Grid } from "semantic-ui-react";
-import Masthead from "../components/Masthead/Masthead";
+import * as React from 'react';
+import { withLayout, LayoutProps } from '../components/Layout';
+import { Message, Header, Container, Segment, Grid } from 'semantic-ui-react';
+import Masthead from '../components/Masthead/Masthead';
 
 const AboutPage = (props: LayoutProps) => {
   return (
@@ -12,12 +12,12 @@ const AboutPage = (props: LayoutProps) => {
         subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
         eiusmod tempor incididunt ut labore et dolore magna aliqua."
       />
-      <Segment vertical className="stripe feature">
+      <Segment vertical className="stripe feature unfinished">
         <Container>
           <Grid textAlign="center" stackable columns="2">
             <Grid.Row>
               <Grid.Column>
-                <Header style={{ margin: "1.5em 0 1em" }} as="h2">
+                <Header style={{ margin: '1.5em 0 1em' }} as="h2">
                   Our Mission
                 </Header>
                 <p>
@@ -26,7 +26,7 @@ const AboutPage = (props: LayoutProps) => {
                 </p>
               </Grid.Column>
               <Grid.Column>
-                <Header style={{ margin: "1.5em 0 1em" }} as="h2">
+                <Header style={{ margin: '1.5em 0 1em' }} as="h2">
                   Our Essence
                 </Header>
                 <p>
@@ -37,7 +37,7 @@ const AboutPage = (props: LayoutProps) => {
             </Grid.Row>
             <Grid.Row>
               <Grid.Column>
-                <Header style={{ margin: "1.5em 0 1em" }} as="h2">
+                <Header style={{ margin: '1.5em 0 1em' }} as="h2">
                   Our Promise
                 </Header>
                 <p>
@@ -47,7 +47,7 @@ const AboutPage = (props: LayoutProps) => {
                 </p>
               </Grid.Column>
               <Grid.Column>
-                <Header style={{ margin: "1.5em 0 1em" }} as="h2">
+                <Header style={{ margin: '1.5em 0 1em' }} as="h2">
                   Our Vibe
                 </Header>
                 <p>

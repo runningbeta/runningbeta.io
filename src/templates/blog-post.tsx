@@ -1,12 +1,21 @@
-import * as React from "react";
-import { Link } from "gatsby";
-import { get } from "lodash";
-import { Header, Container, Segment, Icon, Label, Button, Grid, Card, Image, Item, Comment } from "semantic-ui-react";
-import { MarkdownRemark, ImageSharp, MarkdownRemarkConnection, Site } from "../graphql-types";
-import BlogTitle from "../components/BlogTitle";
-import { DiscussionEmbed } from "disqus-react";
-import {withLayout, LayoutProps} from "../components/Layout";
-import { graphql } from "gatsby";
+import * as React from 'react';
+import { Link, graphql } from 'gatsby';
+import { get } from 'lodash';
+import {
+  Header,
+  Container,
+  Segment,
+  Label,
+  Grid,
+  Card,
+  Image,
+  Item,
+  Comment,
+} from 'semantic-ui-react';
+import { MarkdownRemark, ImageSharp, MarkdownRemarkConnection, Site } from '../graphql-types';
+import BlogTitle from '../components/BlogTitle';
+import { DiscussionEmbed } from 'disqus-react';
+import { withLayout, LayoutProps } from '../components/Layout';
 
 interface BlogPostProps extends LayoutProps {
   data: {
@@ -21,12 +30,12 @@ const BlogPostPage = (props: BlogPostProps) => {
   const avatar = frontmatter.author.avatar.children[0] as ImageSharp;
 
   const tags = props.data.post.frontmatter.tags
-    .map((tag) => <Label key={tag}><Link to={`/blog/tags/${tag}/`}>{tag}</Link></Label>);
+    .map(tag => <Label key={tag}><Link to={`/blog/tags/${tag}/`}>{tag}</Link></Label>);
 
   const recents = props.data.recents.edges
     .map(({ node }) => {
       const recentAvatar = node.frontmatter.author.avatar.children[0] as ImageSharp;
-      const recentCover = get(node, "frontmatter.image.children.0.fixed", {});
+      const recentCover = get(node, 'frontmatter.image.children.0.fixed', {});
       const extra = (
         <Comment.Group>
           <Comment>
@@ -47,7 +56,7 @@ const BlogPostPage = (props: BlogPostProps) => {
       );
 
       return (
-        <div key={node.fields.slug} style={{ paddingBottom: "1em" }}>
+        <div key={node.fields.slug} style={{ paddingBottom: '1em' }}>
           <Card as={Link}
             to={node.fields.slug}
             image={recentCover}
@@ -58,11 +67,11 @@ const BlogPostPage = (props: BlogPostProps) => {
       );
     });
 
-  const cover = get(frontmatter, "image.children.0.fixed", {} );
+  const cover = get(frontmatter, 'image.children.0.fixed', {});
   return (
     <Container>
       <BlogTitle />
-      <Segment vertical style={{ border: "none" }}>
+      <Segment vertical style={{ border: 'none' }}>
         <Item.Group>
           <Item>
             <Item.Image size="tiny"
@@ -82,9 +91,9 @@ const BlogPostPage = (props: BlogPostProps) => {
       <Image
         {...cover}
         fluid
-      /> 
+      />
       <Segment vertical
-        style={{ border: "none" }}
+        style={{ border: 'none' }}
         dangerouslySetInnerHTML={{
           __html: html,
         }}
@@ -96,7 +105,7 @@ const BlogPostPage = (props: BlogPostProps) => {
         && props.data.site.siteMetadata
         && props.data.site.siteMetadata.disqus
         && <Segment vertical>
-            <DiscussionEmbed shortname={props.data.site.siteMetadata.disqus} config={{}}/>
+          <DiscussionEmbed shortname={props.data.site.siteMetadata.disqus} config={{}} />
         </Segment>
       }
       <Segment vertical>

@@ -1,16 +1,15 @@
-import * as React from "react";
+import * as React from 'react';
 import {
   Button,
   Header,
   Container,
   Grid,
-  Image,
   Placeholder,
   Icon,
   SemanticSIZES,
   SemanticICONS,
-  SemanticCOLORS
-} from "semantic-ui-react";
+  SemanticCOLORS,
+} from 'semantic-ui-react';
 
 interface ContentWithImageProps {
   title: string;
@@ -20,8 +19,10 @@ interface ContentWithImageProps {
   buttonSize?: SemanticSIZES;
   buttonIcon?: SemanticICONS;
   primary?: boolean;
+  secondary?: boolean;
   src?: any;
-  contentOrientation?: "text-image" | "image-text";
+  opacity?: number;
+  contentOrientation?: 'text-image' | 'image-text';
 }
 
 export const ContentWithImage = (props: ContentWithImageProps) => {
@@ -29,22 +30,22 @@ export const ContentWithImage = (props: ContentWithImageProps) => {
     <Container>
       <Grid columns="2" textAlign="left" relaxed stackable>
         <Grid.Row>
-          {props.contentOrientation === "image-text" && (
+          {props.contentOrientation === 'image-text' && (
             <Grid.Column>
               {props.src ? (
                 <div
                   style={{
-                    opacity: 0.7,
-                    height: "100%",
+                    opacity: props.opacity || 0.7,
+                    height: '100%',
                     backgroundImage: `url(${props.src})`,
-                    backgroundSize: "cover"
+                    backgroundSize: 'cover',
                   }}
                 />
               ) : (
-                <Placeholder>
-                  <Placeholder.Image rectangular />
-                </Placeholder>
-              )}
+                  <Placeholder>
+                    <Placeholder.Image rectangular />
+                  </Placeholder>
+                )}
             </Grid.Column>
           )}
           <Grid.Column>
@@ -52,34 +53,35 @@ export const ContentWithImage = (props: ContentWithImageProps) => {
             <div>{props.content}</div>
             {props.buttonLabel && (
               <Button
-                style={{ marginTop: "2.5rem", width: "50%" }}
-                basic={!props.primary}
+                style={{ marginTop: '2.5rem' }}
+                basic={!props.primary && !props.secondary}
                 primary={false || props.primary}
-                color={props.buttonColor || "black"}
-                size={props.buttonSize || "large"}
+                secondary={false || props.secondary}
+                color={props.buttonColor || 'black'}
+                size={props.buttonSize || 'large'}
               >
                 {props.buttonLabel}
                 {props.buttonIcon && <Icon name={props.buttonIcon} />}
               </Button>
             )}
           </Grid.Column>
-          {props.contentOrientation !== "image-text" && (
+          {props.contentOrientation !== 'image-text' && (
             <Grid.Column>
               {props.src ? (
                 <div
                   style={{
-                    opacity: 0.7,
-                    height: "100%",
+                    opacity: props.opacity || 0.7,
+                    height: '100%',
                     backgroundImage: `url(${props.src})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center center"
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center center',
                   }}
                 />
               ) : (
-                <Placeholder>
-                  <Placeholder.Image rectangular />
-                </Placeholder>
-              )}
+                  <Placeholder>
+                    <Placeholder.Image rectangular />
+                  </Placeholder>
+                )}
             </Grid.Column>
           )}
         </Grid.Row>

@@ -1,14 +1,12 @@
-import * as React from "react";
-import { Link } from "gatsby";
-import { StaticQuery, graphql } from "gatsby";
-import { Header, Grid, Card, List, Container, Feed, Segment, Comment } from "semantic-ui-react";
-import { MarkdownRemarkConnection, ImageSharp } from "../graphql-types";
-import BlogTitle from "../components/BlogTitle";
-import TagsCard from "../components/TagsCard/TagsCard";
-import BlogPagination from "../components/BlogPagination/BlogPagination";
-import { get } from "lodash";
-import {withLayout, LayoutProps} from "../components/Layout";
-import { MarkdownRemark } from "../graphql-types";
+import * as React from 'react';
+import { Link, graphql } from 'gatsby';
+import { Grid, Card, Container, Segment, Comment } from 'semantic-ui-react';
+import { MarkdownRemark, MarkdownRemarkConnection, ImageSharp } from '../graphql-types';
+import BlogTitle from '../components/BlogTitle';
+import TagsCard from '../components/TagsCard/TagsCard';
+import BlogPagination from '../components/BlogPagination/BlogPagination';
+import { get } from 'lodash';
+import { withLayout, LayoutProps } from '../components/Layout';
 
 interface BlogProps extends LayoutProps {
   data: {
@@ -29,10 +27,10 @@ const BlogPage = (props: BlogProps) => {
   // TODO export posts in a proper component
   const Posts = (
     <Container>
-      {posts.map(({ node }: {node: MarkdownRemark}) => {
+      {posts.map(({ node }: { node: MarkdownRemark }) => {
         const { frontmatter, timeToRead, fields: { slug }, excerpt } = node;
         const avatar = frontmatter.author.avatar.children[0] as ImageSharp;
-        const cover = get(frontmatter, "image.children.0.fixed", {});
+        const cover = get(frontmatter, 'image.children.0.fixed', {});
 
         const extra = (
           <Comment.Group>
@@ -81,7 +79,7 @@ const BlogPage = (props: BlogProps) => {
 
       {/* Content */}
       <Segment vertical>
-        <Grid padded style={{ justifyContent: "space-around" }}>
+        <Grid padded style={{ justifyContent: 'space-around' }}>
           <div style={{ maxWidth: 600 }}>
             {Posts}
             <Segment vertical textAlign="center">

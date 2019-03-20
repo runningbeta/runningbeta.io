@@ -1,12 +1,12 @@
-import * as React from "react";
-import { Header, Container, Segment, Grid, List } from "semantic-ui-react";
+import * as React from 'react';
+import { Header, Container, Segment, Grid, List } from 'semantic-ui-react';
 
-import { withLayout, LayoutProps } from "../components/Layout";
-import Masthead from "../components/Masthead/Masthead";
-import ContentWithImage from "../components/ContentWithImage/ContentWithImage";
+import { withLayout, LayoutProps } from '../components/Layout';
+import Masthead from '../components/Masthead/Masthead';
+import ContentWithImage from '../components/ContentWithImage/ContentWithImage';
 
-import Technologies from "../data/technologyStacks";
-import ContactForm from "../components/ContactForm/ContactForm";
+import technologyStacks from '../data/technologyStacks';
+import ContactForm from '../components/ContactForm/ContactForm';
 
 const ServicesPage = (props: LayoutProps) => {
   return (
@@ -15,7 +15,7 @@ const ServicesPage = (props: LayoutProps) => {
         {...props}
         title="We build products that bring value to the users."
         subtitle="Trust us with your project"
-        buttonLabel="Get started!"
+        // buttonLabel="Get started!"
       />
       <Segment vertical className="stripe feature">
         <Container>
@@ -28,7 +28,9 @@ const ServicesPage = (props: LayoutProps) => {
           >
             <Grid.Row columns="1">
               <Grid.Column>
-                <Header as="h1">Blockchain Focused</Header>
+                <Header id="blockchainFocused" as="h1">
+                  Blockchain Focused
+                </Header>
               </Grid.Column>
             </Grid.Row>
             <Grid.Row columns="1">
@@ -47,7 +49,7 @@ const ServicesPage = (props: LayoutProps) => {
                 <div
                   className="coverImage"
                   style={{
-                    backgroundImage: `url(${require("../assets/images/stock/audit.jpeg")})`
+                    backgroundImage: `url(${require('../assets/images/stock/audit.jpeg')})`,
                   }}
                 />
                 <Header>CONTRACT AUDITS</Header>
@@ -62,7 +64,7 @@ const ServicesPage = (props: LayoutProps) => {
                 <div
                   className="coverImage"
                   style={{
-                    backgroundImage: `url(${require("../assets/images/stock/blockchain.jpeg")})`
+                    backgroundImage: `url(${require('../assets/images/stock/blockchain.jpeg')})`,
                   }}
                 />
                 <Header>BLOCKCHAIN DAPPS</Header>
@@ -88,7 +90,9 @@ const ServicesPage = (props: LayoutProps) => {
           >
             <Grid.Row columns="1">
               <Grid.Column>
-                <Header as="h1">Platform Agnostic</Header>
+                <Header id="platformAgnostic" as="h1">
+                  Platform Agnostic
+                </Header>
               </Grid.Column>
             </Grid.Row>
             <Grid.Row columns="1">
@@ -106,7 +110,7 @@ const ServicesPage = (props: LayoutProps) => {
                 <div
                   className="coverImage"
                   style={{
-                    backgroundImage: `url(${require("../assets/images/stock/website.jpg")})`
+                    backgroundImage: `url(${require('../assets/images/stock/website.jpg')})`,
                   }}
                 />
                 <Header>WEB</Header>
@@ -120,7 +124,7 @@ const ServicesPage = (props: LayoutProps) => {
                 <div
                   className="coverImage"
                   style={{
-                    backgroundImage: `url(${require("../assets/images/stock/cellphone.jpg")})`
+                    backgroundImage: `url(${require('../assets/images/stock/cellphone.jpg')})`,
                   }}
                 />
                 <Header>MOBILE</Header>
@@ -145,7 +149,9 @@ const ServicesPage = (props: LayoutProps) => {
           >
             <Grid.Row columns="1">
               <Grid.Column>
-                <Header as="h1">Project Management</Header>
+                <Header id="projectManagement" as="h1">
+                  Project Management
+                </Header>
               </Grid.Column>
             </Grid.Row>
             <Grid.Row columns="1">
@@ -162,7 +168,7 @@ const ServicesPage = (props: LayoutProps) => {
                 <div
                   className="coverImage"
                   style={{
-                    backgroundImage: `url(${require("../assets/images/stock/flow.jpg")})`
+                    backgroundImage: `url(${require('../assets/images/stock/flow.jpg')})`,
                   }}
                 />
                 <Header>DEVELOPMENT PROCESS</Header>
@@ -178,7 +184,7 @@ const ServicesPage = (props: LayoutProps) => {
                 <div
                   className="coverImage"
                   style={{
-                    backgroundImage: `url(${require("../assets/images/stock/idea.jpeg")})`
+                    backgroundImage: `url(${require('../assets/images/stock/idea.jpeg')})`,
                   }}
                 />
                 <Header>SOLUTION DEVELOPMENT</Header>
@@ -204,16 +210,16 @@ const ServicesPage = (props: LayoutProps) => {
             </Grid.Row>
           </Grid>
           <Grid className="technologies" relaxed doubling columns={3}>
-            <Grid.Row style={{ marginTop: "2rem" }}>
+            <Grid.Row style={{ marginTop: '2rem' }}>
               {Technologies.map((tech: { header: string; items: string[] }) => (
-                <Grid.Column key={tech.header} style={{ marginBottom: "3rem" }}>
+                <Grid.Column key={tech.header} style={{ marginBottom: '3rem' }}>
                   <List divided>
                     <List.Header>
                       <Header
                         as="h4"
                         style={{
-                          textTransform: "uppercase",
-                          marginBottom: "0.75rem"
+                          textTransform: 'uppercase',
+                          marginBottom: '0.75rem',
                         }}
                       >
                         {tech.header}
@@ -250,7 +256,7 @@ const ServicesPage = (props: LayoutProps) => {
                 <div
                   className="coverImage"
                   style={{
-                    backgroundImage: `url(${require("../assets/images/stock/brainstorm.jpeg")})`
+                    backgroundImage: `url(${require('../assets/images/stock/brainstorm.jpeg')})`,
                   }}
                 />
                 <Header as="h2">PROJECT ESTIMATE</Header>
@@ -269,7 +275,7 @@ const ServicesPage = (props: LayoutProps) => {
                 <div
                   className="coverImage"
                   style={{
-                    backgroundImage: `url(${require("../assets/images/stock/hourly.jpeg")})`
+                    backgroundImage: `url(${require('../assets/images/stock/hourly.jpeg')})`,
                   }}
                 />
                 <Header as="h2">PER HOUR / PER DAY</Header>
@@ -292,7 +298,7 @@ const ServicesPage = (props: LayoutProps) => {
                 <div
                   className="coverImage"
                   style={{
-                    backgroundImage: `url(${require("../assets/images/stock/consulting.jpg")})`
+                    backgroundImage: `url(${require('../assets/images/stock/consulting.jpg')})`,
                   }}
                 />
                 <Header as="h2">CONSULTING</Header>
@@ -310,7 +316,7 @@ const ServicesPage = (props: LayoutProps) => {
                 <div
                   className="coverImage"
                   style={{
-                    backgroundImage: `url(${require("../assets/images/stock/team.jpeg")})`
+                    backgroundImage: `url(${require('../assets/images/stock/team.jpeg')})`,
                   }}
                 />
                 <Header as="h2">DEDICATED TEAM</Header>
@@ -332,7 +338,7 @@ const ServicesPage = (props: LayoutProps) => {
       <Segment vertical className="stripe feature alternate">
         <ContentWithImage
           title="Idea development"
-          src={require("../assets/images/stock/idea_dev.jpeg")}
+          src={require('../assets/images/stock/idea_dev.jpeg')}
           content={
             <React.Fragment>
               <p>
@@ -355,7 +361,7 @@ const ServicesPage = (props: LayoutProps) => {
       <Segment vertical className="stripe feature">
         <ContentWithImage
           title="Get in touch"
-          src={require("../assets/images/stock/contact.jpg")}
+          src={require('../assets/images/stock/contact.jpg')}
           content={<ContactForm />}
         />
       </Segment>

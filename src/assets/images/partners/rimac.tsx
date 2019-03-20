@@ -1,4 +1,5 @@
-import * as React from "react";
+// tslint:disable: max-line-length
+import * as React from 'react';
 
 const Rimac = () => (
   <svg

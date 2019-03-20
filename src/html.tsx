@@ -1,10 +1,10 @@
 /* tslint:disable no-var-requires */
 /* tslint:disable no-console */
 
-import * as React from "react";
-import Helmet from "react-helmet";
+import * as React from 'react';
+import reactHelmet from 'react-helmet';
 
-const config = require("../gatsby-config.js");
+const config = require('../gatsby-config.js');
 
 interface HtmlProps {
   body: any;

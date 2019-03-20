@@ -9,14 +9,14 @@ const trackEvent = (
   eventCategory: string,
   eventAction: string,
   eventLabel: string,
-  eventValue: any
+  eventValue: any,
 ) => {
   if (window.ga) {
-    window.ga("send", "event", {
+    window.ga('send', 'event', {
       eventCategory,
       eventAction,
       eventLabel,
-      eventValue
+      eventValue,
     });
   }
 

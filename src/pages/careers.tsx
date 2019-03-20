@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { withLayout, LayoutProps } from "../components/Layout";
+import React, { Component } from 'react';
+import { withLayout, LayoutProps } from '../components/Layout';
 import {
   Accordion,
   Card,
@@ -10,16 +10,16 @@ import {
   List,
   Message,
   Grid,
-  Segment
-} from "semantic-ui-react";
-import { SemanticICONS } from "semantic-ui-react/dist/commonjs/generic";
+  Segment,
+} from 'semantic-ui-react';
+import { SemanticICONS } from 'semantic-ui-react/dist/commonjs/generic';
 
-import Masthead from "../components/Masthead/Masthead";
-import ContentWithImage from "../components/ContentWithImage/ContentWithImage";
+import Masthead from '../components/Masthead/Masthead';
+import ContentWithImage from '../components/ContentWithImage/ContentWithImage';
 
-import Opportunities from "../data/opportunities";
-import Books from "../data/books";
-import Questions from "../data/careerQuestions";
+import opportunities from '../data/opportunities';
+import books from '../data/books';
+import careerQuestions from '../data/careerQuestions';
 
 const BookList = (props: any) => (
   <div>
@@ -52,7 +52,7 @@ class CareersPage extends Component<LayoutProps> {
     const newIndex = activeIndex === index ? -1 : index;
 
     this.setState({ activeIndex: newIndex });
-  };
+  }
 
   render() {
     const { activeIndex } = this.state;
@@ -62,9 +62,10 @@ class CareersPage extends Component<LayoutProps> {
         <Masthead
           {...this.props}
           title="Careers"
+          // tslint:disable: max-line-length
           subtitle="RunningBeta was founded in 2017 as a result of our aspiration to create a community based on transparent work culture that will employ the best professionals in the world. Our goal is to work on meaningful projects that help create a better future and bring them to life using the best technologies available."
-          buttonLabel="Start your application"
-          buttonIcon="chevron right"
+        // buttonLabel="Start your application"
+        // buttonIcon="chevron right"
         />
         <Segment vertical className="stripe feature">
           <Container>
@@ -79,11 +80,11 @@ class CareersPage extends Component<LayoutProps> {
                   <div
                     style={{
                       opacity: 0.7,
-                      height: "15rem",
-                      width: "100%",
-                      backgroundImage: `url(${require("../assets/images/stock/distributed.jpeg")})`,
-                      backgroundSize: "cover",
-                      backgroundPosition: "center center"
+                      height: '15rem',
+                      width: '100%',
+                      backgroundImage: `url(${require('../assets/images/stock/distributed.jpeg')})`,
+                      backgroundSize: 'cover',
+                      backgroundPosition: 'center center',
                     }}
                   />
                 </Grid.Column>
@@ -112,38 +113,38 @@ class CareersPage extends Component<LayoutProps> {
                   icon: SemanticICONS;
                   label: string;
                 }) => (
-                  <Card key={opp.label} as="a" href="#">
-                    <div
-                      style={{
-                        opacity: 0.7,
-                        height: "15rem",
-                        backgroundImage: `url(${opp.image})`,
-                        backgroundSize: "cover"
-                      }}
-                    />
-                    <Header
-                      style={{
-                        background:
-                          "linear-gradient(to bottom, #00000000, #000000FF)",
-                        position: "absolute",
-                        bottom: 0,
-                        left: 0,
-                        right: 0,
-                        padding: "2rem 1rem 1rem",
-                        color: "#fff"
-                      }}
-                      as="h2"
-                    >
-                      <Icon name={opp.icon as SemanticICONS} />
-                      <Header.Content>{opp.label}</Header.Content>
-                    </Header>
-                  </Card>
-                )
+                    <Card key={opp.label} as="a" href="#">
+                      <div
+                        style={{
+                          opacity: 0.7,
+                          height: '15rem',
+                          backgroundImage: `url(${opp.image})`,
+                          backgroundSize: 'cover',
+                        }}
+                      />
+                      <Header
+                        style={{
+                          background:
+                            'linear-gradient(to bottom, #00000000, #000000FF)',
+                          position: 'absolute',
+                          bottom: 0,
+                          left: 0,
+                          right: 0,
+                          padding: '2rem 1rem 1rem',
+                          color: '#fff',
+                        }}
+                        as="h2"
+                      >
+                        <Icon name={opp.icon as SemanticICONS} />
+                        <Header.Content>{opp.label}</Header.Content>
+                      </Header>
+                    </Card>
+                  ),
               )}
             </Card.Group>
           </Container>
         </Segment>
-        <Segment vertical className="stripe feature">
+        <Segment vertical className="stripe feature unfinished">
           <Container>
             <Header as="h2">Recommended Reading</Header>
             <p>
@@ -155,10 +156,10 @@ class CareersPage extends Component<LayoutProps> {
             <BookList books={Books} />
           </Container>
         </Segment>
-        <Segment vertical className="stripe feature alternate">
+        <Segment vertical className="stripe feature alternate unfinished">
           <Container>
             <ContentWithImage
-              src={require("../assets/images/stock/globe.jpeg")}
+              src={require('../assets/images/stock/globe.jpeg')}
               title="Apply for position"
               content={
                 <p>
@@ -171,7 +172,7 @@ class CareersPage extends Component<LayoutProps> {
             />
           </Container>
         </Segment>
-        <Segment vertical className="stripe feature">
+        <Segment vertical className="stripe feature unfinished">
           <Container>
             <Accordion fluid styled>
               {Questions.map((f, i) => (
@@ -187,7 +188,7 @@ class CareersPage extends Component<LayoutProps> {
                     </Header>
                   </Accordion.Title>
                   <Accordion.Content
-                    style={{ paddingLeft: "6rem" }}
+                    style={{ paddingLeft: '6rem' }}
                     active={activeIndex === i}
                   >
                     <p>{f.answer}</p>

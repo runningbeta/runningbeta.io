@@ -1,17 +1,17 @@
 // package.json
-declare module "*/package.json" {
+declare module '*/package.json' {
   export const version: string;
   export const author: string;
 }
 
-declare module "*.json" {
+declare module '*.json' {
   const value: any;
   export default value;
 }
 
 declare const graphql: (query: TemplateStringsArray) => void;
 
-declare module "disqus-react" {
+declare module 'disqus-react' {
   export class DiscussionEmbed extends React.Component<
     {
       shortname: string;
@@ -25,7 +25,7 @@ declare module "disqus-react" {
   > {}
 }
 
-declare module "*.svg" {
+declare module '*.svg' {
   const content: any;
   export default content;
 }

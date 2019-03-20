@@ -1,15 +1,15 @@
-import * as React from "react";
-import classnames from "classnames";
-import { default as ReCAPTCHA } from "react-google-recaptcha";
-import * as validate from "validate.js";
-import { isEmpty } from "lodash";
-import { Grid, Header, Button, Container, Icon } from "semantic-ui-react";
-import trackEvent from "../../analytics/trackEvent";
+import * as React from 'react';
+import classnames from 'classnames';
+import { default as ReCAPTCHA } from 'react-google-recaptcha';
+import * as validate from 'validate.js';
+import { isEmpty } from 'lodash';
+import { Grid, Header, Button, Container, Icon } from 'semantic-ui-react';
+import trackEvent from '../../analytics/trackEvent';
 
 function encode(data: any) {
   return Object.keys(data)
     .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
-    .join("&");
+    .join('&');
 }
 
 type ContactProps = {};
@@ -31,45 +31,45 @@ type ContactState = {
 export default class Contact extends React.Component<
   ContactProps,
   ContactState
-> {
+  > {
   state: ContactState = {
     constraints: {
       email: {
         email: true,
-        presence: { allowEmpty: false }
+        presence: { allowEmpty: false },
       },
       message: {
-        presence: { allowEmpty: false }
+        presence: { allowEmpty: false },
       },
       name: {
-        presence: { allowEmpty: false }
+        presence: { allowEmpty: false },
       },
       subject: {
-        presence: { allowEmpty: false }
-      }
+        presence: { allowEmpty: false },
+      },
     },
-    contactMeByFax: "",
-    email: "",
+    contactMeByFax: '',
+    email: '',
     errors: {},
-    gRecaptchaResponse: "",
+    gRecaptchaResponse: '',
     isValid: true,
-    message: "",
-    name: "",
+    message: '',
+    name: '',
     showValidation: false,
-    subject: "",
+    subject: '',
     thanksVisible: false,
-    visited: {}
+    visited: {},
   };
 
   handleChange = (
-    e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { constraints } = this.state;
     const formInput = e.target as HTMLInputElement;
     const state = { ...this.state, [formInput.name]: formInput.value };
     const errors = validate(state, constraints);
     this.setState({ ...state, errors, isValid: isEmpty(errors) });
-  };
+  }
 
   handleBlur = (e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { visited, constraints } = this.state;
@@ -80,28 +80,28 @@ export default class Contact extends React.Component<
       ...this.state,
       visited: {
         ...visited,
-        [formInput.name]: true
-      }
+        [formInput.name]: true,
+      },
     };
     const errors = validate(state, constraints);
     this.setState({ ...state, errors, isValid: isEmpty(errors) });
-  };
+  }
 
   handleRecaptcha = (value: any) => {
     this.setState({ gRecaptchaResponse: value });
-  };
+  }
 
   handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const { state } = this;
-    const { constraints } = this.state;
+    const state = this.state;
+    const { constraints } = state;
     const errors = validate(state, constraints);
 
     this.setState({
       ...state,
       errors,
       isValid: isEmpty(errors),
-      showValidation: true
+      showValidation: true,
     });
 
     if (!isEmpty(errors)) {
@@ -109,41 +109,41 @@ export default class Contact extends React.Component<
     }
 
     const form = e.target as HTMLFormElement;
-    fetch("/", {
+    fetch('/', {
       body: encode({
         contactMeByFax: this.state.contactMeByFax,
         email: this.state.email,
-        "form-name": "contact",
-        "g-recaptcha-response": this.state.gRecaptchaResponse,
+        'form-name': 'contact',
+        'g-recaptcha-response': this.state.gRecaptchaResponse,
         message: this.state.message,
         name: this.state.name,
-        subject: this.state.subject
+        subject: this.state.subject,
       }),
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      method: "POST"
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      method: 'POST',
     })
-      .then(r => {
+      .then((r) => {
         const { name, message } = this.state;
-        trackEvent("Contact Form", "Submit", name, message);
+        trackEvent('Contact Form', 'Submit', name, message);
         this.setState({
-          contactMeByFax: "",
-          email: "",
+          contactMeByFax: '',
+          email: '',
           errors: {},
-          message: "",
-          name: "",
-          subject: "",
+          message: '',
+          name: '',
+          subject: '',
           thanksVisible: true,
-          visited: {}
+          visited: {},
         });
       })
-      .catch(err => {
+      .catch((err) => {
         return;
       });
-  };
+  }
 
   toggleThanks = () => {
     this.setState({ thanksVisible: false });
-  };
+  }
 
   render() {
     const {
@@ -157,7 +157,7 @@ export default class Contact extends React.Component<
       showValidation,
       subject,
       thanksVisible,
-      visited
+      visited,
     } = this.state;
 
     return (
@@ -175,9 +175,8 @@ export default class Contact extends React.Component<
                 onSubmit={this.handleSubmit}
                 noValidate
               >
-                {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
                 <input type="hidden" name="form-name" value="contact" />
-                <div className="required field" style={{ display: "none" }}>
+                <div className="required field" style={{ display: 'none' }}>
                   <label>Contact me by fax</label>
                   <div className="ui input">
                     <input
@@ -194,14 +193,14 @@ export default class Contact extends React.Component<
                 <div
                   className={classnames({
                     error: Boolean(
-                      (visited.name || showValidation) && errors && errors.name
+                      (visited.name || showValidation) && errors && errors.name,
                     ),
                     field: true,
-                    required: true
+                    required: true,
                   })}
                 >
                   <label>Name / Company</label>
-                  <div className="ui input" style={{ flexDirection: "column" }}>
+                  <div className="ui input" style={{ flexDirection: 'column' }}>
                     <input
                       type="text"
                       name="name"
@@ -211,7 +210,7 @@ export default class Contact extends React.Component<
                       value={name}
                       required
                     />
-                    <div className="validation" style={{ marginTop: "0.5rem" }}>
+                    <div className="validation" style={{ marginTop: '0.5rem' }}>
                       {(visited.name || showValidation) &&
                         errors &&
                         errors.name &&
@@ -223,15 +222,15 @@ export default class Contact extends React.Component<
                   className={classnames({
                     error: Boolean(
                       (visited.email || showValidation) &&
-                        errors &&
-                        errors.email
+                      errors &&
+                      errors.email,
                     ),
                     field: true,
-                    required: true
+                    required: true,
                   })}
                 >
                   <label>Email</label>
-                  <div className="ui input" style={{ flexDirection: "column" }}>
+                  <div className="ui input" style={{ flexDirection: 'column' }}>
                     <input
                       type="email"
                       name="email"
@@ -241,7 +240,7 @@ export default class Contact extends React.Component<
                       value={email}
                       required
                     />
-                    <div className="validation" style={{ marginTop: "0.5rem" }}>
+                    <div className="validation" style={{ marginTop: '0.5rem' }}>
                       {(visited.email || showValidation) &&
                         errors &&
                         errors.email &&
@@ -253,15 +252,15 @@ export default class Contact extends React.Component<
                   className={classnames({
                     error: Boolean(
                       (visited.subject || showValidation) &&
-                        errors &&
-                        errors.subject
+                      errors &&
+                      errors.subject,
                     ),
                     field: true,
-                    required: true
+                    required: true,
                   })}
                 >
                   <label>Subject</label>
-                  <div className="ui input" style={{ flexDirection: "column" }}>
+                  <div className="ui input" style={{ flexDirection: 'column' }}>
                     <input
                       type="text"
                       name="subject"
@@ -271,7 +270,7 @@ export default class Contact extends React.Component<
                       value={subject}
                       required
                     />
-                    <div className="validation" style={{ marginTop: "0.5rem" }}>
+                    <div className="validation" style={{ marginTop: '0.5rem' }}>
                       {(visited.subject || showValidation) &&
                         errors &&
                         errors.subject &&
@@ -283,15 +282,15 @@ export default class Contact extends React.Component<
                   className={classnames({
                     error: Boolean(
                       (visited.message || showValidation) &&
-                        errors &&
-                        errors.message
+                      errors &&
+                      errors.message,
                     ),
                     field: true,
-                    required: true
+                    required: true,
                   })}
                 >
                   <label>Message</label>
-                  <div className="ui input" style={{ flexDirection: "column" }}>
+                  <div className="ui input" style={{ flexDirection: 'column' }}>
                     <textarea
                       rows={5}
                       name="message"
@@ -301,7 +300,7 @@ export default class Contact extends React.Component<
                       value={message}
                       required
                     />
-                    <div className="validation" style={{ marginTop: "0.5rem" }}>
+                    <div className="validation" style={{ marginTop: '0.5rem' }}>
                       {(visited.message || showValidation) &&
                         errors &&
                         errors.message &&
@@ -320,7 +319,7 @@ export default class Contact extends React.Component<
                   disabled={!gRecaptchaResponse || !isValid}
                   primary
                   size="large"
-                  style={{ width: "50%" }}
+                  style={{ width: '50%' }}
                   type="submit"
                 >
                   Send
@@ -331,24 +330,24 @@ export default class Contact extends React.Component<
           {thanksVisible && (
             <div
               style={{
-                alignItems: "center",
-                backgroundColor: "white",
+                alignItems: 'center',
+                backgroundColor: 'white',
                 bottom: 0,
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
                 left: 0,
-                position: "absolute",
+                position: 'absolute',
                 right: 0,
-                textAlign: "left",
-                top: 0
+                textAlign: 'left',
+                top: 0,
               }}
             >
               <div style={{ maxWidth: 500 }}>
                 <Button
                   style={{
-                    float: "right",
-                    marginTop: "calc(2rem - .14285714em)"
+                    float: 'right',
+                    marginTop: 'calc(2rem - .14285714em)',
                   }}
                   color="black"
                   inverted

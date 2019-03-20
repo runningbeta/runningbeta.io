@@ -1,5 +1,5 @@
-import * as React from "react";
-import { Link } from "gatsby";
+import * as React from 'react';
+import { Link } from 'gatsby';
 import {
   Button,
   Header,
@@ -8,12 +8,12 @@ import {
   Icon,
   SemanticSIZES,
   SemanticTEXTALIGNMENTS,
-  SemanticICONS
-} from "semantic-ui-react";
-import { LayoutProps, menuItems } from "../Layout";
+  SemanticICONS,
+} from 'semantic-ui-react';
+import { LayoutProps, menuItems } from '../Layout';
 
-import HeaderMenu from "../HeaderMenu/HeaderMenu";
-import { MenuItem } from "../Menu";
+import HeaderMenu from '../HeaderMenu/HeaderMenu';
+import { MenuItem } from '../Menu';
 
 interface MastheadProps extends LayoutProps {
   title: string;
@@ -33,7 +33,7 @@ export const Masthead = (props: MastheadProps) => {
         items={menuItems}
         inverted
       />
-      <Container text textAlign={props.textAlign || "left"}>
+      <Container text textAlign={props.textAlign || 'left'}>
         <Header inverted as="h1">
           {props.title}
         </Header>
@@ -41,7 +41,7 @@ export const Masthead = (props: MastheadProps) => {
           {props.subtitle}
         </Header>
         {props.buttonLabel && (
-          <Button basic inverted size={props.buttonSize || "large"}>
+          <Button basic inverted size={props.buttonSize || 'large'}>
             {props.buttonLabel}
             {props.buttonIcon && <Icon name={props.buttonIcon} />}
           </Button>

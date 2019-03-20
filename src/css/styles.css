@@ -136,7 +136,8 @@ pre {
   background-size: cover;
   background-position: center center;
 }
-x .feature ul li + li {
+
+.feature ul li + li {
   margin: 2rem 0;
 }
 
@@ -146,5 +147,23 @@ x .feature ul li + li {
 }
 
 p {
-  color: #000000bb;
+  color: #000b;
+}
+
+.segment h1.title {
+  font-size: 4rem;
+  margin: 6rem 0 3rem;
+}
+
+.segment.unfinished p,
+.segment.unfinished h1,
+.segment.unfinished h2 {
+  color: lightcoral !important;
+}
+
+.segment.unfinished h1.title::after {
+  content: "unfinished";
+  font-size: 1rem;
+  padding: 0 1rem;
+  vertical-align: text-bottom;
 }
