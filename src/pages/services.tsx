@@ -1,14 +1,14 @@
-import * as React from 'react';
-import { Header, Container, Segment, Grid, List } from 'semantic-ui-react';
+import * as React from "react";
+import { Container, Grid, Header, List, Segment } from "semantic-ui-react";
 
-import { withLayout, LayoutProps } from '../components/Layout';
-import Masthead from '../components/Masthead/Masthead';
-import ContentWithImage from '../components/ContentWithImage/ContentWithImage';
+import ContentWithImage from "../components/ContentWithImage/ContentWithImage";
+import { ILayoutProps, withLayout } from "../components/Layout";
+import Masthead from "../components/Masthead/Masthead";
 
-import Technologies from '../data/technologyStacks';
-import ContactForm from '../components/ContactForm/ContactForm';
+import ContactForm from "../components/ContactForm/ContactForm";
+import Technologies from "../data/technologyStacks";
 
-const ServicesPage = (props: LayoutProps) => {
+const ServicesPage = (props: ILayoutProps) => {
   return (
     <div>
       <Masthead
@@ -17,13 +17,13 @@ const ServicesPage = (props: LayoutProps) => {
         subtitle="Trust us with your project"
       // buttonLabel="Get started!"
       />
-      <Segment vertical className="stripe feature">
+      <Segment vertical={true} className="stripe feature">
         <Container>
           <Grid
             columns="2"
             textAlign="left"
-            relaxed
-            stackable
+            relaxed={true}
+            stackable={true}
             verticalAlign="top"
           >
             <Grid.Row columns="1">
@@ -49,7 +49,7 @@ const ServicesPage = (props: LayoutProps) => {
                 <div
                   className="coverImage"
                   style={{
-                    backgroundImage: `url(${require('../assets/images/stock/audit.jpeg')})`,
+                    backgroundImage: `url(${require("../assets/images/stock/audit.jpeg")})`,
                   }}
                 />
                 <Header>CONTRACT AUDITS</Header>
@@ -64,7 +64,7 @@ const ServicesPage = (props: LayoutProps) => {
                 <div
                   className="coverImage"
                   style={{
-                    backgroundImage: `url(${require('../assets/images/stock/blockchain.jpeg')})`,
+                    backgroundImage: `url(${require("../assets/images/stock/blockchain.jpeg")})`,
                   }}
                 />
                 <Header>BLOCKCHAIN DAPPS</Header>
@@ -79,13 +79,13 @@ const ServicesPage = (props: LayoutProps) => {
           </Grid>
         </Container>
       </Segment>
-      <Segment vertical className="stripe feature alternate">
+      <Segment vertical={true} className="stripe feature alternate">
         <Container>
           <Grid
             columns="2"
             textAlign="left"
-            relaxed
-            stackable
+            relaxed={true}
+            stackable={true}
             verticalAlign="top"
           >
             <Grid.Row columns="1">
@@ -110,7 +110,7 @@ const ServicesPage = (props: LayoutProps) => {
                 <div
                   className="coverImage"
                   style={{
-                    backgroundImage: `url(${require('../assets/images/stock/website.jpg')})`,
+                    backgroundImage: `url(${require("../assets/images/stock/website.jpg")})`,
                   }}
                 />
                 <Header>WEB</Header>
@@ -124,7 +124,7 @@ const ServicesPage = (props: LayoutProps) => {
                 <div
                   className="coverImage"
                   style={{
-                    backgroundImage: `url(${require('../assets/images/stock/cellphone.jpg')})`,
+                    backgroundImage: `url(${require("../assets/images/stock/cellphone.jpg")})`,
                   }}
                 />
                 <Header>MOBILE</Header>
@@ -138,13 +138,13 @@ const ServicesPage = (props: LayoutProps) => {
           </Grid>
         </Container>
       </Segment>
-      <Segment vertical className="stripe feature">
+      <Segment vertical={true} className="stripe feature">
         <Container>
           <Grid
             columns="2"
             textAlign="left"
-            relaxed
-            stackable
+            relaxed={true}
+            stackable={true}
             verticalAlign="top"
           >
             <Grid.Row columns="1">
@@ -168,7 +168,7 @@ const ServicesPage = (props: LayoutProps) => {
                 <div
                   className="coverImage"
                   style={{
-                    backgroundImage: `url(${require('../assets/images/stock/flow.jpg')})`,
+                    backgroundImage: `url(${require("../assets/images/stock/flow.jpg")})`,
                   }}
                 />
                 <Header>DEVELOPMENT PROCESS</Header>
@@ -184,7 +184,7 @@ const ServicesPage = (props: LayoutProps) => {
                 <div
                   className="coverImage"
                   style={{
-                    backgroundImage: `url(${require('../assets/images/stock/idea.jpeg')})`,
+                    backgroundImage: `url(${require("../assets/images/stock/idea.jpeg")})`,
                   }}
                 />
                 <Header>SOLUTION DEVELOPMENT</Header>
@@ -200,32 +200,32 @@ const ServicesPage = (props: LayoutProps) => {
           </Grid>
         </Container>
       </Segment>
-      <Segment vertical className="stripe feature alternate">
+      <Segment vertical={true} className="stripe feature alternate">
         <Container>
-          <Grid className="technologies" relaxed>
+          <Grid className="technologies" relaxed={true}>
             <Grid.Row>
               <Grid.Column>
                 <Header as="h2">Technology Stacks</Header>
               </Grid.Column>
             </Grid.Row>
           </Grid>
-          <Grid className="technologies" relaxed doubling columns={3}>
-            <Grid.Row style={{ marginTop: '2rem' }}>
+          <Grid className="technologies" relaxed={true} doubling={true} columns={3}>
+            <Grid.Row style={{ marginTop: "2rem" }}>
               {Technologies.map((tech: { header: string; items: string[] }) => (
-                <Grid.Column key={tech.header} style={{ marginBottom: '3rem' }}>
-                  <List divided>
+                <Grid.Column key={tech.header} style={{ marginBottom: "3rem" }}>
+                  <List divided={true}>
                     <List.Header>
                       <Header
                         as="h4"
                         style={{
-                          textTransform: 'uppercase',
-                          marginBottom: '0.75rem',
+                          marginBottom: "0.75rem",
+                          textTransform: "uppercase",
                         }}
                       >
                         {tech.header}
                       </Header>
                     </List.Header>
-                    {tech.items.map(item => (
+                    {tech.items.map((item) => (
                       <List.Item key={item}>
                         <p>{item}</p>
                       </List.Item>
@@ -237,13 +237,13 @@ const ServicesPage = (props: LayoutProps) => {
           </Grid>
         </Container>
       </Segment>
-      <Segment vertical className="stripe feature">
+      <Segment vertical={true} className="stripe feature">
         <Container>
           <Grid
             columns="2"
             textAlign="left"
-            relaxed
-            stackable
+            relaxed={true}
+            stackable={true}
             verticalAlign="top"
           >
             <Grid.Row columns="1">
@@ -256,7 +256,7 @@ const ServicesPage = (props: LayoutProps) => {
                 <div
                   className="coverImage"
                   style={{
-                    backgroundImage: `url(${require('../assets/images/stock/brainstorm.jpeg')})`,
+                    backgroundImage: `url(${require("../assets/images/stock/brainstorm.jpeg")})`,
                   }}
                 />
                 <Header as="h2">PROJECT ESTIMATE</Header>
@@ -275,7 +275,7 @@ const ServicesPage = (props: LayoutProps) => {
                 <div
                   className="coverImage"
                   style={{
-                    backgroundImage: `url(${require('../assets/images/stock/hourly.jpeg')})`,
+                    backgroundImage: `url(${require("../assets/images/stock/hourly.jpeg")})`,
                   }}
                 />
                 <Header as="h2">PER HOUR / PER DAY</Header>
@@ -298,7 +298,7 @@ const ServicesPage = (props: LayoutProps) => {
                 <div
                   className="coverImage"
                   style={{
-                    backgroundImage: `url(${require('../assets/images/stock/consulting.jpg')})`,
+                    backgroundImage: `url(${require("../assets/images/stock/consulting.jpg")})`,
                   }}
                 />
                 <Header as="h2">CONSULTING</Header>
@@ -316,7 +316,7 @@ const ServicesPage = (props: LayoutProps) => {
                 <div
                   className="coverImage"
                   style={{
-                    backgroundImage: `url(${require('../assets/images/stock/team.jpeg')})`,
+                    backgroundImage: `url(${require("../assets/images/stock/team.jpeg")})`,
                   }}
                 />
                 <Header as="h2">DEDICATED TEAM</Header>
@@ -335,10 +335,10 @@ const ServicesPage = (props: LayoutProps) => {
           </Grid>
         </Container>
       </Segment>
-      <Segment vertical className="stripe feature alternate">
+      <Segment vertical={true} className="stripe feature alternate">
         <ContentWithImage
           title="Idea development"
-          src={require('../assets/images/stock/idea_dev.jpeg')}
+          src={require("../assets/images/stock/idea_dev.jpeg")}
           content={
             <React.Fragment>
               <p>
@@ -358,10 +358,10 @@ const ServicesPage = (props: LayoutProps) => {
           buttonIcon="chevron right"
         />
       </Segment>
-      <Segment vertical className="stripe feature">
+      <Segment vertical={true} className="stripe feature">
         <ContentWithImage
           title="Get in touch"
-          src={require('../assets/images/stock/contact.jpg')}
+          src={require("../assets/images/stock/contact.jpg")}
           content={<ContactForm />}
         />
       </Segment>

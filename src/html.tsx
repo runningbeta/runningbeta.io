@@ -1,18 +1,16 @@
-/* tslint:disable no-var-requires */
-/* tslint:disable no-console */
+import React from "react";
+import Helmet from "react-helmet";
 
-import * as React from 'react';
-import Helmet from 'react-helmet';
+/* tslint:disable-next-line no-var-requires */
+const config = require("../gatsby-config.js");
 
-const config = require('../gatsby-config.js');
-
-interface HtmlProps {
+interface IHtmlProps {
   body: any;
   postBodyComponents: any;
   headComponents: any;
 }
 
-export default (props: HtmlProps) => {
+export default (props: IHtmlProps) => {
   const head = Helmet.rewind();
 
   const verification =

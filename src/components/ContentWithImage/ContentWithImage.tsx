@@ -1,85 +1,88 @@
-import * as React from 'react';
+import GatsbyLink from "gatsby-link";
+import * as React from "react";
 import {
   Button,
-  Header,
   Container,
   Grid,
-  Placeholder,
+  Header,
   Icon,
-  SemanticSIZES,
-  SemanticICONS,
+  Placeholder,
   SemanticCOLORS,
-} from 'semantic-ui-react';
+  SemanticICONS,
+  SemanticSIZES,
+} from "semantic-ui-react";
 
-interface ContentWithImageProps {
-  title: string;
-  content: string | JSX.Element;
+interface IContentWithImageProps {
   buttonColor?: SemanticCOLORS;
+  buttonIcon?: SemanticICONS;
   buttonLabel?: string;
   buttonSize?: SemanticSIZES;
-  buttonIcon?: SemanticICONS;
+  buttonTo?: string;
+  content: string | JSX.Element;
+  contentOrientation?: "text-image" | "image-text";
+  opacity?: number;
   primary?: boolean;
   secondary?: boolean;
   src?: any;
-  opacity?: number;
-  contentOrientation?: 'text-image' | 'image-text';
+  title: string;
 }
 
-export const ContentWithImage = (props: ContentWithImageProps) => {
+export const ContentWithImage = (props: IContentWithImageProps) => {
   return (
     <Container>
-      <Grid columns="2" textAlign="left" relaxed stackable>
+      <Grid columns="2" textAlign="left" relaxed={true} stackable={true}>
         <Grid.Row>
-          {props.contentOrientation === 'image-text' && (
+          {props.contentOrientation === "image-text" && (
             <Grid.Column>
               {props.src ? (
                 <div
                   style={{
-                    opacity: props.opacity || 0.7,
-                    height: '100%',
                     backgroundImage: `url(${props.src})`,
-                    backgroundSize: 'cover',
+                    backgroundSize: "cover",
+                    height: "100%",
+                    opacity: props.opacity || 0.7,
                   }}
                 />
               ) : (
                   <Placeholder>
-                    <Placeholder.Image rectangular />
+                    <Placeholder.Image rectangular={true} />
                   </Placeholder>
                 )}
             </Grid.Column>
           )}
           <Grid.Column>
-            <Header as="h1">{props.title}</Header>
+            <Header as="h2">{props.title}</Header>
             <div>{props.content}</div>
             {props.buttonLabel && (
               <Button
-                style={{ marginTop: '2.5rem' }}
+                as={GatsbyLink}
                 basic={!props.primary && !props.secondary}
+                color={props.buttonColor || "black"}
                 primary={false || props.primary}
                 secondary={false || props.secondary}
-                color={props.buttonColor || 'black'}
-                size={props.buttonSize || 'large'}
+                size={props.buttonSize || "large"}
+                to={props.buttonTo}
               >
                 {props.buttonLabel}
                 {props.buttonIcon && <Icon name={props.buttonIcon} />}
               </Button>
             )}
           </Grid.Column>
-          {props.contentOrientation !== 'image-text' && (
+          {props.contentOrientation !== "image-text" && (
             <Grid.Column>
               {props.src ? (
                 <div
                   style={{
-                    opacity: props.opacity || 0.7,
-                    height: '100%',
                     backgroundImage: `url(${props.src})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center center',
+                    backgroundPosition: "center center",
+                    backgroundSize: "cover",
+                    height: "100%",
+                    opacity: props.opacity || 0.7,
                   }}
                 />
               ) : (
                   <Placeholder>
-                    <Placeholder.Image rectangular />
+                    <Placeholder.Image rectangular={true} />
                   </Placeholder>
                 )}
             </Grid.Column>

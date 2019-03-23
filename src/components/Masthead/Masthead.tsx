@@ -1,49 +1,72 @@
-import * as React from 'react';
-import { Link } from 'gatsby';
+import { Link } from "gatsby";
+import GatsbyLink from "gatsby-link";
+import React from "react";
 import {
   Button,
-  Header,
   Container,
-  Segment,
+  Header,
   Icon,
+  Segment,
+  SemanticICONS,
   SemanticSIZES,
   SemanticTEXTALIGNMENTS,
-  SemanticICONS,
-} from 'semantic-ui-react';
-import { LayoutProps, menuItems } from '../Layout';
+} from "semantic-ui-react";
 
-import HeaderMenu from '../HeaderMenu/HeaderMenu';
-import { MenuItem } from '../Menu';
+import HeaderMenu from "../HeaderMenu/HeaderMenu";
+import { ILayoutProps, menuItems } from "../Layout";
 
-interface MastheadProps extends LayoutProps {
-  title: string;
-  subtitle: string;
+interface IMastheadProps extends ILayoutProps {
+  buttonIcon?: SemanticICONS;
   buttonLabel?: string;
   buttonSize?: SemanticSIZES;
-  buttonIcon?: SemanticICONS;
+  buttonTo?: string;
+  subtitle: string;
   textAlign?: SemanticTEXTALIGNMENTS;
+  title: string;
 }
 
-export const Masthead = (props: MastheadProps) => {
+export const Masthead = (props: IMastheadProps) => {
+  const {
+    buttonIcon,
+    buttonLabel,
+    buttonSize,
+    buttonTo,
+    location,
+    subtitle,
+    textAlign,
+    title,
+  } = props;
+
   return (
-    <Segment vertical inverted textAlign="center" className="masthead">
+    <Segment
+      className="masthead"
+      inverted={true}
+      textAlign="center"
+      vertical={true}
+    >
       <HeaderMenu
         Link={Link}
-        pathname={props.location.pathname}
+        pathname={location.pathname}
         items={menuItems}
-        inverted
+        inverted={true}
       />
-      <Container text textAlign={props.textAlign || 'left'}>
-        <Header inverted as="h1">
-          {props.title}
+      <Container text={true} textAlign={textAlign || "left"}>
+        <Header inverted={true} as="h1">
+          {title}
         </Header>
-        <Header inverted as="h2">
-          {props.subtitle}
+        <Header inverted={true} as="h2">
+          {subtitle}
         </Header>
-        {props.buttonLabel && (
-          <Button basic inverted size={props.buttonSize || 'large'}>
-            {props.buttonLabel}
-            {props.buttonIcon && <Icon name={props.buttonIcon} />}
+        {buttonLabel && (
+          <Button
+            as={GatsbyLink}
+            basic={true}
+            inverted={true}
+            size={buttonSize || "large"}
+            to={buttonTo}
+          >
+            {buttonLabel}
+            {buttonIcon && <Icon name={buttonIcon} />}
           </Button>
         )}
       </Container>

@@ -1,12 +1,12 @@
-import * as React from 'react';
-import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
-import { GatsbyLinkProps } from 'gatsby-link';
-import { StoreState } from '../../store';
-import { MenuProps, MenuItem } from '../Menu';
-import { Menu, Icon, Sidebar, SemanticICONS } from 'semantic-ui-react';
+import { GatsbyLinkProps } from "gatsby-link";
+import * as React from "react";
+import { connect } from "react-redux";
+import { Dispatch } from "redux";
+import { Icon, Menu, SemanticICONS, Sidebar } from "semantic-ui-react";
+import { IStoreState } from "../../store";
+import { IMenuItem, IMenuProps } from "../Menu";
 
-interface SidebarMenuProps extends MenuProps {
+interface ISidebarMenuProps extends IMenuProps {
   visible?: boolean;
   dispatch?: Dispatch<any>;
   Link: React.ComponentClass<GatsbyLinkProps<any>>;
@@ -17,11 +17,9 @@ export const SidebarMenu = ({
   pathname,
   Link,
   visible,
-}: SidebarMenuProps) => {
-  const isActive = (item: MenuItem) =>
-    item.exact ? pathname === item.path : pathname.startsWith(item.path);
-  const activeItem =
-    items.find((item: MenuItem) => isActive(item)) || ({} as MenuItem);
+}: ISidebarMenuProps) => {
+  const isActive = (item: IMenuItem) => item.exact ? pathname === item.path : pathname.startsWith(item.path);
+  const activeItem = items.find((item: IMenuItem) => isActive(item));
   return (
     <Sidebar
       as={Menu}
@@ -29,8 +27,8 @@ export const SidebarMenu = ({
       width="thin"
       visible={visible}
       icon="labeled"
-      vertical
-      inverted={activeItem.inverted}
+      vertical={true}
+      inverted={activeItem && activeItem.inverted || false}
     >
       {items.map((item) => {
         const active = isActive(item);
@@ -45,10 +43,10 @@ export const SidebarMenu = ({
   );
 };
 
-const mapStateToProps = (state: StoreState) => ({
+const mapStateToProps = (state: IStoreState) => ({
   visible: state.isSidebarVisible,
 });
 
-export default connect<any, void, SidebarMenuProps>(mapStateToProps)(
+export default connect<any, void, ISidebarMenuProps>(mapStateToProps)(
   SidebarMenu,
 );

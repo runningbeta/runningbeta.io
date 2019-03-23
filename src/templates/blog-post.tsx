@@ -1,23 +1,23 @@
-import * as React from 'react';
-import { Link, graphql } from 'gatsby';
-import { get } from 'lodash';
+import { DiscussionEmbed } from "disqus-react";
+import { graphql, Link } from "gatsby";
+import { get } from "lodash";
+import React from "react";
 import {
-  Header,
-  Container,
-  Segment,
-  Label,
-  Grid,
   Card,
+  Comment,
+  Container,
+  Grid,
+  Header,
   Image,
   Item,
-  Comment,
-} from 'semantic-ui-react';
-import { MarkdownRemark, ImageSharp, MarkdownRemarkConnection, Site } from '../graphql-types';
-import BlogTitle from '../components/BlogTitle';
-import { DiscussionEmbed } from 'disqus-react';
-import { withLayout, LayoutProps } from '../components/Layout';
+  Label,
+  Segment,
+} from "semantic-ui-react";
+import BlogTitle from "../components/BlogTitle";
+import { ILayoutProps, withLayout } from "../components/Layout";
+import { ImageSharp, MarkdownRemark, MarkdownRemarkConnection, Site } from "../graphql-types";
 
-interface BlogPostProps extends LayoutProps {
+interface IBlogPostProps extends ILayoutProps {
   data: {
     post: MarkdownRemark;
     recents: MarkdownRemarkConnection;
@@ -25,17 +25,17 @@ interface BlogPostProps extends LayoutProps {
   };
 }
 
-const BlogPostPage = (props: BlogPostProps) => {
+const BlogPostPage = (props: IBlogPostProps) => {
   const { frontmatter, html, timeToRead } = props.data.post;
   const avatar = frontmatter.author.avatar.children[0] as ImageSharp;
 
   const tags = props.data.post.frontmatter.tags
-    .map(tag => <Label key={tag}><Link to={`/blog/tags/${tag}/`}>{tag}</Link></Label>);
+    .map((tag) => <Label key={tag}><Link to={`/blog/tags/${tag}/`}>{tag}</Link></Label>);
 
   const recents = props.data.recents.edges
     .map(({ node }) => {
       const recentAvatar = node.frontmatter.author.avatar.children[0] as ImageSharp;
-      const recentCover = get(node, 'frontmatter.image.children.0.fixed', {});
+      const recentCover = get(node, "frontmatter.image.children.0.fixed", {});
       const extra = (
         <Comment.Group>
           <Comment>
@@ -56,8 +56,9 @@ const BlogPostPage = (props: BlogPostProps) => {
       );
 
       return (
-        <div key={node.fields.slug} style={{ paddingBottom: '1em' }}>
-          <Card as={Link}
+        <div key={node.fields.slug} style={{ paddingBottom: "1em" }}>
+          <Card
+            as={Link}
             to={node.fields.slug}
             image={recentCover}
             header={node.frontmatter.title}
@@ -67,17 +68,18 @@ const BlogPostPage = (props: BlogPostProps) => {
       );
     });
 
-  const cover = get(frontmatter, 'image.children.0.fixed', {});
+  const cover = get(frontmatter, "image.children.0.fixed", {});
   return (
     <Container>
       <BlogTitle />
-      <Segment vertical style={{ border: 'none' }}>
+      <Segment vertical={true} style={{ border: "none" }}>
         <Item.Group>
           <Item>
-            <Item.Image size="tiny"
+            <Item.Image
+              size="tiny"
               src={avatar.fixed.src}
               srcSet={avatar.fixed.srcSet}
-              circular
+              circular={true}
             />
             <Item.Content>
               <Item.Description>{frontmatter.author.id}</Item.Description>
@@ -90,26 +92,28 @@ const BlogPostPage = (props: BlogPostProps) => {
       </Segment>
       <Image
         {...cover}
-        fluid
+        fluid={true}
       />
-      <Segment vertical
-        style={{ border: 'none' }}
-        dangerouslySetInnerHTML={{
-          __html: html,
-        }}
+      <Segment
+        vertical={true}
+        style={{ border: "none" }}
+        dangerouslySetInnerHTML={{ __html: html }}
       />
-      <Segment vertical>
+      <Segment vertical={true}>
         {tags}
       </Segment>
-      {props.data.site
+      {
+        props.data.site
         && props.data.site.siteMetadata
         && props.data.site.siteMetadata.disqus
-        && <Segment vertical>
-          <DiscussionEmbed shortname={props.data.site.siteMetadata.disqus} config={{}} />
-        </Segment>
+        && (
+          <Segment vertical={true}>
+            <DiscussionEmbed shortname={props.data.site.siteMetadata.disqus} config={{}} />
+          </Segment>
+        )
       }
-      <Segment vertical>
-        <Grid padded centered>
+      <Segment vertical={true}>
+        <Grid padded={true} centered={true}>
           {recents}
         </Grid>
       </Segment>

@@ -1,6 +1,5 @@
-import * as React from 'react';
-import Blog from '../pages/blog';
-import { graphql } from 'gatsby';
+import { graphql } from "gatsby";
+import Blog from "../pages/blog";
 
 export default Blog;
 

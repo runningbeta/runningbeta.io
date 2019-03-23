@@ -1,15 +1,11 @@
-import * as React from 'react';
-import Masthead from '../components/Masthead/Masthead';
-import { withLayout, LayoutProps } from '../components/Layout';
-import { Header, Container, Segment, Grid } from 'semantic-ui-react';
+import * as React from "react";
+import { Container, Grid, Header, Segment } from "semantic-ui-react";
+import { ILayoutProps, withLayout } from "../components/Layout";
+import Masthead from "../components/Masthead/Masthead";
 
-import Title from '../components/Title/Title';
+// import Title from "../components/Title/Title";
 
-import secureSvg from '../assets/images/icons/secure.svg';
-import protectSvg from '../assets/images/icons/protect.svg';
-import paymentsSvg from '../assets/images/icons/payments.svg';
-
-const VisionPage = (props: LayoutProps) => {
+const VisionPage = (props: ILayoutProps) => {
   return (
     <div>
       <Masthead
@@ -22,12 +18,12 @@ const VisionPage = (props: LayoutProps) => {
         to life using the best technology available."
         // buttonLabel="Learn more"
       />
-      <Segment vertical className="stripe feature unfinished">
+      <Segment vertical={true} className="stripe feature unfinished">
         <Container>
           <p>Intro to our mission and goals</p>
         </Container>
       </Segment>
-      <Segment vertical className="stripe feature alternate">
+      <Segment vertical={true} className="stripe feature alternate">
         <Container>
           <Header as="h1">Why Blockchain</Header>
           <p>
@@ -39,7 +35,7 @@ const VisionPage = (props: LayoutProps) => {
           </p>
           <Header
             as="h2"
-            style={{ marginTop: '2em', textTransform: 'uppercase' }}
+            style={{ marginTop: "2em", textTransform: "uppercase" }}
           >
             CODIFIED TRUST
           </Header>
@@ -56,11 +52,11 @@ const VisionPage = (props: LayoutProps) => {
             your business trustlessly.
           </p>
           <Grid
-            style={{ marginTop: '2.5em' }}
+            style={{ marginTop: "2.5em" }}
             columns="3"
             textAlign="left"
-            relaxed
-            stackable
+            relaxed={true}
+            stackable={true}
             verticalAlign="top"
           >
             <Grid.Row>
@@ -68,7 +64,7 @@ const VisionPage = (props: LayoutProps) => {
                 <div
                   className="coverImage"
                   style={{
-                    backgroundImage: `url(${require('../assets/images/stock/secure.jpg')})`,
+                    backgroundImage: `url(${require("../assets/images/stock/secure.jpg")})`,
                   }}
                 />
                 <Header>SECURITY</Header>
@@ -83,7 +79,7 @@ const VisionPage = (props: LayoutProps) => {
                   className="coverImage"
                   style={{
                     // tslint:disable: max-line-length
-                    backgroundImage: `url(${require('../assets/images/stock/fraud-protection.jpg')})`,
+                    backgroundImage: `url(${require("../assets/images/stock/fraud-protection.jpg")})`,
                   }}
                 />
                 <Header>FRAUD PROTECTION</Header>
@@ -97,7 +93,7 @@ const VisionPage = (props: LayoutProps) => {
                 <div
                   className="coverImage"
                   style={{
-                    backgroundImage: `url(${require('../assets/images/stock/fast.jpg')})`,
+                    backgroundImage: `url(${require("../assets/images/stock/fast.jpg")})`,
                   }}
                 />
                 <Header>LIGHTNING-FAST PAYMENTS</Header>
@@ -111,7 +107,7 @@ const VisionPage = (props: LayoutProps) => {
           </Grid>
         </Container>
       </Segment>
-      <Segment vertical className="stripe feature container unfinished">
+      <Segment vertical={true} className="stripe feature container unfinished">
         <p>Section 2</p>
       </Segment>
     </div>

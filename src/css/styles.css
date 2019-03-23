@@ -141,6 +141,7 @@ pre {
   margin: 2rem 0;
 }
 
+.ui.form .field .dropdown,
 .ui.form .field input,
 .ui.form .field textarea {
   border-color: black;
@@ -148,6 +149,10 @@ pre {
 
 p {
   color: #000b;
+}
+
+.ui.segment.feature {
+  border: none;
 }
 
 .segment h1.title {
@@ -161,9 +166,14 @@ p {
   color: lightcoral !important;
 }
 
+.segment.unfinished h2::after,
 .segment.unfinished h1.title::after {
   content: "unfinished";
   font-size: 1rem;
   padding: 0 1rem;
   vertical-align: text-bottom;
+}
+
+.ui.button {
+  margin-top: 2.5rem;
 }

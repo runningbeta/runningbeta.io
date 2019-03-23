@@ -1,16 +1,16 @@
 export default [
   {
-    name: 'Mastering Bitcoin',
-    author: ['Andreas Antonopoulos'],
-    cover: require('../assets/images/books/mastering_bitcoin.jpeg'),
+    author: ["Andreas Antonopoulos"],
+    cover: require("../assets/images/books/mastering_bitcoin.jpeg"),
+    name: "Mastering Bitcoin",
   },
   {
-    name: 'Mastering Ethereum',
-    author: ['Andreas Antonopoulos', 'Gavin Wood Ph.D.'],
-    cover: require('../assets/images/books/mastering_ethereum.jpeg'),
+    author: ["Andreas Antonopoulos", "Gavin Wood Ph.D."],
+    cover: require("../assets/images/books/mastering_ethereum.jpeg"),
+    name: "Mastering Ethereum",
   },
   {
-    name: 'Third book',
-    author: ['Third author'],
+    author: ["Third author"],
+    name: "Third book",
   },
 ];

@@ -1,5 +1,5 @@
 // tslint:disable: max-line-length
-import * as React from 'react';
+import * as React from "react";
 
 const Tolar = () => (
   <svg

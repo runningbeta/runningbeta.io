@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { Header, Segment, Icon } from 'semantic-ui-react';
+import * as React from "react";
+import { Header, Icon, Segment } from "semantic-ui-react";
 
 export default () => {
   return (
-    <Segment vertical>
+    <Segment vertical={true}>
       <Header as="h2">
         <Icon name="newspaper" />
         <Header.Content>

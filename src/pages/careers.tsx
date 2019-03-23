@@ -1,29 +1,29 @@
-import React, { Component } from 'react';
-import { withLayout, LayoutProps } from '../components/Layout';
+import React, { Component } from "react";
 import {
   Accordion,
   Card,
   Container,
+  Grid,
   Header,
   Icon,
   Image,
   List,
-  Message,
-  Grid,
   Segment,
-} from 'semantic-ui-react';
-import { SemanticICONS } from 'semantic-ui-react/dist/commonjs/generic';
+} from "semantic-ui-react";
+// tslint:disable-next-line no-submodule-imports
+import { SemanticICONS } from "semantic-ui-react/dist/commonjs/generic";
+import { ILayoutProps, withLayout } from "../components/Layout";
 
-import Masthead from '../components/Masthead/Masthead';
-import ContentWithImage from '../components/ContentWithImage/ContentWithImage';
+import ContentWithImage from "../components/ContentWithImage/ContentWithImage";
+import Masthead from "../components/Masthead/Masthead";
 
-import Opportunities from '../data/opportunities';
-import Books from '../data/books';
-import CareerQuestions from '../data/careerQuestions';
+import Books from "../data/books";
+import CareerQuestions from "../data/careerQuestions";
+import Opportunities from "../data/opportunities";
 
 const BookList = (props: any) => (
   <div>
-    <Card.Group itemsPerRow="5" doubling>
+    <Card.Group itemsPerRow="5" doubling={true}>
       {props.books.map((book: any) => (
         <Card as="a" href="/" key={book.name}>
           {book.cover && <Image src={book.cover} />}
@@ -43,10 +43,10 @@ const BookList = (props: any) => (
   </div>
 );
 
-class CareersPage extends Component<LayoutProps> {
-  state = { activeIndex: 0 };
+class CareersPage extends Component<ILayoutProps> {
+  public state = { activeIndex: 0 };
 
-  handleClick = (e: React.MouseEvent<HTMLElement>, titleProps: any) => {
+  public handleClick = (e: React.MouseEvent<HTMLElement>, titleProps: any) => {
     const { index } = titleProps;
     const { activeIndex } = this.state;
     const newIndex = activeIndex === index ? -1 : index;
@@ -54,20 +54,21 @@ class CareersPage extends Component<LayoutProps> {
     this.setState({ activeIndex: newIndex });
   }
 
-  render() {
+  public render() {
     const { activeIndex } = this.state;
 
     return (
       <div>
         <Masthead
           {...this.props}
-          title="Careers"
+          buttonIcon="chevron right"
+          buttonLabel="Start your application"
+          buttonTo="/application/"
           // tslint:disable: max-line-length
           subtitle="RunningBeta was founded in 2017 as a result of our aspiration to create a community based on transparent work culture that will employ the best professionals in the world. Our goal is to work on meaningful projects that help create a better future and bring them to life using the best technologies available."
-        // buttonLabel="Start your application"
-        // buttonIcon="chevron right"
+          title="Careers"
         />
-        <Segment vertical className="stripe feature">
+        <Segment vertical={true} className="stripe feature">
           <Container>
             <Grid>
               <Grid.Row>
@@ -79,12 +80,12 @@ class CareersPage extends Component<LayoutProps> {
                 <Grid.Column>
                   <div
                     style={{
+                      backgroundImage: `url(${require("../assets/images/stock/distributed.jpeg")})`,
+                      backgroundPosition: "center center",
+                      backgroundSize: "cover",
+                      height: "15rem",
                       opacity: 0.7,
-                      height: '15rem',
-                      width: '100%',
-                      backgroundImage: `url(${require('../assets/images/stock/distributed.jpeg')})`,
-                      backgroundSize: 'cover',
-                      backgroundPosition: 'center center',
+                      width: "100%",
                     }}
                   />
                 </Grid.Column>
@@ -103,10 +104,10 @@ class CareersPage extends Component<LayoutProps> {
             </Grid>
           </Container>
         </Segment>
-        <Segment vertical className="stripe feature alternate">
+        <Segment vertical={true} className="stripe feature alternate">
           <Container>
             <Header as="h2">Job Opportunities</Header>
-            <Card.Group itemsPerRow="two" doubling stackable>
+            <Card.Group itemsPerRow="two" doubling={true} stackable={true}>
               {Opportunities.map(
                 (opp: {
                   image: string;
@@ -116,22 +117,21 @@ class CareersPage extends Component<LayoutProps> {
                     <Card key={opp.label} as="a" href="#">
                       <div
                         style={{
-                          opacity: 0.7,
-                          height: '15rem',
                           backgroundImage: `url(${opp.image})`,
-                          backgroundSize: 'cover',
+                          backgroundSize: "cover",
+                          height: "15rem",
+                          opacity: 0.7,
                         }}
                       />
                       <Header
                         style={{
-                          background:
-                            'linear-gradient(to bottom, #00000000, #000000FF)',
-                          position: 'absolute',
+                          background: "linear-gradient(to bottom, #00000000, #000000FF)",
                           bottom: 0,
+                          color: "#fff",
                           left: 0,
+                          padding: "2rem 1rem 1rem",
+                          position: "absolute",
                           right: 0,
-                          padding: '2rem 1rem 1rem',
-                          color: '#fff',
                         }}
                         as="h2"
                       >
@@ -144,7 +144,7 @@ class CareersPage extends Component<LayoutProps> {
             </Card.Group>
           </Container>
         </Segment>
-        <Segment vertical className="stripe feature unfinished">
+        <Segment vertical={true} className="stripe feature unfinished">
           <Container>
             <Header as="h2">Recommended Reading</Header>
             <p>
@@ -156,10 +156,10 @@ class CareersPage extends Component<LayoutProps> {
             <BookList books={Books} />
           </Container>
         </Segment>
-        <Segment vertical className="stripe feature alternate unfinished">
+        <Segment vertical={true} className="stripe feature alternate unfinished">
           <Container>
             <ContentWithImage
-              src={require('../assets/images/stock/globe.jpeg')}
+              src={require("../assets/images/stock/globe.jpeg")}
               title="Apply for position"
               content={
                 <p>
@@ -167,14 +167,15 @@ class CareersPage extends Component<LayoutProps> {
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </p>
               }
+              buttonTo="/application/"
               buttonLabel="Start your application"
               buttonIcon="chevron right"
             />
           </Container>
         </Segment>
-        <Segment vertical className="stripe feature unfinished">
+        <Segment vertical={true} className="stripe feature unfinished">
           <Container>
-            <Accordion fluid styled>
+            <Accordion fluid={true} styled={true}>
               {CareerQuestions.map((f, i) => (
                 <React.Fragment key={f.title}>
                   <Accordion.Title
@@ -188,7 +189,7 @@ class CareersPage extends Component<LayoutProps> {
                     </Header>
                   </Accordion.Title>
                   <Accordion.Content
-                    style={{ paddingLeft: '6rem' }}
+                    style={{ paddingLeft: "6rem" }}
                     active={activeIndex === i}
                   >
                     <p>{f.answer}</p>

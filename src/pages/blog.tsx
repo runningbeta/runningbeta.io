@@ -1,14 +1,14 @@
-import * as React from 'react';
-import { Link, graphql } from 'gatsby';
-import { Grid, Card, Container, Segment, Comment } from 'semantic-ui-react';
-import { MarkdownRemark, MarkdownRemarkConnection, ImageSharp } from '../graphql-types';
-import BlogTitle from '../components/BlogTitle';
-import TagsCard from '../components/TagsCard/TagsCard';
-import BlogPagination from '../components/BlogPagination/BlogPagination';
-import { get } from 'lodash';
-import { withLayout, LayoutProps } from '../components/Layout';
+import { graphql, Link } from "gatsby";
+import { get } from "lodash";
+import React from "react";
+import { Card, Comment, Container, Grid, Segment } from "semantic-ui-react";
+import BlogPagination from "../components/BlogPagination/BlogPagination";
+import BlogTitle from "../components/BlogTitle";
+import { ILayoutProps, withLayout } from "../components/Layout";
+import TagsCard from "../components/TagsCard/TagsCard";
+import { ImageSharp, MarkdownRemark, MarkdownRemarkConnection } from "../graphql-types";
 
-interface BlogProps extends LayoutProps {
+interface IBlogProps extends ILayoutProps {
   data: {
     tags: MarkdownRemarkConnection;
     posts: MarkdownRemarkConnection;
@@ -18,7 +18,7 @@ interface BlogProps extends LayoutProps {
   };
 }
 
-const BlogPage = (props: BlogProps) => {
+const BlogPage = (props: IBlogProps) => {
   const tags = props.data.tags.group;
   const posts = props.data.posts.edges;
   const { pathname } = props.location;
@@ -30,7 +30,7 @@ const BlogPage = (props: BlogProps) => {
       {posts.map(({ node }: { node: MarkdownRemark }) => {
         const { frontmatter, timeToRead, fields: { slug }, excerpt } = node;
         const avatar = frontmatter.author.avatar.children[0] as ImageSharp;
-        const cover = get(frontmatter, 'image.children.0.fixed', {});
+        const cover = get(frontmatter, "image.children.0.fixed", {});
 
         const extra = (
           <Comment.Group>
@@ -60,8 +60,9 @@ const BlogPage = (props: BlogProps) => {
         );
 
         return (
-          <Card key={slug}
-            fluid
+          <Card
+            key={slug}
+            fluid={true}
             image={cover}
             header={frontmatter.title}
             extra={extra}
@@ -78,11 +79,11 @@ const BlogPage = (props: BlogProps) => {
       <BlogTitle />
 
       {/* Content */}
-      <Segment vertical>
-        <Grid padded style={{ justifyContent: 'space-around' }}>
+      <Segment vertical={true}>
+        <Grid padded={true} style={{ justifyContent: "space-around" }}>
           <div style={{ maxWidth: 600 }}>
             {Posts}
-            <Segment vertical textAlign="center">
+            <Segment vertical={true} textAlign="center">
               <BlogPagination Link={Link} pathname={pathname} pageCount={pageCount} />
             </Segment>
           </div>

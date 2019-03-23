@@ -1,37 +1,34 @@
-import * as React from 'react';
-import { withLayout, LayoutProps, menuItems } from '../components/Layout';
-import { Link } from 'gatsby';
-import GatsbyLink from 'gatsby-link';
+import { Link } from "gatsby";
+import GatsbyLink from "gatsby-link";
+import * as React from "react";
 import {
-  Segment,
+  Button,
   Container,
   Grid,
   Header,
-  Button,
   Icon,
-} from 'semantic-ui-react';
-import Masthead from '../components/Masthead/Masthead';
-import ContactForm from '../components/ContactForm/ContactForm';
+  Responsive,
+  Segment,
+} from "semantic-ui-react";
+import ContactForm from "../components/ContactForm/ContactForm";
+import { ILayoutProps, withLayout } from "../components/Layout";
+import Masthead from "../components/Masthead/Masthead";
 
-import Tolar from '../assets/images/partners/tolar';
-import Rimac from '../assets/images/partners/rimac';
-import ContentWithImage from '../components/ContentWithImage/ContentWithImage';
+import Rimac from "../assets/images/partners/rimac";
+import Tolar from "../assets/images/partners/tolar";
+import ContentWithImage from "../components/ContentWithImage/ContentWithImage";
 
-const IndexPage = (props: LayoutProps) => (
+const IndexPage = (props: ILayoutProps) => (
   <div>
     <Masthead
       {...props}
-      title="Distributed team building unstoppable applications that run on open
-      standards."
       subtitle="RunningBeta"
-      buttonLabel="Work with us"
-      buttonSize="huge"
-      buttonIcon="chevron right"
+      title="Distributed team building unstoppable applications that run on open standards."
     />
     {process.env.GATSBY_SHOW_PARTNERS && (
-      <Segment vertical className="stripe feature">
+      <Segment vertical={true} className="stripe feature">
         <Container>
-          <Grid centered stackable doubling columns="3">
+          <Grid centered={true} stackable={true} doubling={true} columns="3">
             <Grid.Row>
               <Grid.Column>
                 <div className="partnerLogo">
@@ -71,7 +68,7 @@ const IndexPage = (props: LayoutProps) => (
       </Segment>
     )}
 
-    <Segment vertical className="stripe feature">
+    <Segment vertical={true} className="stripe feature">
       <Container>
         <Header className="title" as="h1">
           Distributed trust
@@ -87,9 +84,9 @@ const IndexPage = (props: LayoutProps) => (
       </Container>
     </Segment>
     <Segment
-      style={{ paddingBottom: '4rem', border: 'none' }}
-      vertical
-      className="stripe feature alternate"
+      style={{ paddingBottom: "4rem", border: "none" }}
+      vertical={true}
+      className="stripe feature alternate2"
     >
       <Container>
         <Header className="title" as="h1">
@@ -112,16 +109,16 @@ const IndexPage = (props: LayoutProps) => (
             </div>
           }
           opacity={1}
-          secondary
+          secondary={true}
           // src={require("../assets/images/stock/crowdsale.png")}
           title="Weinorth"
         />
       </Container>
     </Segment>
     <Segment
-      style={{ padding: '4rem 0', border: 'none' }}
-      vertical
-      className="stripe feature alternate"
+      style={{ padding: "4rem 0", border: "none" }}
+      vertical={true}
+      className="stripe feature alternate2"
     >
       <Container>
         <ContentWithImage
@@ -143,16 +140,16 @@ const IndexPage = (props: LayoutProps) => (
             </div>
           }
           opacity={1}
-          secondary
+          secondary={true}
           // src={require("../assets/images/stock/escrow.jpg")}
           title="R8.Escrow"
         />
       </Container>
     </Segment>
     <Segment
-      style={{ padding: '4rem 0 8rem' }}
-      vertical
-      className="stripe feature alternate"
+      style={{ padding: "4rem 0 8rem" }}
+      vertical={true}
+      className="stripe feature alternate2"
     >
       <Container>
         <ContentWithImage
@@ -171,21 +168,36 @@ const IndexPage = (props: LayoutProps) => (
             </div>
           }
           opacity={1}
-          src={require('../assets/images/stock/tolar.jpeg')}
+          src={require("../assets/images/stock/tolar.jpeg")}
           title="Tolar"
         />
       </Container>
     </Segment>
-    <Segment vertical className="stripe feature">
+    <Segment>
+      <Container>
+        <ContentWithImage
+          content={
+            <div>
+              <p>
+                Kittyland
+              </p>
+            </div>
+          }
+          opacity={1}
+          title="Kittyland"
+        />
+      </Container>
+    </Segment>
+    <Segment vertical={true} className="stripe feature">
       <Container>
         <Header className="title" as="h1">
           Services
         </Header>
         <Grid
           className="tablet one column computer three column grid"
-          stackable
-          relaxed
-          centered
+          stackable={true}
+          relaxed={true}
+          centered={true}
         >
           <Grid.Row>
             <Grid.Column>
@@ -219,7 +231,7 @@ const IndexPage = (props: LayoutProps) => (
           </Grid.Row>
           <Grid.Row columns={1}>
             <Grid.Column>
-              <Button secondary as={GatsbyLink} to="/services/">
+              <Button secondary={true} as={GatsbyLink} to="/services/">
                 Learn more
                 <Icon name="chevron right" />
               </Button>
@@ -228,89 +240,99 @@ const IndexPage = (props: LayoutProps) => (
         </Grid>
       </Container>
     </Segment>
-    <Segment vertical className="stripe feature alternate">
+    <Segment vertical={true} className="stripe feature alternate2">
       <Container>
         <Header className="title" as="h1">
           Contact us
         </Header>
-        <Grid relaxed stackable verticalAlign="top">
+        <Grid relaxed={true} stackable={true} verticalAlign="top">
           <Grid.Row columns={2}>
-            <Grid.Column only="mobile">
-              <Header as="h2" style={{ marginBottom: '2rem' }}>
+            <Responsive as={Grid.Column} {...Responsive.onlyMobile}>
+              <Header as="h2" style={{ marginBottom: "2rem" }}>
                 Ask RunningBeta how we can help you:
               </Header>
               <ul>
-                <li style={{ margin: '1.5rem 0' }}>
+                <li style={{ margin: "1.5rem 0" }}>
                   <p>
                     Interested in seeing our products in action? Request a
                     product demonstration and discover how we can help your
                     company grow.
                   </p>
                 </li>
-                <li style={{ margin: '1.5rem 0' }}>
+                <li style={{ margin: "1.5rem 0" }}>
                   <p>
                     Reach out to sales team directly for immediate assistance
                     with all sales related inquiries.
                   </p>
                 </li>
-                <li style={{ margin: '1.5rem 0' }}>
+                <li style={{ margin: "1.5rem 0" }}>
                   <p>
                     If you are interested in joining the RunningBeta team check
                     the <Link to="/careers/">careers page</Link>.
                   </p>
                 </li>
               </ul>
-            </Grid.Column>
+            </Responsive>
             <Grid.Column>
               <ContactForm />
             </Grid.Column>
-            <Grid.Column only="tablet computer">
-              <Header as="h2" style={{ marginBottom: '2rem' }}>
+            <Responsive
+              as={Grid.Column}
+              {...Responsive.onlyTablet.minWidth}
+              {...Responsive.onlyLargeScreen.maxWidth}
+            >
+              <Header as="h2" style={{ marginBottom: "2rem" }}>
                 Ask RunningBeta how we can help you:
               </Header>
               <ul>
-                <li style={{ margin: '1.5rem 0' }}>
+                <li style={{ margin: "1.5rem 0" }}>
                   <p>
                     Interested in seeing our products in action? Request a
                     product demonstration and discover how we can help your
                     company grow.
                   </p>
                 </li>
-                <li style={{ margin: '1.5rem 0' }}>
+                <li style={{ margin: "1.5rem 0" }}>
                   <p>
                     Reach out to sales team directly for immediate assistance
                     with all sales related inquiries.
                   </p>
                 </li>
-                <li style={{ margin: '1.5rem 0' }}>
+                <li style={{ margin: "1.5rem 0" }}>
                   <p>
                     If you are interested in joining the RunningBeta team check
                     the <Link to="/careers/">careers page</Link>.
                   </p>
                 </li>
               </ul>
-            </Grid.Column>
+            </Responsive>
           </Grid.Row>
         </Grid>
       </Container>
     </Segment>
-    <Segment vertical className="stripe feature unfinished">
+    <Segment vertical={true} className="stripe feature">
       <Container>
         <Header className="title" as="h1">
           Join us
         </Header>
         <p>
-          Join a team of passionate professionals who create great products
-          every day.
+          Having a remote team opens up the possibility of drawing from
+          broadest, most deverse talent pool available instead of just what's
+          available localy.
         </p>
-        <Header as="h2">We are distributed</Header>
         <p>
+          Join a remote team of passionate professionals who create great
+          products every day.
+          <GatsbyLink to="/careers/"> Explore open positions. </GatsbyLink>
           Working remotely allows you to be there for the ones you love, and be
           more available for them. It allows you to see more places, without
           ever having to commute. On top of that, working remotely removes
           almost every distraction.
-          <GatsbyLink to="/vision/"> Explore opportunities.</GatsbyLink>
         </p>
+        <Button color="black" as={GatsbyLink} to="/application/">
+          Apply for position
+          <Icon name="chevron right" />
+        </Button>
       </Container>
     </Segment>
   </div>

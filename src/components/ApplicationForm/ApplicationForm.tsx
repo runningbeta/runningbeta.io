@@ -1,10 +1,14 @@
 import classnames from "classnames";
-import { isEmpty } from "lodash";
-import * as React from "react";
-import { default as ReCAPTCHA } from "react-google-recaptcha";
-import { Button, Container, Grid, Header, Icon } from "semantic-ui-react";
-import * as validate from "validate.js";
+import React from "react";
+import validate from "validate.js";
+
+import { concat, isEmpty } from "lodash";
+import ReCAPTCHA from "react-google-recaptcha";
+import { Button, Container, Dropdown, Grid, Header, Icon } from "semantic-ui-react";
+
 import trackEvent from "../../analytics/trackEvent";
+import FormItem from "../../components/FormItem/FormItem";
+import Opportunities from "../../data/opportunities";
 
 function encode(data: any) {
   return Object.keys(data)
@@ -12,15 +16,23 @@ function encode(data: any) {
     .join("&");
 }
 
-interface IContactState {
+interface IApplicationFormProps {
+  position?: string;
+}
+
+interface IApplicationFormState {
   constraints: any;
   contactMeByFax: string;
+  curriculumVitae: string;
   email: string;
-  errors: { [key: string]: string };
+  errors: { [key: string]: string[] };
+  github: string;
   gRecaptchaResponse: any;
   isValid: boolean;
+  linkedin: string;
   message: string;
   name: string;
+  position: string;
   showValidation: boolean;
   subject: string;
   thanksVisible: boolean;
@@ -28,32 +40,31 @@ interface IContactState {
 }
 
 export default class Contact extends React.Component<
-  {},
-  IContactState
+  IApplicationFormProps,
+  IApplicationFormState
   > {
-  public state: IContactState = {
+  public state: IApplicationFormState = {
     constraints: {
-      email: {
-        email: true,
-        presence: { allowEmpty: false },
-      },
-      message: {
-        presence: { allowEmpty: false },
-      },
-      name: {
-        presence: { allowEmpty: false },
-      },
-      subject: {
-        presence: { allowEmpty: false },
-      },
+      curriculumVitae: { url: true },
+      email: { email: true, presence: { allowEmpty: false } },
+      github: { url: true },
+      linkedin: { url: true },
+      message: { presence: { allowEmpty: false } },
+      name: { presence: { allowEmpty: false } },
+      position: { presence: { allowEmpty: false } },
+      subject: { presence: { allowEmpty: false } },
     },
     contactMeByFax: "",
+    curriculumVitae: "",
     email: "",
     errors: {},
+    github: "",
     gRecaptchaResponse: "",
     isValid: true,
+    linkedin: "",
     message: "",
     name: "",
+    position: "",
     showValidation: false,
     subject: "",
     thanksVisible: false,
@@ -110,12 +121,14 @@ export default class Contact extends React.Component<
     fetch("/", {
       body: encode({
         "contactMeByFax": this.state.contactMeByFax,
+        "curriculumVitae": this.state.curriculumVitae,
         "email": this.state.email,
         "form-name": "contact",
         "g-recaptcha-response": this.state.gRecaptchaResponse,
+        "github": this.state.github,
+        "linkedin": this.state.linkedin,
         "message": this.state.message,
         "name": this.state.name,
-        "subject": this.state.subject,
       }),
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       method: "POST",
@@ -125,11 +138,13 @@ export default class Contact extends React.Component<
         trackEvent("Contact Form", "Submit", name, message);
         this.setState({
           contactMeByFax: "",
+          curriculumVitae: "",
           email: "",
           errors: {},
+          github: "",
+          linkedin: "",
           message: "",
           name: "",
-          subject: "",
           thanksVisible: true,
           visited: {},
         });
@@ -146,17 +161,31 @@ export default class Contact extends React.Component<
   public render() {
     const {
       contactMeByFax,
+      curriculumVitae,
       email,
       errors,
+      github,
       gRecaptchaResponse,
       isValid,
+      linkedin,
       message,
       name,
       showValidation,
-      subject,
       thanksVisible,
       visited,
     } = this.state;
+
+    const opportunityDropdownOptions = concat(
+      [{
+        key: "Other",
+        text: "Other",
+        value: "Other",
+      }],
+      Opportunities.map((x) => ({
+        key: x.label,
+        text: x.label,
+        value: x.label,
+      })));
 
     return (
       <Container>
@@ -170,8 +199,8 @@ export default class Contact extends React.Component<
                 data-netlify="true"
                 method="POST"
                 name="contact"
-                onSubmit={this.handleSubmit}
                 noValidate={true}
+                onSubmit={this.handleSubmit}
               >
                 <input type="hidden" name="form-name" value="contact" />
                 <div className="required field" style={{ display: "none" }}>
@@ -188,64 +217,32 @@ export default class Contact extends React.Component<
                     />
                   </div>
                 </div>
-                <div
-                  className={classnames({
-                    error: Boolean(
-                      (visited.name || showValidation) && errors && errors.name,
-                    ),
-                    field: true,
-                    required: true,
-                  })}
-                >
-                  <label>Name / Company</label>
-                  <div className="ui input" style={{ flexDirection: "column" }}>
-                    <input
-                      type="text"
-                      name="name"
-                      placeholder="Your Name"
-                      onBlur={this.handleBlur}
-                      onChange={this.handleChange}
-                      value={name}
-                      required={true}
-                    />
-                    <div className="validation" style={{ marginTop: "0.5rem" }}>
-                      {(visited.name || showValidation) &&
-                        errors &&
-                        errors.name &&
-                        errors.name[0]}
-                    </div>
-                  </div>
-                </div>
-                <div
-                  className={classnames({
-                    error: Boolean(
-                      (visited.email || showValidation) &&
-                      errors &&
-                      errors.email,
-                    ),
-                    field: true,
-                    required: true,
-                  })}
-                >
-                  <label>Email</label>
-                  <div className="ui input" style={{ flexDirection: "column" }}>
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="your@email.com"
-                      onBlur={this.handleBlur}
-                      onChange={this.handleChange}
-                      value={email}
-                      required={true}
-                    />
-                    <div className="validation" style={{ marginTop: "0.5rem" }}>
-                      {(visited.email || showValidation) &&
-                        errors &&
-                        errors.email &&
-                        errors.email[0]}
-                    </div>
-                  </div>
-                </div>
+                <FormItem
+                  error={errors.name}
+                  label="Full Name"
+                  name="name"
+                  onBlur={this.handleBlur}
+                  onChange={this.handleChange}
+                  placeholder="Your Name"
+                  required={true}
+                  showValidation={visited.name || showValidation}
+                  type="text"
+                  value={name}
+                  visited={visited.name}
+                />
+                <FormItem
+                  error={errors.email}
+                  label="Email"
+                  name="email"
+                  onBlur={this.handleBlur}
+                  onChange={this.handleChange}
+                  placeholder="your@email.com"
+                  required={true}
+                  showValidation={visited.email || showValidation}
+                  type="email"
+                  value={email}
+                  visited={visited.email}
+                />
                 <div
                   className={classnames({
                     error: Boolean(
@@ -257,18 +254,15 @@ export default class Contact extends React.Component<
                     required: true,
                   })}
                 >
-                  <label>Subject</label>
+                  <label>Position</label>
                   <div className="ui input" style={{ flexDirection: "column" }}>
-                    <input
-                      type="text"
-                      name="subject"
-                      placeholder="Subject"
-                      onBlur={this.handleBlur}
-                      onChange={this.handleChange}
-                      value={subject}
-                      required={true}
+                    <Dropdown
+                      fluid={true}
+                      options={opportunityDropdownOptions}
+                      placeholder="Select position..."
+                      selection={true}
                     />
-                    <div className="validation" style={{ marginTop: "0.5rem" }}>
+                    < div className="validation" style={{ marginTop: "0.5rem" }}>
                       {(visited.subject || showValidation) &&
                         errors &&
                         errors.subject &&
@@ -276,6 +270,43 @@ export default class Contact extends React.Component<
                     </div>
                   </div>
                 </div>
+                <FormItem
+                  error={errors.linkedin}
+                  label="LinkedIn"
+                  name="linkedin"
+                  onBlur={this.handleBlur}
+                  onChange={this.handleChange}
+                  placeholder="https://linkedin.com/your_account"
+                  showValidation={visited.linkedin || showValidation}
+                  type="text"
+                  value={linkedin}
+                  visited={visited.linkedin}
+                />
+                <FormItem
+                  error={errors.github}
+                  label="GitHub"
+                  name="github"
+                  onBlur={this.handleBlur}
+                  onChange={this.handleChange}
+                  placeholder="https://github.com/your_account"
+                  showValidation={visited.github || showValidation}
+                  type="text"
+                  value={github}
+                  visited={visited.github}
+                />
+                <FormItem
+                  error={errors.curriculumVitae}
+                  label="Curriculum Vitae"
+                  name="curriculumVitae"
+                  onBlur={this.handleBlur}
+                  onChange={this.handleChange}
+                  placeholder="Link to your CV"
+                  required={true}
+                  showValidation={visited.curriculumVitae || showValidation}
+                  type="text"
+                  value={curriculumVitae}
+                  visited={visited.curriculumVitae}
+                />
                 <div
                   className={classnames({
                     error: Boolean(
@@ -290,13 +321,13 @@ export default class Contact extends React.Component<
                   <label>Message</label>
                   <div className="ui input" style={{ flexDirection: "column" }}>
                     <textarea
-                      rows={5}
                       name="message"
-                      placeholder="Your Message"
                       onBlur={this.handleBlur}
                       onChange={this.handleChange}
-                      value={message}
+                      placeholder="Your Message"
                       required={true}
+                      rows={5}
+                      value={message}
                     />
                     <div className="validation" style={{ marginTop: "0.5rem" }}>
                       {(visited.message || showValidation) &&
@@ -308,19 +339,21 @@ export default class Contact extends React.Component<
                 </div>
                 <div className="field">
                   <ReCAPTCHA
+                    onChange={this.handleRecaptcha}
                     // tslint:disable-next-line jsx-no-string-ref
                     ref="recaptcha"
                     sitekey={process.env.GATSBY_SITE_RECAPTCHA_KEY}
-                    onChange={this.handleRecaptcha}
                   />
                 </div>
                 <Button
                   disabled={!gRecaptchaResponse || !isValid}
                   primary={true}
+                  size="large"
                   style={{ width: "50%" }}
                   type="submit"
                 >
-                  Send
+                  Apply
+                  <Icon name="chevron right" />
                 </Button>
               </form>
             </Grid.Column>

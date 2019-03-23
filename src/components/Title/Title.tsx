@@ -1,23 +1,22 @@
-import * as React from 'react';
+import React from "react";
 import {
-  Image,
   Header,
+  Image,
   Responsive,
   SemanticSIZES,
-  Grid,
-} from 'semantic-ui-react';
+} from "semantic-ui-react";
 
-interface ContentWithImageProps {
+interface IContentWithImageProps {
   title: string;
   src?: any;
   imageSize: SemanticSIZES;
 }
 
-export const Title = (props: ContentWithImageProps) => (
-  <div style={{ marginBottom: '1em' }}>
+export const Title = (props: IContentWithImageProps) => (
+  <div style={{ marginBottom: "1em" }}>
     <Responsive minWidth={Responsive.onlyTablet.minWidth}>
       <Image
-        style={{ margin: '1.5em 0' }}
+        style={{ margin: "1.5em 0" }}
         src={props.src}
         size={props.imageSize}
       />

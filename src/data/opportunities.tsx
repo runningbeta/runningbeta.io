@@ -1,22 +1,22 @@
 export default [
   {
-    label: 'Machine Learning & DSP',
-    icon: 'server',
-    image: require('../assets/images/stock/machine_learning.jpeg'),
+    icon: "server",
+    image: require("../assets/images/stock/machine_learning.jpeg"),
+    label: "Machine Learning & DSP",
   },
   {
-    label: 'Blockchain',
-    icon: 'key',
-    image: require('../assets/images/stock/blocks.jpeg'),
+    icon: "key",
+    image: require("../assets/images/stock/blocks.jpeg"),
+    label: "Blockchain",
   },
   {
-    label: 'SW Engineering',
-    icon: 'cogs',
-    image: require('../assets/images/stock/computer.jpeg'),
+    icon: "cogs",
+    image: require("../assets/images/stock/computer.jpeg"),
+    label: "SW Engineering",
   },
   {
-    label: 'Internship',
-    icon: 'graduation cap',
-    image: require('../assets/images/stock/graduation.jpeg'),
+    icon: "graduation cap",
+    image: require("../assets/images/stock/graduation.jpeg"),
+    label: "Internship",
   },
 ];

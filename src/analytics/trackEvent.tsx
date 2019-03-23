@@ -1,5 +1,6 @@
 // tslint:disable-next-line no-namespace
 declare global {
+  // tslint:disable-next-line interface-name
   interface Window {
     ga: any;
   }
@@ -12,9 +13,9 @@ const trackEvent = (
   eventValue: any,
 ) => {
   if (window.ga) {
-    window.ga('send', 'event', {
-      eventCategory,
+    window.ga("send", "event", {
       eventAction,
+      eventCategory,
       eventLabel,
       eventValue,
     });

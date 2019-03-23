@@ -1,14 +1,14 @@
-/* tslint:disable no-var-requires */
-const withReadme = (require('storybook-readme/with-readme') as any).default;
-const ContactFormReadme = require('./README.md');
+/* tslint:disable no-var-requires no-submodule-imports */
+const withReadme = (require("storybook-readme/with-readme") as any).default;
+const ContactFormReadme = require("./README.md");
 
-import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import ContactForm from './ContactForm';
+// import { action } from "@storybook/addon-actions";
+import { storiesOf } from "@storybook/react";
+import * as React from "react";
+import ContactForm from "./ContactForm";
 
-storiesOf('ContactForm', module)
+storiesOf("ContactForm", module)
   .addDecorator(withReadme(ContactFormReadme))
-  .add('default', () => (
+  .add("default", () => (
     <ContactForm />
   ));
