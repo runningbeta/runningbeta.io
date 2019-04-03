@@ -73,7 +73,7 @@ class CareersPage extends Component<ILayoutProps> {
             <Grid>
               <Grid.Row>
                 <Grid.Column>
-                  <Header as="h1">We are Distributed</Header>
+                  <Header className="title" as="h1">We are Distributed</Header>
                 </Grid.Column>
               </Grid.Row>
               <Grid.Row>
@@ -106,7 +106,7 @@ class CareersPage extends Component<ILayoutProps> {
         </Segment>
         <Segment vertical={true} className="stripe feature alternate">
           <Container>
-            <Header as="h2">Job Opportunities</Header>
+            <Header className="title" as="h1">Job Opportunities</Header>
             <Card.Group itemsPerRow="two" doubling={true} stackable={true}>
               {Opportunities.map(
                 (opp: {
@@ -146,7 +146,7 @@ class CareersPage extends Component<ILayoutProps> {
         </Segment>
         <Segment vertical={true} className="stripe feature unfinished">
           <Container>
-            <Header as="h2">Recommended Reading</Header>
+            <Header className="title" as="h1">Recommended Reading</Header>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
               eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem
@@ -158,9 +158,9 @@ class CareersPage extends Component<ILayoutProps> {
         </Segment>
         <Segment vertical={true} className="stripe feature alternate unfinished">
           <Container>
+            <Header className="title" as="h1">Apply for position</Header>
             <ContentWithImage
               src={require("../assets/images/stock/globe.jpeg")}
-              title="Apply for position"
               content={
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
