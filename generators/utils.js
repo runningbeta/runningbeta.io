@@ -5,7 +5,7 @@ const mkdirp = require('mkdirp');
 /**
  * Input validator - ensure input is not empty.
  *
- * @param {string} name
+ * @param {string} name Input name
  * @return {boolean|string}
  */
 const inputRequired = name => {
@@ -40,8 +40,8 @@ const addWithCustomData = function (plop, action, data) {
       mkdirp.sync(path.dirname(fileDestPath));
       fs.writeFileSync(fileDestPath, plop.renderString(template, data));
       return `add ${fileDestPath}`;
-    } catch (err) {
-      return err.message;
+    } catch (error) {
+      return error.message;
     }
   };
 };

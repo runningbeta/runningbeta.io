@@ -1,11 +1,11 @@
-const unflatten = require('flat').unflatten;
+const {unflatten} = require('flat');
 const {pascalCase, sentenceCase} = require('change-case');
 const {inputRequired, addWithCustomData} = require('./utils');
 
 const MAX_PROPS = 10;
 
 const propsPrompts = [];
-[...Array(MAX_PROPS)].forEach((v, i) => {
+[...new Array(MAX_PROPS)].forEach((v, i) => {
   propsPrompts.push(
     {
       type: 'confirm',
@@ -89,23 +89,29 @@ module.exports = plop => {
         Object.assign({}, prop, {optional: !prop.required})
       );
 
-      const basePath = data.files.length ?
-        '../src/components/{{pascalCase name}}/' :
-        '../src/components/';
+      const basePath = (data.files.length === 0) ?
+        '../src/components/' :
+        '../src/components/{{pascalCase name}}/';
 
       const actions = [];
 
       [
-        {condition: 'component', actions: [
-          {path: `${basePath}{{pascalCase name}}.tsx`, templateFile: 'templates/component-tsx.template'}
-        ]},
-        {condition: 'test', actions: [
-          {path: `${basePath}{{pascalCase name}}.test.tsx`, templateFile: 'templates/component-test-tsx.template'}
-        ]},
-        {condition: 'stories', actions: [
-          {path: `${basePath}{{pascalCase name}}.stories.tsx`, templateFile: 'templates/component-stories-tsx.template'},
-          {path: `${basePath}README.md`, templateFile: 'templates/component-readme-md.template'}
-        ]}
+        {
+          condition: 'component', actions: [
+            {path: `${basePath}{{pascalCase name}}.tsx`, templateFile: 'templates/component-tsx.template'}
+          ]
+        },
+        {
+          condition: 'test', actions: [
+            {path: `${basePath}{{pascalCase name}}.test.tsx`, templateFile: 'templates/component-test-tsx.template'}
+          ]
+        },
+        {
+          condition: 'stories', actions: [
+            {path: `${basePath}{{pascalCase name}}.stories.tsx`, templateFile: 'templates/component-stories-tsx.template'},
+            {path: `${basePath}README.md`, templateFile: 'templates/component-readme-md.template'}
+          ]
+        }
       ].forEach(a => {
         if (data.files.includes(a.condition)) {
           a.actions.forEach(i => {

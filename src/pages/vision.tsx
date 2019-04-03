@@ -32,17 +32,23 @@ const VisionPage = (props: ILayoutProps) => {
             trust, but one where trustless interactions and protocols are a driving
             force of our social and business interactions.
           </p>
-          <p style={{ textDecoration: "line-through" }}>
-            We strongly believe that individuals living in this society would be
-            more inclined to enter such interactions, which would result in more
-            social and business opportunities for those who are operating in good
-            faith.
-          </p>
           <Header className="title" as="h1">Our Mission</Header>
           <p className="emphasis">
             Our goal is to work on meaningful projects that help create a
             better future and bring them to life using the best technology
             available.
+          </p>
+          <p>
+          This organization's goal promises best development services to
+          satisfy target customers’ needs. The company focuses on project's
+          value and meaning. In this regard, the following characteristics
+          are identifiable in RunningBeta’s mission statement:
+          <ul>
+            <li>Work on projects that will advance onset of crypto technologies</li>
+            <li>Create products that will bring value to the end user</li>
+            <li>Use effective and sustainable development practicies</li>
+            <li>Utilize both modern and established technologies</li>
+          </ul>
           </p>
         </Container>
       </Segment>
