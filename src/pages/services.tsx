@@ -28,7 +28,7 @@ const ServicesPage = (props: ILayoutProps) => {
           >
             <Grid.Row columns="1">
               <Grid.Column>
-                <Header id="blockchainFocused" as="h1">
+                <Header className="title" id="blockchainFocused" as="h1">
                   Blockchain Focused
                 </Header>
               </Grid.Column>
@@ -90,7 +90,7 @@ const ServicesPage = (props: ILayoutProps) => {
           >
             <Grid.Row columns="1">
               <Grid.Column>
-                <Header id="platformAgnostic" as="h1">
+                <Header className="title" id="platformAgnostic" as="h1">
                   Platform Agnostic
                 </Header>
               </Grid.Column>
@@ -149,7 +149,7 @@ const ServicesPage = (props: ILayoutProps) => {
           >
             <Grid.Row columns="1">
               <Grid.Column>
-                <Header id="projectManagement" as="h1">
+                <Header className="title" id="projectManagement" as="h1">
                   Project Management
                 </Header>
               </Grid.Column>
@@ -205,7 +205,7 @@ const ServicesPage = (props: ILayoutProps) => {
           <Grid className="technologies" relaxed={true}>
             <Grid.Row>
               <Grid.Column>
-                <Header as="h2">Technology Stacks</Header>
+                <Header as="h1" className="title">Technology Stacks</Header>
               </Grid.Column>
             </Grid.Row>
           </Grid>
@@ -239,6 +239,7 @@ const ServicesPage = (props: ILayoutProps) => {
       </Segment>
       <Segment vertical={true} className="stripe feature">
         <Container>
+          <Header as="h1" className="title">Work with us</Header>
           <Grid
             columns="2"
             textAlign="left"
@@ -246,11 +247,6 @@ const ServicesPage = (props: ILayoutProps) => {
             stackable={true}
             verticalAlign="top"
           >
-            <Grid.Row columns="1">
-              <Grid.Column>
-                <Header as="h1">Work with us</Header>
-              </Grid.Column>
-            </Grid.Row>
             <Grid.Row>
               <Grid.Column>
                 <div
@@ -336,35 +332,39 @@ const ServicesPage = (props: ILayoutProps) => {
         </Container>
       </Segment>
       <Segment vertical={true} className="stripe feature alternate">
-        <ContentWithImage
-          buttonLabel="Start now"
-          buttonIcon="chevron right"
-          buttonTo="/contact/"
-          content={
-            <React.Fragment>
-              <p>
-                To create and bring to market innovative ideas, entrepreneurs
-                can approach us for idea development sessions.
+        <Container>
+          <Header as="h1" className="title">Idea development</Header>
+          <ContentWithImage
+            buttonLabel="Start now"
+            buttonIcon="chevron right"
+            buttonTo="/contact/"
+            content={
+              <React.Fragment>
+                <p>
+                  To create and bring to market innovative ideas, entrepreneurs
+                  can approach us for idea development sessions.
               </p>
-              <p>
-                In these sessions, we revise strategies and products, or simply
-                elevate our partner's knowledge of blockchain technologies,
-                markets, and constraints.
+                <p>
+                  In these sessions, we revise strategies and products, or simply
+                  elevate our partner's knowledge of blockchain technologies,
+                  markets, and constraints.
               </p>
-              <p>The process is secured from the start by a NDA agreement.</p>
-            </React.Fragment>
-          }
-          contentOrientation="image-text"
-          title="Idea development"
-          src={require("../assets/images/stock/idea_dev.jpeg")}
-        />
+                <p>The process is secured from the start by a NDA agreement.</p>
+              </React.Fragment>
+            }
+            contentOrientation="image-text"
+            src={require("../assets/images/stock/idea_dev.jpeg")}
+          />
+        </Container>
       </Segment>
       <Segment vertical={true} className="stripe feature">
-        <ContentWithImage
-          title="Get in touch"
-          src={require("../assets/images/stock/contact.jpg")}
-          content={<ContactForm />}
-        />
+        <Container>
+          <Header as="h1" className="title">Get in touch</Header>
+          <ContentWithImage
+            src={require("../assets/images/stock/contact.jpg")}
+            content={<ContactForm />}
+          />
+        </Container>
       </Segment>
       {/* <Segment vertical className="stripe feature">
         <ContentWithImage
