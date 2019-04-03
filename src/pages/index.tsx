@@ -95,6 +95,7 @@ const IndexPage = (props: ILayoutProps) => (
         <ContentWithImage
           buttonIcon="chevron right"
           buttonLabel="Request demo"
+          buttonTo="/contact/"
           content={
             <div>
               <p>
@@ -118,12 +119,13 @@ const IndexPage = (props: ILayoutProps) => (
     <Segment
       style={{ padding: "4rem 0", border: "none" }}
       vertical={true}
-      className="stripe feature alternate2"
+      className="stripe feature alternate2 unfinished"
     >
       <Container>
         <ContentWithImage
           buttonIcon="chevron right"
           buttonLabel="Try it now"
+          buttonTo="/contact/"
           content={
             <div>
               <p>
@@ -147,7 +149,7 @@ const IndexPage = (props: ILayoutProps) => (
       </Container>
     </Segment>
     <Segment
-      style={{ padding: "4rem 0 8rem" }}
+      style={{ padding: "4rem 0", border: "none" }}
       vertical={true}
       className="stripe feature alternate2"
     >
@@ -173,13 +175,25 @@ const IndexPage = (props: ILayoutProps) => (
         />
       </Container>
     </Segment>
-    <Segment>
+    <Segment
+      style={{ padding: "4rem 0 8rem" }}
+      vertical={true}
+      className="stripe feature alternate2"
+    >
       <Container>
         <ContentWithImage
           content={
             <div>
               <p>
-                Kittyland
+                Kittyland is a crypto theme park built on the Ethereum
+                blockchain. An interactive game that lets anyone buy and
+                own tickets for Attractions through Smart Contracts.
+              </p>
+              <p>
+                The core idea of Kittyland is to build the infrastructure,
+                protocol and dApps that will enable anyone in the community
+                to publish digital tokens and coins for their product, game,
+                business, online community or other.
               </p>
             </div>
           }

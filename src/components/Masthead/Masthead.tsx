@@ -20,6 +20,7 @@ interface IMastheadProps extends ILayoutProps {
   buttonLabel?: string;
   buttonSize?: SemanticSIZES;
   buttonTo?: string;
+  className?: string;
   subtitle: string;
   textAlign?: SemanticTEXTALIGNMENTS;
   title: string;
@@ -31,6 +32,7 @@ export const Masthead = (props: IMastheadProps) => {
     buttonLabel,
     buttonSize,
     buttonTo,
+    className,
     location,
     subtitle,
     textAlign,
@@ -39,7 +41,7 @@ export const Masthead = (props: IMastheadProps) => {
 
   return (
     <Segment
-      className="masthead"
+      className={`masthead ${className}`}
       inverted={true}
       textAlign="center"
       vertical={true}

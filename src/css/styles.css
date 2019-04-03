@@ -7,6 +7,11 @@
   padding: 1em 0;
 }
 
+.masthead.short.segment {
+  min-height: 390px;
+  padding: 1em 0;
+}
+
 .masthead .logo.item img {
   margin-right: 1em;
 }
@@ -20,6 +25,10 @@
   margin-bottom: 0;
   font-size: 3.5em;
   font-weight: normal;
+}
+
+.masthead.short h1.ui.header {
+  margin-top: 1em;
 }
 
 .masthead h2 {
@@ -58,7 +67,7 @@
 }
 
 .ui.stripe.alternate {
-  background-color: #f2f3f5;
+  /* background-color: #f2f3f5; */
 }
 
 .quote.stripe.segment {
@@ -158,6 +167,20 @@ p {
 .segment h1.title {
   font-size: 4rem;
   margin: 6rem 0 3rem;
+  font-weight: 400;
+}
+
+.ui.vertical.stripe p.emphasis {
+  font-weight: 100;
+  font-size: 1.66rem;
+  margin-left: 1.66rem;
+}
+
+@media only screen and (max-width: 700px) {
+  .segment h1.title {
+    font-size: 2em;
+    margin: 6rem 0 3rem;
+  }
 }
 
 .segment.unfinished p,

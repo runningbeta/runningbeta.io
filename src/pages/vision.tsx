@@ -18,14 +18,37 @@ const VisionPage = (props: ILayoutProps) => {
         to life using the best technology available."
         // buttonLabel="Learn more"
       />
-      <Segment vertical={true} className="stripe feature unfinished">
+      <Segment vertical={true} className="stripe feature">
         <Container>
-          <p>Intro to our mission and goals</p>
+          <Header className="title" as="h1">Our Vision</Header>
+          <p className="emphasis">
+            To help build a world that runs on trustless protocols,
+            distributed infrastructure and open source applications.
+          </p>
+          <p>
+            The vision statement emphasizes the business organization's main
+            aim of being a part of the decentralized revolution. We believe that
+            the best future for our society is not the one where we rely on
+            trust, but one where trustless interactions and protocols are a driving
+            force of our social and business interactions.
+          </p>
+          <p style={{ textDecoration: "line-through" }}>
+            We strongly believe that individuals living in this society would be
+            more inclined to enter such interactions, which would result in more
+            social and business opportunities for those who are operating in good
+            faith.
+          </p>
+          <Header className="title" as="h1">Our Mission</Header>
+          <p className="emphasis">
+            Our goal is to work on meaningful projects that help create a
+            better future and bring them to life using the best technology
+            available.
+          </p>
         </Container>
       </Segment>
       <Segment vertical={true} className="stripe feature alternate">
         <Container>
-          <Header as="h1">Why Blockchain</Header>
+          <Header className="title" as="h1">Why Blockchain</Header>
           <p>
             Ethereum gives you the power to trust. It enables the development of
             systems of automated and executable agreements that ensure that all
@@ -108,7 +131,8 @@ const VisionPage = (props: ILayoutProps) => {
         </Container>
       </Segment>
       <Segment vertical={true} className="stripe feature container unfinished">
-        <p>Section 2</p>
+        <Header className="title" as="h1">Why Remote</Header>
+
       </Segment>
     </div>
   );

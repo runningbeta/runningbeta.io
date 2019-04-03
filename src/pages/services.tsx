@@ -337,8 +337,9 @@ const ServicesPage = (props: ILayoutProps) => {
       </Segment>
       <Segment vertical={true} className="stripe feature alternate">
         <ContentWithImage
-          title="Idea development"
-          src={require("../assets/images/stock/idea_dev.jpeg")}
+          buttonLabel="Start now"
+          buttonIcon="chevron right"
+          buttonTo="/contact/"
           content={
             <React.Fragment>
               <p>
@@ -354,8 +355,8 @@ const ServicesPage = (props: ILayoutProps) => {
             </React.Fragment>
           }
           contentOrientation="image-text"
-          buttonLabel="Start now"
-          buttonIcon="chevron right"
+          title="Idea development"
+          src={require("../assets/images/stock/idea_dev.jpeg")}
         />
       </Segment>
       <Segment vertical={true} className="stripe feature">
