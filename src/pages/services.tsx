@@ -1,5 +1,6 @@
+import GatsbyLink from "gatsby-link";
 import * as React from "react";
-import { Container, Grid, Header, List, Segment } from "semantic-ui-react";
+import { Button, Container, Grid, Header, Icon, List, Segment } from "semantic-ui-react";
 
 import ContentWithImage from "../components/ContentWithImage/ContentWithImage";
 import { ILayoutProps, withLayout } from "../components/Layout";
@@ -328,6 +329,22 @@ const ServicesPage = (props: ILayoutProps) => {
                 </p>
               </Grid.Column>
             </Grid.Row>
+            <Grid.Row columns={1}>
+              <Grid.Column>
+                <Button
+                  as={GatsbyLink}
+                  secondary={true}
+                  size="large"
+                  to="/contact/"
+                  state={{ subject: "Project Development Inquiry" }}
+                >
+                  Contact us
+                  <Icon
+                    name="chevron right"
+                  />
+                </Button>
+              </Grid.Column>
+            </Grid.Row>
           </Grid>
         </Container>
       </Segment>
@@ -338,6 +355,7 @@ const ServicesPage = (props: ILayoutProps) => {
             buttonLabel="Start now"
             buttonIcon="chevron right"
             buttonTo="/contact/"
+            buttonState={{ subject: "Idea Development Inquiry" }}
             content={
               <React.Fragment>
                 <p>
@@ -389,7 +407,7 @@ const ServicesPage = (props: ILayoutProps) => {
           title="Work with us"
         />
       </Segment> */}
-    </div>
+    </div >
   );
 };
 

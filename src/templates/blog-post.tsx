@@ -1,7 +1,7 @@
 import { DiscussionEmbed } from "disqus-react";
 import { graphql, Link } from "gatsby";
 import { get } from "lodash";
-import React from "react";
+import * as React from "react";
 import {
   Card,
   Comment,

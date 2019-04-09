@@ -1,5 +1,5 @@
 import { GatsbyLinkProps } from "gatsby-link";
-import React from "react";
+import * as React from "react";
 import { Card, List } from "semantic-ui-react";
 import { markdownRemarkGroupConnectionConnection } from "../../graphql-types";
 

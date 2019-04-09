@@ -2,7 +2,6 @@ import GatsbyLink from "gatsby-link";
 import * as React from "react";
 import {
   Button,
-  Container,
   Grid,
   Header,
   Icon,
@@ -18,6 +17,7 @@ interface IContentWithImageProps {
   buttonLabel?: string;
   buttonSize?: SemanticSIZES;
   buttonTo?: string;
+  buttonState?: any;
   content: string | JSX.Element;
   contentOrientation?: "text-image" | "image-text";
   opacity?: number;
@@ -61,6 +61,7 @@ export const ContentWithImage = (props: IContentWithImageProps) => {
               secondary={false || props.secondary}
               size={props.buttonSize || "large"}
               to={props.buttonTo}
+              state={props.buttonState}
             >
               {props.buttonLabel}
               {props.buttonIcon && <Icon name={props.buttonIcon} />}

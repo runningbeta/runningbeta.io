@@ -1,6 +1,6 @@
 import { configure, shallow } from "enzyme";
 import "jest";
-import React from "react";
+import * as React from "react";
 import TagsCard from "./TagsCard";
 
 import { List } from "semantic-ui-react";

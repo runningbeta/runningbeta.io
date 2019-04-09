@@ -137,8 +137,13 @@ const VisionPage = (props: ILayoutProps) => {
         </Container>
       </Segment>
       <Segment vertical={true} className="stripe feature container unfinished">
-        <Header className="title" as="h1">Why Remote</Header>
-
+        <Header className="title" as="h1">Remote Teams</Header>
+        <Header as="h2">What is remote working?</Header>
+        <p>
+          Remote working is when you work an online job from outside the office.
+          This allows employees to work from home, wifi cafes, BnB they rent while
+          traveling, coworking space, or any other
+        </p>
       </Segment>
     </div>
   );

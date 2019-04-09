@@ -190,7 +190,7 @@ p {
 }
 
 .segment.unfinished h2::after,
-.segment.unfinished h1.title::after {
+.segment.unfinished h1::after {
   content: "unfinished";
   font-size: 1rem;
   padding: 0 1rem;

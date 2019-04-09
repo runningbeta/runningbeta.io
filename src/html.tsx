@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import Helmet from "react-helmet";
 
 /* tslint:disable-next-line no-var-requires */

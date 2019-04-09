@@ -19,7 +19,8 @@ export const SidebarMenu = ({
   visible,
 }: ISidebarMenuProps) => {
   const isActive = (item: IMenuItem) => item.exact ? pathname === item.path : pathname.startsWith(item.path);
-  const activeItem = items.find((item: IMenuItem) => isActive(item));
+  // const activeItem = items.find((item: IMenuItem) => isActive(item));
+
   return (
     <Sidebar
       as={Menu}
@@ -28,7 +29,7 @@ export const SidebarMenu = ({
       visible={visible}
       icon="labeled"
       vertical={true}
-      inverted={activeItem && activeItem.inverted || false}
+      inverted={true}
     >
       {items.map((item) => {
         const active = isActive(item);

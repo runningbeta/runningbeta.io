@@ -1,6 +1,6 @@
 import { graphql, Link } from "gatsby";
 import { get } from "lodash";
-import React from "react";
+import * as React from "react";
 import { Card, Comment, Container, Grid, Segment } from "semantic-ui-react";
 import BlogPagination from "../components/BlogPagination/BlogPagination";
 import BlogTitle from "../components/BlogTitle";

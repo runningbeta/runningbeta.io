@@ -12,6 +12,10 @@ function encode(data: any) {
     .join("&");
 }
 
+interface IContactProps {
+  subject?: string;
+}
+
 interface IContactState {
   constraints: any;
   contactMeByFax: string;
@@ -28,37 +32,41 @@ interface IContactState {
 }
 
 export default class Contact extends React.Component<
-  {},
+  IContactProps,
   IContactState
   > {
-  public state: IContactState = {
-    constraints: {
-      email: {
-        email: true,
-        presence: { allowEmpty: false },
+  constructor(props: IContactProps) {
+    super(props);
+
+    this.state = {
+      constraints: {
+        email: {
+          email: true,
+          presence: { allowEmpty: false },
+        },
+        message: {
+          presence: { allowEmpty: false },
+        },
+        name: {
+          presence: { allowEmpty: false },
+        },
+        subject: {
+          presence: { allowEmpty: false },
+        },
       },
-      message: {
-        presence: { allowEmpty: false },
-      },
-      name: {
-        presence: { allowEmpty: false },
-      },
-      subject: {
-        presence: { allowEmpty: false },
-      },
-    },
-    contactMeByFax: "",
-    email: "",
-    errors: {},
-    gRecaptchaResponse: "",
-    isValid: true,
-    message: "",
-    name: "",
-    showValidation: false,
-    subject: "",
-    thanksVisible: false,
-    visited: {},
-  };
+      contactMeByFax: "",
+      email: "",
+      errors: {},
+      gRecaptchaResponse: "",
+      isValid: true,
+      message: "",
+      name: "",
+      showValidation: false,
+      subject: props.subject || "",
+      thanksVisible: false,
+      visited: {},
+    };
+  }
 
   public handleChange = (
     e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>,

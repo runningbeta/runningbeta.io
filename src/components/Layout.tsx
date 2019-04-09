@@ -2,7 +2,7 @@
 import { Link } from "gatsby";
 // tslint:disable-next-line no-submodule-imports no-implicit-dependencies
 import "prismjs/themes/prism-okaidia.css";
-import React from "react";
+import * as React from "react";
 import { Provider } from "react-redux";
 import {
   Container,
@@ -68,6 +68,7 @@ export interface ILayoutProps {
   hideMenu?: boolean;
   location: {
     pathname: string;
+    state: any;
   };
 }
 

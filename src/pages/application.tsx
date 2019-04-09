@@ -1,6 +1,6 @@
-import React from "react";
+import * as React from "react";
 
-import { Container, Grid, Header, Segment } from "semantic-ui-react";
+import { Container, Grid, Header, Responsive, Segment } from "semantic-ui-react";
 
 import ApplicationForm from "../components/ApplicationForm/ApplicationForm";
 import { ILayoutProps, withLayoutInverted } from "../components/Layout";
@@ -20,22 +20,39 @@ const Application = (props: ILayoutProps) => (
       className="stripe feature"
     >
       <Container>
-        <Grid relaxed={true} columns="2">
-          <Grid.Row>
+        <Grid columns={2} relaxed={true} doubling={true} stackable={true} verticalAlign="top">
+          <Grid.Row columns={1}>
             <Grid.Column>
-              <Header as="h1">
-                <Header.Content style={{ marginBottom: "2rem" }}>
-                  Get in Touch
+              <Header as="h1" className="title">
+                <Header.Content>
+                  Work at RunningBeta
                   <Header.Subheader>
-                    Please fill out the quick form and we will be in touch as soon as posible.
+                    Please fill out the application form and we will be in touch as soon as posible.
                   </Header.Subheader>
                 </Header.Content>
               </Header>
-              <ApplicationForm />
             </Grid.Column>
-            <Grid.Column>
+          </Grid.Row>
+          <Grid.Row>
+            <Responsive
+              as={Grid.Column}
+              maxWidth={Responsive.onlyTablet.maxWidth}
+            >
               <Header as="h2">Manifest</Header>
+              <p>wth</p>
+            </Responsive>
+            <Grid.Column>
+              <ApplicationForm
+                position={props.location.state && props.location.state.position || ""}
+              />
             </Grid.Column>
+            <Responsive
+              as={Grid.Column}
+              minWidth={Responsive.onlyComputer.minWidth}
+            >
+              <Header as="h2">Manifest</Header>
+              <p>wth</p>
+            </Responsive>
           </Grid.Row>
         </Grid>
       </Container>

@@ -1,5 +1,5 @@
 import classnames from "classnames";
-import React from "react";
+import * as React from "react";
 import validate from "validate.js";
 
 import { concat, isEmpty } from "lodash";
@@ -43,39 +43,55 @@ export default class Contact extends React.Component<
   IApplicationFormProps,
   IApplicationFormState
   > {
-  public state: IApplicationFormState = {
-    constraints: {
-      curriculumVitae: { url: true },
-      email: { email: true, presence: { allowEmpty: false } },
-      github: { url: true },
-      linkedin: { url: true },
-      message: { presence: { allowEmpty: false } },
-      name: { presence: { allowEmpty: false } },
-      position: { presence: { allowEmpty: false } },
-      subject: { presence: { allowEmpty: false } },
-    },
-    contactMeByFax: "",
-    curriculumVitae: "",
-    email: "",
-    errors: {},
-    github: "",
-    gRecaptchaResponse: "",
-    isValid: true,
-    linkedin: "",
-    message: "",
-    name: "",
-    position: "",
-    showValidation: false,
-    subject: "",
-    thanksVisible: false,
-    visited: {},
-  };
+
+  constructor(props: IApplicationFormProps) {
+    super(props);
+    this.state = {
+      constraints: {
+        curriculumVitae: { url: true },
+        email: { email: true, presence: { allowEmpty: false } },
+        github: { url: true },
+        linkedin: { url: true },
+        message: { presence: { allowEmpty: false } },
+        name: { presence: { allowEmpty: false } },
+        position: { presence: { allowEmpty: false } },
+        subject: { presence: { allowEmpty: false } },
+      },
+      contactMeByFax: "",
+      curriculumVitae: "",
+      email: "",
+      errors: {},
+      github: "",
+      gRecaptchaResponse: "",
+      isValid: true,
+      linkedin: "",
+      message: "",
+      name: "",
+      position: props.position || "",
+      showValidation: false,
+      subject: "",
+      thanksVisible: false,
+      visited: {},
+    };
+  }
+
+  public handleDropdown = (
+    e: React.FormEvent<HTMLDivElement>,
+    { name, value }: { name: string, value: string },
+  ) => {
+    const { constraints } = this.state;
+    const state = { ...this.state, [name]: value };
+    const errors = validate(state, constraints);
+    this.setState({ ...state, errors, isValid: isEmpty(errors) });
+  }
 
   public handleChange = (
     e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { constraints } = this.state;
-    const formInput = e.target as HTMLInputElement;
+    const formInput =
+      (e.target as HTMLInputElement)
+      || (e.target as HTMLTextAreaElement);
     const state = { ...this.state, [formInput.name]: formInput.value };
     const errors = validate(state, constraints);
     this.setState({ ...state, errors, isValid: isEmpty(errors) });
@@ -170,6 +186,7 @@ export default class Contact extends React.Component<
       linkedin,
       message,
       name,
+      position,
       showValidation,
       thanksVisible,
       visited,
@@ -190,6 +207,11 @@ export default class Contact extends React.Component<
     return (
       <Container>
         <Grid stackable={true} centered={true}>
+          <Grid.Row>
+            <Grid.Column>
+              <Header as="h2">Application Form</Header>
+            </Grid.Column>
+          </Grid.Row>
           <Grid.Row>
             <Grid.Column>
               <form
@@ -246,9 +268,9 @@ export default class Contact extends React.Component<
                 <div
                   className={classnames({
                     error: Boolean(
-                      (visited.subject || showValidation) &&
+                      (visited.position || showValidation) &&
                       errors &&
-                      errors.subject,
+                      errors.position,
                     ),
                     field: true,
                     required: true,
@@ -258,15 +280,18 @@ export default class Contact extends React.Component<
                   <div className="ui input" style={{ flexDirection: "column" }}>
                     <Dropdown
                       fluid={true}
+                      name="position"
+                      onChange={this.handleDropdown}
                       options={opportunityDropdownOptions}
                       placeholder="Select position..."
                       selection={true}
+                      value={position}
                     />
                     < div className="validation" style={{ marginTop: "0.5rem" }}>
-                      {(visited.subject || showValidation) &&
+                      {(visited.position || showValidation) &&
                         errors &&
-                        errors.subject &&
-                        errors.subject[0]}
+                        errors.position &&
+                        errors.position[0]}
                     </div>
                   </div>
                 </div>

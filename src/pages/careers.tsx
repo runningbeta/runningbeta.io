@@ -1,3 +1,4 @@
+import GatsbyLink from "gatsby-link";
 import React, { Component } from "react";
 import {
   Accordion,
@@ -114,7 +115,12 @@ class CareersPage extends Component<ILayoutProps> {
                   icon: SemanticICONS;
                   label: string;
                 }) => (
-                    <Card key={opp.label} as="a" href="#">
+                    <Card
+                      key={opp.label}
+                      as={GatsbyLink}
+                      to="/application/"
+                      state={{ position: opp.label }}
+                    >
                       <div
                         style={{
                           backgroundImage: `url(${opp.image})`,

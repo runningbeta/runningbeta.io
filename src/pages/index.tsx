@@ -7,7 +7,6 @@ import {
   Grid,
   Header,
   Icon,
-  Responsive,
   Segment,
 } from "semantic-ui-react";
 import ContactForm from "../components/ContactForm/ContactForm";
@@ -16,6 +15,7 @@ import Masthead from "../components/Masthead/Masthead";
 
 import Rimac from "../assets/images/partners/rimac";
 import Tolar from "../assets/images/partners/tolar";
+import ContentWithForm from "../components/ContentWithForm/ContentWithForm";
 import ContentWithImage from "../components/ContentWithImage/ContentWithImage";
 
 const IndexPage = (props: ILayoutProps) => (
@@ -96,6 +96,7 @@ const IndexPage = (props: ILayoutProps) => (
           buttonIcon="chevron right"
           buttonLabel="Request demo"
           buttonTo="/contact/"
+          buttonState={{ subject: "WΞINORTH demo request" }}
           content={
             <div>
               <p>
@@ -259,9 +260,9 @@ const IndexPage = (props: ILayoutProps) => (
         <Header className="title" as="h1">
           Contact us
         </Header>
-        <Grid relaxed={true} stackable={true} verticalAlign="top">
-          <Grid.Row columns={2}>
-            <Responsive as={Grid.Column} {...Responsive.onlyMobile}>
+        <ContentWithForm
+          content={
+            <React.Fragment>
               <Header as="h2" style={{ marginBottom: "2rem" }}>
                 Ask RunningBeta how we can help you:
               </Header>
@@ -286,42 +287,10 @@ const IndexPage = (props: ILayoutProps) => (
                   </p>
                 </li>
               </ul>
-            </Responsive>
-            <Grid.Column>
-              <ContactForm />
-            </Grid.Column>
-            <Responsive
-              as={Grid.Column}
-              {...Responsive.onlyTablet.minWidth}
-              {...Responsive.onlyLargeScreen.maxWidth}
-            >
-              <Header as="h2" style={{ marginBottom: "2rem" }}>
-                Ask RunningBeta how we can help you:
-              </Header>
-              <ul>
-                <li style={{ margin: "1.5rem 0" }}>
-                  <p>
-                    Interested in seeing our products in action? Request a
-                    product demonstration and discover how we can help your
-                    company grow.
-                  </p>
-                </li>
-                <li style={{ margin: "1.5rem 0" }}>
-                  <p>
-                    Reach out to sales team directly for immediate assistance
-                    with all sales related inquiries.
-                  </p>
-                </li>
-                <li style={{ margin: "1.5rem 0" }}>
-                  <p>
-                    If you are interested in joining the RunningBeta team check
-                    the <Link to="/careers/">careers page</Link>.
-                  </p>
-                </li>
-              </ul>
-            </Responsive>
-          </Grid.Row>
-        </Grid>
+            </React.Fragment>
+          }
+          form={<ContactForm />}
+        />
       </Container>
     </Segment>
     <Segment vertical={true} className="stripe feature">
@@ -349,7 +318,7 @@ const IndexPage = (props: ILayoutProps) => (
         </Button>
       </Container>
     </Segment>
-  </div>
+  </div >
 );
 
 export default withLayout(IndexPage);
