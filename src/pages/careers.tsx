@@ -166,20 +166,26 @@ class CareersPage extends Component<ILayoutProps> {
           <Container>
             <Header className="title" as="h1">Apply for position</Header>
             <ContentWithImage
-              src={require("../assets/images/stock/globe.jpeg")}
+              button={{
+                basic: true,
+                color: "black",
+                icon: "chevron right",
+                label: "Start your application",
+                linkProps: {
+                  to: "/application/",
+                },
+              }}
               content={
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </p>
               }
-              buttonTo="/application/"
-              buttonLabel="Start your application"
-              buttonIcon="chevron right"
+              src={require("../assets/images/stock/globe.jpeg")}
             />
           </Container>
         </Segment>
-        <Segment vertical={true} className="stripe feature unfinished">
+        {/* <Segment vertical={true} className="stripe feature unfinished">
           <Container>
             <Accordion fluid={true} styled={true}>
               {CareerQuestions.map((f, i) => (
@@ -204,7 +210,7 @@ class CareersPage extends Component<ILayoutProps> {
               ))}
             </Accordion>
           </Container>
-        </Segment>
+        </Segment> */}
       </div>
     );
   }

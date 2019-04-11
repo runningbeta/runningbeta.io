@@ -136,13 +136,16 @@ const VisionPage = (props: ILayoutProps) => {
           </Grid>
         </Container>
       </Segment>
-      <Segment vertical={true} className="stripe feature container unfinished">
-        <Header className="title" as="h1">Remote Teams</Header>
-        <Header as="h2">What is remote working?</Header>
+      <Segment vertical={true} className="stripe feature container">
+        <Header className="title" as="h1">Remote First</Header>
         <p>
-          Remote working is when you work an online job from outside the office.
-          This allows employees to work from home, wifi cafes, BnB they rent while
-          traveling, coworking space, or any other
+          We are a remote first company. We don’t have a central office, and most of
+          our communication occurs in GitHub, Slack, video calls, and email.
+        </p>
+        <p>
+          Working remotely allows for a flexible work schedule. A remote only company
+          encourages everyone to focus on their value-added instead of hours worked
+          because value-added is more visible than long hours in a remote setting.
         </p>
       </Segment>
     </div>

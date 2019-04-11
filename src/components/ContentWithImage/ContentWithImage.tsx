@@ -1,33 +1,61 @@
-import GatsbyLink from "gatsby-link";
+import { GatsbyLinkProps } from "gatsby-link";
 import * as React from "react";
 import {
   Button,
+  ButtonProps,
   Grid,
   Header,
   Icon,
   Placeholder,
-  SemanticCOLORS,
   SemanticICONS,
-  SemanticSIZES,
 } from "semantic-ui-react";
 
-interface IContentWithImageProps {
-  buttonColor?: SemanticCOLORS;
-  buttonIcon?: SemanticICONS;
-  buttonLabel?: string;
-  buttonSize?: SemanticSIZES;
-  buttonTo?: string;
-  buttonState?: any;
+interface IButtonProps<TState> extends ButtonProps {
+  icon?: SemanticICONS;
+  label?: string;
+  linkProps?: {
+    href: string,
+    rel: string,
+    target: string,
+  } | GatsbyLinkProps<TState>;
+}
+
+interface IContentWithImageProps<TState> {
+  button?: IButtonProps<TState>;
   content: string | JSX.Element;
   contentOrientation?: "text-image" | "image-text";
   opacity?: number;
-  primary?: boolean;
-  secondary?: boolean;
   src?: any;
   title?: string;
 }
 
-export const ContentWithImage = (props: IContentWithImageProps) => {
+const ActionButton = (props: IButtonProps<any>) => {
+  const {
+    icon,
+    label,
+    linkProps,
+    ...button
+  } = props;
+
+  const {
+    color,
+    onClick,
+    ref,
+    ...link
+  } = linkProps;
+
+  return (
+    <Button
+      {...button}
+      {...link}
+    >
+      {label}
+      {icon && <Icon name={icon} />}
+    </Button>
+  );
+};
+
+export const ContentWithImage = (props: IContentWithImageProps<any>) => {
   return (
     <Grid columns="2" textAlign="left" relaxed={true} stackable={true}>
       <Grid.Row>
@@ -52,20 +80,8 @@ export const ContentWithImage = (props: IContentWithImageProps) => {
         <Grid.Column>
           {props.title && <Header as="h2">{props.title}</Header>}
           <div>{props.content}</div>
-          {props.buttonLabel && (
-            <Button
-              as={GatsbyLink}
-              basic={!props.primary && !props.secondary}
-              color={props.buttonColor || "black"}
-              primary={false || props.primary}
-              secondary={false || props.secondary}
-              size={props.buttonSize || "large"}
-              to={props.buttonTo}
-              state={props.buttonState}
-            >
-              {props.buttonLabel}
-              {props.buttonIcon && <Icon name={props.buttonIcon} />}
-            </Button>
+          {props.button && (
+            <ActionButton {...props.button} />
           )}
         </Grid.Column>
         {props.contentOrientation !== "image-text" && (
@@ -88,7 +104,7 @@ export const ContentWithImage = (props: IContentWithImageProps) => {
           </Grid.Column>
         )}
       </Grid.Row>
-    </Grid>
+    </Grid >
   );
 };
 

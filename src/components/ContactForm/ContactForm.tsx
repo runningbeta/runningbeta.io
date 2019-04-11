@@ -324,7 +324,7 @@ export default class Contact extends React.Component<
                 </div>
                 <Button
                   disabled={!gRecaptchaResponse || !isValid}
-                  primary={true}
+                  color="black"
                   style={{ width: "50%" }}
                   type="submit"
                 >

@@ -1,14 +1,15 @@
-import { Link } from "gatsby";
 import GatsbyLink from "gatsby-link";
 import * as React from "react";
 import {
   Button,
+  Card,
   Container,
   Grid,
   Header,
   Icon,
   Segment,
 } from "semantic-ui-react";
+
 import ContactForm from "../components/ContactForm/ContactForm";
 import { ILayoutProps, withLayout } from "../components/Layout";
 import Masthead from "../components/Masthead/Masthead";
@@ -93,10 +94,18 @@ const IndexPage = (props: ILayoutProps) => (
           Our Work
         </Header>
         <ContentWithImage
-          buttonIcon="chevron right"
-          buttonLabel="Request demo"
-          buttonTo="/contact/"
-          buttonState={{ subject: "WΞINORTH demo request" }}
+          button={{
+            as: GatsbyLink,
+            icon: "chevron right",
+            label: "Request demo",
+            linkProps: {
+              state: {
+                subject: "WΞINORTH demo request",
+              },
+              to: "/contact/",
+            },
+            secondary: true,
+          }}
           content={
             <div>
               <p>
@@ -111,13 +120,12 @@ const IndexPage = (props: ILayoutProps) => (
             </div>
           }
           opacity={1}
-          secondary={true}
           // src={require("../assets/images/stock/crowdsale.png")}
           title="Weinorth"
         />
       </Container>
     </Segment>
-    <Segment
+    {/* <Segment
       style={{ padding: "4rem 0", border: "none" }}
       vertical={true}
       className="stripe feature alternate2 unfinished"
@@ -148,14 +156,27 @@ const IndexPage = (props: ILayoutProps) => (
           title="R8.Escrow"
         />
       </Container>
-    </Segment>
+    </Segment> */}
     <Segment
+      className="stripe feature alternate2"
       style={{ padding: "4rem 0", border: "none" }}
       vertical={true}
-      className="stripe feature alternate2"
     >
       <Container>
         <ContentWithImage
+          button={{
+            as: "a",
+            basic: true,
+            color: "black",
+            icon: "chevron right",
+            label: "Read more",
+            linkProps: {
+              href: "https://tolar.io",
+              rel: "noopener noreferrer",
+              target: "_blank",
+              // to: "https://tolar.io",
+            },
+          }}
           content={
             <div>
               <p>
@@ -247,7 +268,86 @@ const IndexPage = (props: ILayoutProps) => (
           <Grid.Row columns={1}>
             <Grid.Column>
               <Button secondary={true} as={GatsbyLink} to="/services/">
-                Learn more
+                Explore more
+                <Icon name="chevron right" />
+              </Button>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Container>
+    </Segment>
+    <Segment vertical={true} className="stripe feature">
+      <Container>
+        <Header className="title" as="h1">
+          From our GitHub
+        </Header>
+        <Grid
+          className="tablet one column computer three column grid"
+          stackable={true}
+          relaxed={true}
+          centered={true}
+        >
+          <Grid.Row>
+            <Grid.Column>
+              <Card
+                fluid={true}
+                as="a"
+                href="https://github.com/runningbeta/r8-app"
+              >
+                <Card.Content>
+                  <Card.Header>
+                    r8-app
+                  </Card.Header>
+                  <Card.Description style={{ paddingTop: "2rem" }}>
+                    🌱Ethereum upgradeable application using a DelegateProxy
+                    with RBAC governance
+                  </Card.Description>
+                </Card.Content>
+              </Card>
+            </Grid.Column>
+            <Grid.Column>
+              <Card
+                fluid={true}
+                as="a"
+                href="https://github.com/runningbeta/erc721-holdings"
+              >
+                <Card.Content>
+                  <Card.Header>
+                    erc721-holdings
+                  </Card.Header>
+                  <Card.Description style={{ paddingTop: "2rem" }}>
+                    🎈ERC721 Holdings is a contract that enables ERC721 tokens
+                    to hold other ERC721 tokens
+                  </Card.Description>
+                </Card.Content>
+              </Card>
+            </Grid.Column>
+            <Grid.Column>
+              <Card
+                fluid={true}
+                as="a"
+                href="https://github.com/runningbeta/rbac-solidity"
+              >
+                <Card.Content>
+                  <Card.Header>
+                    rbac-solidity
+                  </Card.Header>
+                  <Card.Description style={{ paddingTop: "2rem" }}>
+                    🃏RBAC (Role-Based Access Control) based on openzeppelin-solidity
+                    but using bytes32 type for roles
+                  </Card.Description>
+                </Card.Content>
+              </Card>
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row columns={1}>
+            <Grid.Column>
+              <Button
+                as="a"
+                href="https://github.com/runningbeta"
+                secondary={true}
+              >
+                Explore more
                 <Icon name="chevron right" />
               </Button>
             </Grid.Column>
@@ -283,7 +383,7 @@ const IndexPage = (props: ILayoutProps) => (
                 <li style={{ margin: "1.5rem 0" }}>
                   <p>
                     If you are interested in joining the RunningBeta team check
-                    the <Link to="/careers/">careers page</Link>.
+                    the <GatsbyLink to="/careers/">careers page</GatsbyLink>.
                   </p>
                 </li>
               </ul>

@@ -158,9 +158,11 @@ const ServicesPage = (props: ILayoutProps) => {
             <Grid.Row columns="1">
               <Grid.Column>
                 <p>
-                  Define the investment potential, technology stack, timeline,
-                  total cost of ownership and the ongoing maintenance required
-                  to launch and sustain a solution.
+                  Successful onboarding depends on free and transparent
+                  exchange of information. Clients should be able to ask
+                  you anything, and vice-versa. Your entire team across
+                  departments should know exactly what the client’s business
+                  does and how it operates.
                 </p>
               </Grid.Column>
             </Grid.Row>
@@ -352,10 +354,18 @@ const ServicesPage = (props: ILayoutProps) => {
         <Container>
           <Header as="h1" className="title">Idea development</Header>
           <ContentWithImage
-            buttonLabel="Start now"
-            buttonIcon="chevron right"
-            buttonTo="/contact/"
-            buttonState={{ subject: "Idea Development Inquiry" }}
+            button={{
+              basic: true,
+              color: "black",
+              icon: "chevron right",
+              label: "Start now",
+              linkProps: {
+                state: {
+                  subject: "Idea Development Inquiry",
+                },
+                to: "/contact/",
+              },
+            }}
             content={
               <React.Fragment>
                 <p>
@@ -379,8 +389,8 @@ const ServicesPage = (props: ILayoutProps) => {
         <Container>
           <Header as="h1" className="title">Get in touch</Header>
           <ContentWithImage
-            src={require("../assets/images/stock/contact.jpg")}
             content={<ContactForm />}
+            src={require("../assets/images/stock/contact.jpg")}
           />
         </Container>
       </Segment>
