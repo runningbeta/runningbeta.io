@@ -417,6 +417,24 @@ const ServicesPage = (props: ILayoutProps) => {
           title="Work with us"
         />
       </Segment> */}
+      <Segment
+        style={{ paddingTop: 0 }}
+        vertical={true}
+        className="stripe feature"
+      >
+        <Container textAlign="right">
+          <Button
+            basic={true}
+            size="huge"
+            color="grey"
+            as={GatsbyLink}
+            to="/careers/"
+          >
+            Opportunities at RunningBeta
+            <Icon name="chevron right" />
+          </Button>
+        </Container>
+      </Segment>
     </div >
   );
 };

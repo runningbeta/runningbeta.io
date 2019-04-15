@@ -1,5 +1,7 @@
+import GatsbyLink from "gatsby-link";
 import * as React from "react";
-import { Container, Grid, Header, Segment } from "semantic-ui-react";
+import { Button, Container, Grid, Header, Icon, Segment } from "semantic-ui-react";
+
 import { ILayoutProps, withLayout } from "../components/Layout";
 import Masthead from "../components/Masthead/Masthead";
 
@@ -148,6 +150,24 @@ const VisionPage = (props: ILayoutProps) => {
           because value-added is more visible than long hours in a remote setting.
         </p>
       </Segment>
+    <Segment
+      style={{ paddingTop: 0 }}
+      vertical={true}
+      className="stripe feature"
+    >
+      <Container textAlign="right">
+        <Button
+          basic={true}
+          size="huge"
+          color="grey"
+          as={GatsbyLink}
+          to="/services/"
+        >
+          What we do
+          <Icon name="chevron right" />
+        </Button>
+      </Container>
+    </Segment>
     </div>
   );
 };

@@ -80,7 +80,6 @@ const IndexPage = (props: ILayoutProps) => (
           the best professionals in the world. Our goal is to work on meaningful
           projects that help create a better future and bring them to life using
           the best technology available.
-          <GatsbyLink to="/vision/"> Read more about our goals.</GatsbyLink>
         </p>
       </Container>
     </Segment>
@@ -284,10 +283,10 @@ const IndexPage = (props: ILayoutProps) => (
         <Grid
           className="tablet one column computer three column grid"
           stackable={true}
-          relaxed={true}
-          centered={true}
         >
-          <Grid.Row>
+          <Grid.Row
+            stretched={true}
+          >
             <Grid.Column>
               <Card
                 fluid={true}
@@ -335,6 +334,42 @@ const IndexPage = (props: ILayoutProps) => (
                   <Card.Description style={{ paddingTop: "2rem" }}>
                     🃏RBAC (Role-Based Access Control) based on openzeppelin-solidity
                     but using bytes32 type for roles
+                  </Card.Description>
+                </Card.Content>
+              </Card>
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row
+            stretched={true}
+          >
+            <Grid.Column>
+              <Card
+                fluid={true}
+                as="a"
+                href="https://github.com/runningbeta/tolar"
+              >
+                <Card.Content>
+                  <Card.Header>
+                    tolar
+                  </Card.Header>
+                  <Card.Description style={{ paddingTop: "2rem" }}>
+                    ⏣ Solidity Contracts for Tolar HashNET ERC20 token and crowdsale
+                  </Card.Description>
+                </Card.Content>
+              </Card>
+            </Grid.Column>
+            <Grid.Column>
+              <Card
+                fluid={true}
+                as="a"
+                href="https://github.com/runningbeta/erc20-crowdsale"
+              >
+                <Card.Content>
+                  <Card.Header>
+                    erc20-crowdsale
+                  </Card.Header>
+                  <Card.Description style={{ paddingTop: "2rem" }}>
+                    🔗 Smart contracts and tools for running an ERC20 token crowdsale
                   </Card.Description>
                 </Card.Content>
               </Card>
@@ -393,10 +428,13 @@ const IndexPage = (props: ILayoutProps) => (
         />
       </Container>
     </Segment>
-    <Segment vertical={true} className="stripe feature">
+    <Segment
+      vertical={true}
+      className="stripe feature"
+    >
       <Container>
         <Header className="title" as="h1">
-          Join us
+          Work with us
         </Header>
         <p>
           Having a remote team opens up the possibility of drawing from
@@ -414,6 +452,24 @@ const IndexPage = (props: ILayoutProps) => (
         </p>
         <Button color="black" as={GatsbyLink} to="/application/">
           Apply for position
+          <Icon name="chevron right" />
+        </Button>
+      </Container>
+    </Segment>
+    <Segment
+      style={{ paddingTop: 0 }}
+      vertical={true}
+      className="stripe feature"
+    >
+      <Container textAlign="right">
+        <Button
+          basic={true}
+          size="huge"
+          color="grey"
+          as={GatsbyLink}
+          to="/vision/"
+        >
+          Our Vision
           <Icon name="chevron right" />
         </Button>
       </Container>

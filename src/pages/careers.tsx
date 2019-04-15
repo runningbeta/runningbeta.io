@@ -1,7 +1,7 @@
 import GatsbyLink from "gatsby-link";
 import React, { Component } from "react";
 import {
-  Accordion,
+  Button,
   Card,
   Container,
   Grid,
@@ -150,7 +150,7 @@ class CareersPage extends Component<ILayoutProps> {
             </Card.Group>
           </Container>
         </Segment>
-        <Segment vertical={true} className="stripe feature unfinished">
+        {/* <Segment vertical={true} className="stripe feature unfinished">
           <Container>
             <Header className="title" as="h1">Recommended Reading</Header>
             <p>
@@ -161,7 +161,7 @@ class CareersPage extends Component<ILayoutProps> {
             </p>
             <BookList books={Books} />
           </Container>
-        </Segment>
+        </Segment> */}
         <Segment vertical={true} className="stripe feature alternate unfinished">
           <Container>
             <Header className="title" as="h1">Apply for position</Header>
@@ -211,6 +211,24 @@ class CareersPage extends Component<ILayoutProps> {
             </Accordion>
           </Container>
         </Segment> */}
+        <Segment
+          style={{ paddingTop: 0 }}
+          vertical={true}
+          className="stripe feature"
+        >
+          <Container textAlign="right">
+            <Button
+              basic={true}
+              size="huge"
+              color="grey"
+              as={GatsbyLink}
+              to="/about/"
+            >
+              About RunningBeta
+              <Icon name="chevron right" />
+            </Button>
+          </Container>
+        </Segment>
       </div>
     );
   }

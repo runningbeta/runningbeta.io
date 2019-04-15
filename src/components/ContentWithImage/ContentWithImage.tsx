@@ -13,11 +13,11 @@ import {
 interface IButtonProps<TState> extends ButtonProps {
   icon?: SemanticICONS;
   label?: string;
-  linkProps?: {
+  linkProps?: GatsbyLinkProps<TState> | {
     href: string,
     rel: string,
     target: string,
-  } | GatsbyLinkProps<TState>;
+  };
 }
 
 interface IContentWithImageProps<TState> {

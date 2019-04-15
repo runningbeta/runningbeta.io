@@ -8,7 +8,7 @@ const AboutPage = (props: LayoutProps) => {
     <div>
       <Masthead
         {...props}
-        title="About"
+        title="About RunningBeta"
         subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
         eiusmod tempor incididunt ut labore et dolore magna aliqua."
       />
