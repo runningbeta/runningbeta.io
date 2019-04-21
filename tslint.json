@@ -1,0 +1,31 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:latest",
+    "tslint-react"
+  ],
+  "jsRules": {},
+  "rules": {
+    "jsx-no-multiline-js": false,
+    "no-implicit-dependencies": [
+      true,
+      "dev"
+    ],
+    "object-literal-sort-keys": [
+      true,
+      "ignore-case"
+    ],
+    "import-name": false,
+    "variable-name": [
+      true,
+      "check-format",
+      "allow-pascal-case"
+    ],
+    "indent": [
+      true,
+      "spaces",
+      2
+    ]
+  },
+  "rulesDirectory": []
+}

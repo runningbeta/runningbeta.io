@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "outDir": "./dist/",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "noUnusedLocals": true,
+        "module": "commonjs",
+        "target": "esnext",
+        "jsx": "react",
+        "lib": [
+            "dom",
+            "esnext"
+        ]
+    },
+    "include": [
+        "./src/**/*"
+    ]
+}
