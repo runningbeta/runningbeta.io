@@ -140,12 +140,13 @@ body, html {
     image-rendering: crisp-edges;
 }
 
-.gallery .featured.kittyland .img {
-    background-color: #f50057;
-    background-image: url("img/featured/kittyland-io.svg");
+.gallery .featured.weinorth .img {
+    background-color: #3f51b5;
+    background-image: url("img/featured/weinorth-logo.svg");
+    background-size: 150px 150px;
 }
 
-.gallery .featured.kittylandorg .img {
+.gallery .featured.kittyland .img {
     background-color: #39796b;
     background-image: url("img/featured/kittyland-org.svg");
 }
@@ -371,21 +372,23 @@ body, html {
 }
 
 .content .profile .avatar-krebernisak {
-    background-image: url(img/avatar/krebernisak.svg);
+    background-image: url(img/avatar/krebernisak.jpg);
     background-repeat: no-repeat;
     background-size: 100%;
     display: inline-block;
-    min-width: 200px;
-    min-height: 200px;
+    min-width: 300px;
+    min-height: 300px;
+    margin-bottom: 8px;
 }
 
 .content .profile .avatar-vbradvica {
-    background-image: url(img/avatar/vbradvica.svg);
+    background-image: url(img/avatar/vbradvica.jpg);
     background-repeat: no-repeat;
     background-size: 100%;
     display: inline-block;
-    min-width: 200px;
-    min-height: 200px;
+    min-width: 300px;
+    min-height: 300px;
+    margin-bottom: 8px;
 }
 
 .btn {
